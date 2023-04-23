@@ -1,23 +1,30 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('/src/assets/fonts/Montserrat-Black.ttf');
+    src: url('/src/assets/fonts/Montserrat-SemiBold.ttf');
   }
 span{
     color: var(--ion-color-orange);
 }
 small{
     color:var(--ion-color-blue);
+    font-size: 12px;
 }
 ion-button{
 --background: var(--ion-color-blue);
 }
 .login-header{
+    font-family: 'Montserrat-Regular' !important;
     text-align: center;
     color:var(--ion-color-blue);
     font-size:32px;
-    font-weight: bolder;
+    font-weight: 400;
     filter:drop-shadow(2px 2px 2px var(--ion-color-blue));
     margin-top: 95px; 
+    letter-spacing: 0.75px;
+    line-height: 28px;
+    vertical-align: auto;
+    stroke: var(--ion-color-blue) solid;
+     
 }
 .login-label{
     margin-top: 39px;
@@ -35,6 +42,7 @@ ion-item
     --border-radius:10px;
     margin-top:20px;
     width: 314px;
+    
 }
 #pwd{
     margin-top: 15px;
@@ -46,5 +54,10 @@ ion-button{
 }
 #sign-in{
     text-decoration: underline;
+    margin-top: -10px;
+    font-size: 12px;
+    margin-left: -16px;
 }
-
+#login-button{
+   margin-top: -10px;
+}

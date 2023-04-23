@@ -19,32 +19,26 @@
             </ion-item>
           </ion-col>
 
-          <ion-col  size="auto" >
-            <ion-item lines="none" >
+          <ion-col  size="auto">
+            <ion-item lines="none">
               <ion-input required type="text" label="Username" ></ion-input>
             </ion-item >
           </ion-col>
 
-          <ion-col  size="auto" >
-            <ion-item lines="none" >
-              <ion-input required type="text" label="Password" ></ion-input>
+          <ion-col  size="auto">
+            <ion-item lines="none">
+              <ion-input required type="text" label="Password" maxlength="6" ></ion-input>
             </ion-item >
           </ion-col>
 
-          <ion-col  size="auto" >
-            <ion-item lines="none" >
-              <ion-input required type="text" label="Confirm Password" ></ion-input>
+          <ion-col size="auto">
+            <ion-item lines="none">
+              <ion-input required type="text" label="Confirm Password" maxlength="6" ></ion-input>
             </ion-item >
           </ion-col>
 
-          <ion-col  size="auto" >
-            <ion-button  expand="block" fill="clear" id="pwd" color="blue">
-              Forgot Password ?
-            </ion-button>
-          </ion-col>
-
-          <ion-col size="12" size-md="4"size-lg="1">
-            <ion-button expand="block"  type="submit"  shape="round" size="medium" >
+          <ion-col size="12">
+            <ion-button expand="block"  type="submit"  shape="round" size="medium"  class="signin-button" id="open-toast" >
               Sign Up
             </ion-button>
           </ion-col>
@@ -57,13 +51,27 @@
     <div>
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="6">
-            <ion-label>Already have an account?</ion-label>
+          <ion-col size="auto">
+            <small>Already have an account?</small>
           </ion-col>
-          <ion-col size="6">
-            <ion-button  expand="block" fill="clear" color="orange">
-              <span id="sign-in">Sign in</span> 
+          <ion-col size="auto">
+            <ion-button  expand="block" fill="clear" color="orange" id="sign-up">
+              <span>Sign in</span> 
              </ion-button>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="auto">
+          <ion-toast
+            trigger="open-toast"
+            message="User Created Successfully !" 
+            [duration]="3000" 
+            [buttons]="toastButtons"
+            (didDismiss)="setRoleMessage($event)"
+            class="custom-toast"
+          >
+        </ion-toast>
           </ion-col>
         </ion-row>
       </ion-grid>
