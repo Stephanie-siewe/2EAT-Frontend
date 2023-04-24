@@ -1,0 +1,83 @@
+.div-flex{
+    display: flex;
+    width: auto;
+}
+.input-name{
+    border-width: 0.03rem;
+    border-style: solid;
+    width: 27rem;
+}
+.select_location{
+    border-width: 0.03rem;
+    border-style: solid;
+    width: 30rem;
+}
+.select-dish{
+    border-width: 0.03rem;
+    border-style: solid;
+    width: 10rem;
+    // margin-left: 1rem;
+
+
+}
+.input-description{
+    height: 50rem;
+    border-width: 0.03rem;
+    border-style: solid;
+}
+ion-textarea{
+    border-width: 0.03rem;
+    border-style: solid;
+}
+.input-dish{
+    border-width: 0.03rem;
+    border-style: solid;
+    margin-left: 1rem;
+    width: 16rem;
+
+}
+.add-more{
+    // margin-right: 1rem;
+    margin-left: 20rem;
+
+}
+.input-attributes{
+    border-width: 0.03rem;
+    border-style: solid;
+    margin-left: 1rem;
+    width: 30rem;
+    height: 0.3rem;
+
+}
+.add-more1{
+    margin-left: 18.5rem;
+}
+.div-attributes{
+
+    display: block;
+}
+.label-attributes{
+    margin-left: 1rem;
+
+}
+ion-action-sheet-button {
+    display: inline-block;
+    flex: 1;
+  }
+  
+ion-action-sheet {
+    display: flex;
+    flex-direction: row;
+  }
+#save-button{
+    --background: var(--ion-color-blue);
+    }
+ion-label{
+    font-size: large;
+}
+.name{
+    size: 10rem;
+    width: 20rem;
+    // border: 0.5rem;
+    border  : 2px solid gray;  
+}

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>register_place</ion-title>
+    <ion-title>Add place</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,167 @@
       <ion-title size="large">register_place</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <form (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Name</ion-label>
+            <br />
+            <div class="div-flex">
+              <ion-input
+                type="text"
+                placeholder="Location's name "
+                class="input-name"
+              ></ion-input>
+              <ion-button (click)="presentActionSheet()" fill="clear"
+                ><ion-icon slot="end" name="camera" color="blue"></ion-icon
+              ></ion-button>
+            </div>
+            <!-- <ion-input type="text"  name="lastName"></ion-input> -->
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Location</ion-label>
+            <br />
+            <ion-select class="select_location">
+              <ion-select-option value="Paris">Mendong</ion-select-option>
+              <ion-select-option value="Londres">Odza</ion-select-option>
+              <ion-select-option value="New York">Meec</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Description</ion-label>
+            <br />
+            <!-- <ion-input
+              type="text"
+              value="Name"
+              class="input-description"
+            ></ion-input> -->
+            <ion-textarea  placeholder="your description" ></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Dish</ion-label>
+            <br />
+            <div class="div-flex">
+              <ion-select class="select-dish" placeholder="Number">
+                <ion-select-option value="1">1</ion-select-option>
+                <ion-select-option value="2">2</ion-select-option>
+              </ion-select>
+              <ion-input
+                type="text"
+                value="Dish"
+                class="input-dish"
+              ></ion-input>
+              <ion-button (click)="addLastName()" fill="clear"
+                ><ion-icon slot="end" name="camera"></ion-icon
+              ></ion-button>
+            </div>
+            <ion-input type="text"  name="lastName"></ion-input> 
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row>
+        <ion-col>
+          <ion-item lines="none">
+            <div class="div-flex">
+              <ion-label
+                >Photos<ion-button
+                  (click)="addLastName()"
+                  fill="clear"
+                  class="add-more"
+                  color="blue">add more</ion-button
+                ></ion-label
+              >
+              <!-- <ion-button (click)="addLastName()" fill="clear" class="add-more"
+                >Add more</ion-button
+              > -->
+            </div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col>
+          <ion-item>
+            <div class="div-flex">
+              <ion-label
+                >Attributes
+                <ion-button
+                  (click)="addLastName()"
+                  fill="clear"
+                  class="add-more1"
+                  >add more</ion-button
+                >
+              </ion-label>
+              <br />
+            </div>
+          </ion-item>
+          <div class="div-attributes">
+            <ion-label class="label-attributes"
+              >Entrer a maximum of 3 attributes
+            </ion-label>
+            <ion-input
+              type="text"
+              value="Name"
+              class="input-attributes"
+            ></ion-input>
+          </div>
+        </ion-col>
+      </ion-row> -->
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block" id="save-button"  size="medium">Save</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <!-- <form>
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <div>
+          <ion-input type="text" class="name" ></ion-input>
+          <ion-button >
+            <ion-icon slot="icon-only" name="camera"></ion-icon>
+          </ion-button>
+          
+            
+            <ion-input formControlName="email" type="text"></ion-input>
+         
+
+          <!-- <ion-button  expand="block" fill="clear" shape="round" type="file" capture="camera">
+            <ion-icon name="camera" slot="end"></ion-icon>
+          </ion-button> -->
+  <!-- <ion-icon name="camera" slot="end"></ion-icon> -->
+  <!-- <input type="file" accept="image/*" capture="camera"> 
+        </div>
+        
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Location</ion-label>
+        <ion-select>
+          <ion-select-option value="Paris">Mendong</ion-select-option>
+          <ion-select-option value="Londres">Odza</ion-select-option>
+          <ion-select-option value="New York">Meec</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+     
+      
+      <ion-button expand="block" type="submit">Save</ion-button>
+    </form> -->
 </ion-content>
