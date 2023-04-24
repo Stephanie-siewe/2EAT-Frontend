@@ -35,7 +35,7 @@ export const routes: Routes = [
     loadComponent: () => import('./views/Profile/profile-edit/profile-edit.page').then( m => m.ProfileEditPage)
   },
   {
-    path: 'register-place',
+    path: 'add-place',
     loadComponent: () => import('./views/Places/register-place/register-place.page').then( m => m.RegisterPlacePage)
   },
   {
