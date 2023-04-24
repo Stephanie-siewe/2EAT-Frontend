@@ -1,13 +1,163 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>profile</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        <div class="login-header">
+          <ion-header class="ion-no-border"><span>Grub</span>Hubber</ion-header>
+       </div>
+      </ion-col>
+      <!-- <ion-col>
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="assets/images/user.png" />
+        </ion-avatar>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+
+  <h2>Settings</h2>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="assets/images/user.png" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <h2>Yennefer Doe</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <h2 class="title">Account Settings</h2>
+
+    <!-- <ion-list>
+      <ion-item>
+        <div class="subtitle">
+          <h2 >Edit Profile</h2>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="subtitle">
+          <h2>Language</h2>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="subtitle">
+          <h2>Add A Place</h2>
+          <ion-icon name="add-outline"></ion-icon></div>
+      </ion-item>
+      <ion-item>
+        <div class="subtitle">
+          <h2>Push notifications</h2>
+          <ion-toggle [checked]="true" mode="ios"></ion-toggle></div>
+      </ion-item>
+
+      <ion-item>
+        <div class="subtitle">
+          <h2>Dark mode</h2>
+          <ion-toggle [checked]="true" mode="ios"></ion-toggle></div>
+      </ion-item>
+    </ion-list>
+     -->
+
+     <ion-grid>
+      <ion-row>
+        <ion-col size="11">
+          <h2>Edit Profile</h2>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="11">
+          <h2>Language</h2>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="11">
+          <h2>Add A Place</h2>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10">
+          <h2>Push notifications</h2>
+        </ion-col>
+        <ion-col>
+          <ion-toggle [checked]="true" mode="ios"></ion-toggle>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10">
+          <h2>Dark mode</h2>
+        </ion-col>
+        <ion-col>
+          <ion-toggle [checked]="false" mode="ios"></ion-toggle>
+        </ion-col>
+      </ion-row>
+
+
+
+      
+     </ion-grid>
+    <h2 class="title">More</h2>
+
+
+    <!-- <ion-list>
+      
+      <ion-item>
+        <div class="subtitle">
+          <h2>About US</h2>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+
+      <ion-item >
+        <div class="subtitle">
+          <h2>Privacy Policy</h2>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list> -->
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="11">
+          <h2>About US</h2>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+     <ion-row>
+        <ion-col size="11">
+          <h2>Privacy Policy</h2>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

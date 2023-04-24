@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+
+  @font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('/assets/fonts/Montserrat-Medium.ttf');
+  }
+ion-label{
+    font-size: 4vw;
+    font-family: 'Montserrat-Medium';
+    color:black;
+    font-weight: 600;
+}
+
+
+ion-input{
+   border: 1px #C4C4C4 solid;
+//    margin-left:1vw;
+//    margin-right: 100vw;   
+   border-radius: 8px; 
+}
+
+// 
+ion-col>ion-button{
+    --background:var(--ion-color-blue);
+}

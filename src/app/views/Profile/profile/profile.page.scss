@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('/assets/fonts/Montserrat-Regular.ttf');
+  }
+
+  span{
+    color: var(--ion-color-orange);
+}
+ion-grid:first-of-type{
+  margin-top: 8vh;
+}
+
+  .login-header{
+    font-family: 'Montserrat-Regular' !important;
+    text-align: center;
+    color:var(--ion-color-blue);
+    font-size:5.5vw;
+    font-weight: 600;
+    filter:drop-shadow(2px 2px 2px var(--ion-color-blue));
+    // margin-top: 2vh; 
+    letter-spacing: 0.75px;
+    line-height: 28px;
+    // vertical-align: auto;
+    // justify-content: center;
+    // align-content: center;
+    stroke: var(--ion-color-blue) solid;
+    
+}
+ion-avatar{
+    // width: 40px;
+    // height:40px;
+
+    width: 13vw;
+    height: 13vw;
+   
+    align-self: center;
+  }
+
+  ion-header{
+    margin-top: 0.6vh;
+  }
+
+  ion-content>ion-grid~h2{
+    color:var(--ion-color-blue);
+    font-family: 'Montserrat' !important;
+    font-size:5vw;
+    letter-spacing: 0.75px;
+    line-height: 28px;
+    margin-left: 10vw;
+    margin-bottom: -4vh;
+
+  }
+
+  ion-content>ion-grid~div{
+    background-color: #F9F9F9;
+    // border-radius: 6%;
+    border-top-right-radius: 6%;
+    border-top-left-radius: 6%;
+       padding-left: 2px;
+    padding-right:2px;
+    // margin-top: 5vh;
+    
+  }
+//   ion-list,ion-item{
+//     --background:#F9F9F9;
+//   }
+
+  div>ion-grid>ion-row>ion-col>h2{
+font-family:'Montserrat-Regular' !important;
+font-size: 4.5vw;
+  }
+
+  .title{
+    color:#ADADAD;
+    font-family:'Montserrat-Regular' !important;
+font-size: 4.5vw;
+padding-left: 3vw;
+}
+
+// ion-item>div{
+//     display: flex;
+    
+//    }
+
+//    .subtitle>h2{
+//     font-family:'Montserrat-Regular' !important;
+// font-size: 4.5vw;
+//    }
+
+//    .subtitle>ion-icon{
+//     transform: translateX(50vw);
+//    }
+
+   ion-toggle{
+      margin-top: 23%;
+    //   font-size: 4.5vw;
+
+   }
+
+   ion-icon{
+    margin-top: 80%;
+    font-size: 4.5vw;
+   }
