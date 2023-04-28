@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+
+
+.connection {
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.connection>img{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.connection~div{
+padding-top: 40vh;
+text-align: center;
+font-family: 'Montserrat' !important;
+}
+
+.connection~div>h2{
+  text-transform: uppercase;
+}
+
+.connection~div>h4{
+    font-size: 15px;
+    margin-top: 104px;
+}
+ion-button{
+    margin-top: 14px;
+}

@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+  ion-grid{
+    margin-top: 2vh;
+  }
+.wrapper {
+    max-height: 120px;
+    display: flex;
+    overflow-x: auto;
+    margin-top: 10px;
+    padding: 2px 0px 0px 12px;
+  }
+  .item {
+    min-width: 105px;
+    height: 40px;
+    line-height: 110px;
+    text-align: center;
+    background: var(--ion-color-blue-pale);
+    color: var(--ion-color-black);
+    border-radius: 30px;
+    margin-right: 5px;
+  }
+  .wrapper::-webkit-scrollbar {
+    width: 0;
+  }
+  h6 {
+    font-size: 12px;
+}
+ion-chip{
+    font-size: x-small;
+    margin-left: 87px;
+    margin-top: -32px;
+    font-weight: 700;
+  }
+  ion-card-title{
+    padding: 3px 5px;
+    font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 17px;
+  letter-spacing: 0.03em;
+  }
+  ion-card-subtitle{
+    padding: 3px 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 11px;
+    letter-spacing: 0.03em;
+    text-transform: lowercase;
+  }
+  ion-chip > ion-label{
+    margin-left: -2px;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  ion-card{
+    border-radius: 9px;
+  }
+  .wrapper-card{
+    max-height: 233px;
+    width: 590px;
+  }
+  .wrapper-card::-webkit-scrollbar {
+    width: 0;
+  }
+ion-searchbar{
+    --border: 1px solid #B3B3B3;
+    --border-radius: 6px;
+}

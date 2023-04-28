@@ -55,7 +55,7 @@
             <small>Already have an account?</small>
           </ion-col>
           <ion-col size="auto">
-            <ion-button  expand="block" fill="clear" color="orange" id="sign-up">
+            <ion-button  expand="block" fill="clear" color="orange" id="sign-up" (click)="login()">
               <span>Sign in</span> 
              </ion-button>
           </ion-col>
@@ -68,7 +68,6 @@
             message="User Created Successfully !" 
             [duration]="3000" 
             [buttons]="toastButtons"
-            (didDismiss)="setRoleMessage($event)"
             class="custom-toast"
           >
         </ion-toast>

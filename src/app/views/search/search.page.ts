@@ -16,5 +16,7 @@ export class SearchPage implements OnInit {
 
   ngOnInit() {
   }
-
+  handleChange(event:any) {
+    const query = event.target.value.toLowerCase();
+  }
 }

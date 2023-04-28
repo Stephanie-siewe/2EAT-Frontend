@@ -1,58 +1,132 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar >
-    <ion-title><span>Grub</span>Hubber</ion-title>
-      <ion-avatar slot="end">
-        <img src="../../../assets/img/pp1.jpg" />
-      </ion-avatar>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <div class="login-header">
+          <ion-header class="ion-no-border"><span>Grub</span>Hubber</ion-header>
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="assets/images/user.png" />
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<ion-content [fullscreen]="true">
   <ion-grid fixed>
-        <!--/***********row for hello word*****/-->
+    <!--/***********row for hello word*****/-->
 
     <ion-row>
       <ion-col size="12">
-        <h1>Hi, Yennefer Doe </h1>
+        <h1> <strong>Hi, Yennefer Doe </strong></h1>
         <small>Get your favorite food here !</small>
       </ion-col>
     </ion-row>
 
-        <!--/***********row for the text and search icon*****/-->
+    <!--/***********row for the text and search icon*****/-->
 
-    <ion-row>
-      <ion-col size="6">
-        <h1> Choose a Category</h1>
+    <ion-row class="choose">
+      <ion-col size="auto">
+        <ion-label color="blue">
+          Choose a Category
+        </ion-label>
       </ion-col>
-      <ion-col size="6">
-        <ion-button >
-          <ion-icon slot="icon-only" name="search"></ion-icon>
+      <ion-col size="auto" class="search-icon">
+        <ion-button expand="block" fill="clear" color="blue"  (click)="gotoSearch()">
+          <ion-icon slot="icon-only" name="search" size="large"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
 
     <!--/***********row for the different categories*****/-->
+    <div class="wrapper">
+      <div class="item">
+        <h6 (click)="goToDinner()"> Fast-food</h6>
+      </div>
+      <div class="item">
+        <h6>Street-food</h6>
+      </div>
+      <div class="item">
+        <h6>Cafeteria</h6>
+      </div>
+      <div class="item">
+        <h6>Café-Resto</h6>
+      </div>
+      <div class="item">
+        <h6>Classic Restaurant</h6>
+      </div>
+      <div class="item">
+        <h6>Traditional meals</h6>
+      </div>
+    </div>
 
-    <ion-row>
-      <ion-col size="auto">
-        <ion-chip color="dark" mode="ios">
-          <ion-label>Default</ion-label>
-        </ion-chip>
+    <!--/**********row for publicities-->
+    <div class="pub">
+      <ion-card>
+        <img src="assets/images/lobster-roll.jpg" alt="photo de omar">
+      </ion-card>
+      <ion-card>
+        <img src="assets/images/mozzarella.jpg" alt="photo de mozzarella">
+      </ion-card>
+      <ion-card>
+        <img src="assets/images/spinach-salad.jpg" alt="photo de omar">
+      </ion-card>
+      <ion-card >
+        <img src="assets/images/spinach-salad.jpg" alt="photo de omar">
+      </ion-card>
+     </div>
+
+
+     <!--/***********row for top score places*****/-->
+     <ion-row>
+      <ion-col size="12" class="top-score">
+        <ion-label color="blue">
+          Top Score
+        </ion-label>
       </ion-col>
-      <ion-col size="auto">
-        <ion-chip color="dark" mode="ios" >
-          <ion-label>Default</ion-label>
-        </ion-chip>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-chip color="dark" mode="ios">
-          <ion-label>Default</ion-label>
-        </ion-chip>
+      <ion-col size="12" class="see-more">
+       <ion-label color="orange" (click)="gotoSearch()">See more</ion-label>
       </ion-col>
     </ion-row>
-
-        <!--/***********row for the different categories*****/-->
-
+    <div class="wrapper-card">
+      <ion-card>
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <ion-card-title>Chez Ali</ion-card-title>
+        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios" >
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+      <ion-card>
+        <img src="assets/images/place3.jpg" alt="photo de mozzarella">
+        <ion-card-title>Makala</ion-card-title>
+        <ion-card-subtitle color="black">Jouvence </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-label color="dark">1.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+      <ion-card >
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <ion-card-title>Aliko</ion-card-title>
+        <ion-card-subtitle color="black">Mokolo </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star" color="warning" ></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+      <ion-card >
+        <img src="assets/images/place3.jpg" alt="photo de omar">
+        <ion-card-title>Susu </ion-card-title>
+        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+     </div>
   </ion-grid>
 
 </ion-content>

@@ -1,13 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cart1</ion-title>
+    <ion-title>Cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="blue"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="connection">
+    <img src="assets/images/bag.svg">
+  </div>
+
+      <div>
+        <h4>Well, there is no item in your cart :( </h4>
+      </div>
+
+      <ion-button  expand="block" color="blue" size="medium">
+        Add item
+      </ion-button>
+
+
+ 
 </ion-content>

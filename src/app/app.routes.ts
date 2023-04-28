@@ -47,10 +47,6 @@ export const routes: Routes = [
     loadComponent: () => import('./views/Places/place-edit/place-edit.page').then( m => m.PlaceEditPage)
   },
   {
-    path: 'home',
-    loadComponent: () => import('./views/home/home.page').then( m => m.HomePage)
-  },
-  {
     path: 'all-grilling',
     loadComponent: () => import('./views/Grilling/all-grilling/all-grilling.page').then( m => m.AllGrillingPage)
   },
@@ -70,4 +66,10 @@ export const routes: Routes = [
     path: 'comments',
     loadComponent: () => import('./views/Grilling/comments/comments.page').then( m => m.CommentsPage)
   },
+
+  {
+    path: 'pwd',
+    loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
+  },
+
 ];

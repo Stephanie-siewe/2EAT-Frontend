@@ -1,13 +1,64 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>grilling_details</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">grilling_details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="top-container">
+    <ion-card>
+      <img src="assets/images/place1.jpg" alt="photo d'un vendeur">
+    </ion-card>
+  </div>
+  
+  <div class="container"></div>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="auto">
+        <div  class="description">
+          <ion-label>
+            <strong> Description</strong>
+          </ion-label>
+          <p>Solaria adalah restoran lokal asli Indonesia
+             yang berdiri sejak tahun 1995, merupakan restoran keluarga dengan .</p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <div class="wrapper-card">
+      <div class="dish">
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <ion-card-title>Chez Ali</ion-card-title>
+        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios" >
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </div>
+      <ion-card>
+        <img src="assets/images/place3.jpg" alt="photo de mozzarella">
+        <ion-card-title>Makala</ion-card-title>
+        <ion-card-subtitle color="black">Jouvence </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-label color="dark">1.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+      <ion-card >
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <ion-card-title>Aliko</ion-card-title>
+        <ion-card-subtitle color="black">Mokolo </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star" color="warning" ></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+      <ion-card >
+        <img src="assets/images/place3.jpg" alt="photo de omar">
+        <ion-card-title>Susu </ion-card-title>
+        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
+        <ion-chip color="gray" mode="ios">
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+          <ion-label color="dark">4.8 </ion-label>
+        </ion-chip>
+      </ion-card>
+     </div>
+  </ion-grid>
+
 </ion-content>
