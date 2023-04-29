@@ -11,10 +11,10 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoadingPage implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
+ 
   }
 
 }

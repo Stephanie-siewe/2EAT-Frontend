@@ -5,22 +5,26 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-pwd',
+  templateUrl: './pwd.page.html',
+  styleUrls: ['./pwd.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class HomePage implements OnInit {
+export class PwdPage implements OnInit {
+
   constructor(private route: Router) { }
 
   ngOnInit() {
   }
-  goToDinner(){
-    this.route.navigate(['/all-grilling']);
+  gotoLogin(){
+    this.route.navigate(['/login']);
   }
-  gotoSearch(){
-    this.route.navigate(['/search']);
 
-  }
+  public toastButtons = [
+    {
+      text: 'OK',
+      role: 'cancel',
+    }
+  ];
 }

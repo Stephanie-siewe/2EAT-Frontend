@@ -16,5 +16,7 @@ export class Cart1Page implements OnInit {
 
   ngOnInit() {
   }
-
+  handleChange(event:any) {
+    const query = event.target.value.toLowerCase();
+  }
 }

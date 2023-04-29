@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign',
@@ -12,24 +13,20 @@ import { IonicModule } from '@ionic/angular';
 })
 export class SignPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
+  login(){
+    this.route.navigate(['/login']);
+  }
 
   public toastButtons = [
-   
     {
       text: 'OK',
       role: 'cancel',
-      handler: () => { this.handlerMessage = 'Dismiss clicked'; }
     }
   ];
-  handlerMessage = '';
-  roleMessage = '';
 
-  setRoleMessage(event: any) {
-    const { role } = event.detail
-    this.roleMessage = `Dismissed with role: ${role}`;
-  }
+  
 }

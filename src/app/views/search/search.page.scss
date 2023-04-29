@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+
+  span{
+    color: var(--ion-color-orange);
+}
+ion-grid{
+  margin-top: 2vh;
+}
+
+  .login-header{
+    font-family: 'Montserrat-Regular' !important;
+    text-align: center;
+    color:var(--ion-color-blue);
+    font-size:32px;
+    font-weight: 600;
+    filter:drop-shadow(2px 2px 2px var(--ion-color-blue));
+    // margin-top: 2vh; 
+    letter-spacing: 0.75px;
+    line-height: 28px;
+    // vertical-align: auto;
+    // justify-content: center;
+    // align-content: center;
+    stroke: var(--ion-color-blue) solid;
+    
+}
+
+.connection {
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.connection>img{
+  width: 100vw;
+  height: 100vh;
+}
+
+ion-header{
+  margin-top: 0.6vh;
+}
+
+.connection~div{
+padding-top: 40vh;
+text-align: center;
+font-family: 'Montserrat' !important;
+}
+
+.connection~div>h2{
+  text-transform: uppercase;
+}
+
+.connection~div>h4{
+  font-size:15px;
+}
+
+ion-avatar{
+  width: 40px;
+  height:40px;
+  align-self: center;
+}
+ion-searchbar{
+    --border: 1px solid #B3B3B3;
+    --border-radius: 6px;
+}
+ion-label{
+    margin-left: 15px;
+}

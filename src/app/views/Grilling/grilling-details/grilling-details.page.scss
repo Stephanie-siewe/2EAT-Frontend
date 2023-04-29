@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+
+  #top-container > ion-card{
+    border-radius: 15px;
+   --background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) -5.67%, rgba(0, 0, 0, 0) 113.17%);
+    position: absolute;
+     width: 408px;
+    height: 369.14px;
+  }
+  .wrapper-card::-webkit-scrollbar {
+    width: 0;
+  }
+  .wrapper-card{
+    max-height: 233px;
+    display: flex;
+    width: 590px;
+    overflow-x: auto;
+    margin-top: 67px;
+    padding: 2px 0px 0px 12px;
+  }
+  .description{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 7px;
+
+position: absolute;
+width: 343px;
+height: 71.66px;
+left: 22px;
+top: 447.63px;
+  }
+  .dish{
+    position: absolute;
+left: 3.65%;
+right: 62.29%;
+top: 70.09%;
+bottom: 8.8%;
+
+/* White */
+
+background: #FFFFFF;
+border-radius: 9.2px;
+  }
