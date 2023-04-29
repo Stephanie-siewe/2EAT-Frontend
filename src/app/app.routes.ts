@@ -70,10 +70,15 @@ export const routes: Routes = [
   {
     path: 'pwd',
     loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
-  },  {
+  },
+  {
     path: 'sucess-order',
     loadComponent: () => import('./views/sucess-order/sucess-order.page').then( m => m.SucessOrderPage)
   },
-
+  {
+    path: 'pwd',
+    loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
+  },
+  
 
 ];

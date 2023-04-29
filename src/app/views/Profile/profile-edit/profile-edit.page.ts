@@ -16,5 +16,8 @@ export class ProfileEditPage implements OnInit {
 
   ngOnInit() {
   }
+  onClick(){
+    
+  }
 
 }
