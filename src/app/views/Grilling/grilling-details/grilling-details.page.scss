@@ -2,18 +2,31 @@
     font-family: 'Montserrat';
     src: url('/assets/fonts/Montserrat-SemiBold.ttf');
   }
-
-  #top-container > ion-card{
-    border-radius: 15px;
-   --background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) -5.67%, rgba(0, 0, 0, 0) 113.17%);
-    position: absolute;
-     width: 408px;
-    height: 369.14px;
+ ion-toolbar {
+    --background: transparent;
+  } 
+  .back{
+    position: relative; 
+    margin-top: -56px;
+    border-top-left-radius: 15px;
+    &::before{
+      position: absolute;
+      content:"";
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) -5.67%, rgba(0, 0, 0, 0.573125) -0.34%, rgba(0, 0, 0, 0) 113.17%);
+      width: 100%;
+      height: 100%;
+    }
   }
-  .wrapper-card::-webkit-scrollbar {
+
+  .back >img{
+    width: 388px;
+    height: 369px;
+    object-fit: fill;
+  }
+  .wrapper::-webkit-scrollbar {
     width: 0;
   }
-  .wrapper-card{
+  .wrapper{
     max-height: 233px;
     display: flex;
     width: 590px;
@@ -21,28 +34,131 @@
     margin-top: 67px;
     padding: 2px 0px 0px 12px;
   }
-  .description{
+  .item {
+    position: absolute;
+    left: 3.65%;
+    right: 62.29%;
+    top: 70.09%;
+    bottom: 8.8%;
+    background: #FFFFFF;
+    border-radius: 9.2px;
+  }
+ .description{
     display: flex;
-flex-direction: column;
+    flex-direction: column;
 align-items: flex-start;
 padding: 0px;
 gap: 7px;
 
 position: absolute;
 width: 343px;
-height: 71.66px;
+height: 66px;
 left: 22px;
-top: 447.63px;
-  }
-  .dish{
+top: 33.63px;
+
+}
+.description > ion-label{
+  font-weight: 600;
+  font-size: 24px;
+}
+.description >p{
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.3px;
+}
+ /* .dish{
     position: absolute;
 left: 3.65%;
 right: 62.29%;
 top: 70.09%;
 bottom: 8.8%;
-
-/* White */
-
 background: #FFFFFF;
 border-radius: 9.2px;
-  }
+  }*/
+.container{
+  position: absolute;
+    left: 4.65%;
+    right: 5.84%;
+    top: 29.2%;
+    bottom: 54.51%;
+background: linear-gradient(97.29deg, rgba(0, 0, 0, 0.6) 28.23%, rgba(0, 0, 0, 0.6) 88.03%);
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(2px);
+
+border-radius: 20px;
+}  
+.chip{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+position: absolute;
+left: 6.72%;
+right: 49.84%;
+top: 50.38%;
+bottom: 32.9%;
+}
+.chip > ion-label{
+  margin-left: 8px;
+}
+h2{
+  position: absolute;
+left: 6.71%;
+right: 49.85%;
+top: 9.25%;
+bottom: 62.5%;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 120%;
+letter-spacing: 0.002em;
+color: #FFFFFF;
+
+}
+h1{
+  position: absolute;
+  left: 6.72%;
+  right: 20.1%;
+  top: 60.43%;
+  bottom: -0.33%;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+color: #FFFFFF;
+line-height: 120%;
+}
+.dishes{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 7px;
+position: absolute;
+width: 343px;
+height: 29px;
+left: 15px;
+top: 545px;
+}
+.dishes >ion-label{
+  font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+}
+.save-dish > ion-button{
+  margin-top:227px;
+}
+ion-thumbtail{
+  --border-radius:6px;
+}
+ion-item
+{
+    --background:var(--ion-color-blue-pale);
+    --color:var(--ion-color-text-blue);
+    --border-radius:10px;
+    margin-top:20px;
+    width: 314px;
+    
+}

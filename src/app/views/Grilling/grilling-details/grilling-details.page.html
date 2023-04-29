@@ -1,12 +1,27 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" mode="md" icon="chevron-back-outline" ></ion-back-button>
+    </ion-buttons>
+    </ion-toolbar>
+</ion-header>
 
-<ion-content [fullscreen]="true">
-  <div id="top-container">
-    <ion-card>
-      <img src="assets/images/place1.jpg" alt="photo d'un vendeur">
-    </ion-card>
+<ion-content fullscreen="true">
+  <div class="back">
+      <img src="assets/images/place3.jpg" alt="photo d'un vendeur">
   </div>
   
-  <div class="container"></div>
+  <div class="container">
+          <h2>Chez mani</h2>
+          <div class="chip">
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-label color="white">4.8 </ion-label>
+          </div>       
+          <h1>Nkolbisson, Yaounde</h1>
+  </div>
 
   <ion-grid fixed>
     <ion-row>
@@ -15,50 +30,95 @@
           <ion-label>
             <strong> Description</strong>
           </ion-label>
+          <ion-icon name="chatbubble-outline" (click)="CommentsPage()" color="blue"></ion-icon>
           <p>Solaria adalah restoran lokal asli Indonesia
              yang berdiri sejak tahun 1995, merupakan restoran keluarga dengan .</p>
         </div>
       </ion-col>
     </ion-row>
-
-    <div class="wrapper-card">
-      <div class="dish">
+    <div class="dishes">
+    
+      <ion-label color="black">Dishes</ion-label>
+   
+    </div>
+    <div class="save-dish" *ngIf="show === 0">
+      <ion-button  expand="block" fill="outline" size="medium" color="blue" (click)="setOpen(true)" id="add">
+        Add dishes
+      </ion-button>
+    </div>
+    <!--<div class="wrapper">
+      <div class="item">
         <img src="assets/images/place1.jpg" alt="photo de omar">
-        <ion-card-title>Chez Ali</ion-card-title>
-        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
-        <ion-chip color="gray" mode="ios" >
+        <h1>Chez Ali</h1>
+        <h1 color="black">Nkolbisson </h1>
+        <div color="gray" mode="ios" >
           <ion-icon name="star" color="warning"></ion-icon>
-          <ion-label color="dark">4.8 </ion-label>
-        </ion-chip>
+          <h1 color="dark">4.8 </h1>
+        </div>
       </div>
-      <ion-card>
-        <img src="assets/images/place3.jpg" alt="photo de mozzarella">
-        <ion-card-title>Makala</ion-card-title>
-        <ion-card-subtitle color="black">Jouvence </ion-card-subtitle>
-        <ion-chip color="gray" mode="ios">
-          <ion-icon name="star" color="warning"></ion-icon>
-          <ion-label color="dark">1.8 </ion-label>
-        </ion-chip>
-      </ion-card>
-      <ion-card >
+      <div class="item">
         <img src="assets/images/place1.jpg" alt="photo de omar">
-        <ion-card-title>Aliko</ion-card-title>
-        <ion-card-subtitle color="black">Mokolo </ion-card-subtitle>
-        <ion-chip color="gray" mode="ios">
-          <ion-icon name="star" color="warning" ></ion-icon>
-          <ion-label color="dark">4.8 </ion-label>
-        </ion-chip>
-      </ion-card>
-      <ion-card >
-        <img src="assets/images/place3.jpg" alt="photo de omar">
-        <ion-card-title>Susu </ion-card-title>
-        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
-        <ion-chip color="gray" mode="ios">
-          <ion-icon name="star-outline" color="warning"></ion-icon>
-          <ion-label color="dark">4.8 </ion-label>
-        </ion-chip>
-      </ion-card>
-     </div>
+        <h1>Chez Ali</h1>
+        <h1 color="black">Nkolbisson </h1>
+        <div color="gray" mode="ios" >
+          <ion-icon name="star" color="warning"></ion-icon>
+          <h1 color="dark">4.8 </h1>
+        </div>
+      </div>
+      <div class="item">
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <h1>Chez Ali</h1>
+        <h1 color="black">Nkolbisson </h1>
+        <div color="gray" mode="ios" >
+          <ion-icon name="star" color="warning"></ion-icon>
+          <h1 color="dark">4.8 </h1>
+        </div>
+      </div>
+      <div class="item">
+        <img src="assets/images/place1.jpg" alt="photo de omar">
+        <h1>Chez Ali</h1>
+        <h1 color="black">Nkolbisson </h1>
+        <div color="gray" mode="ios" >
+          <ion-icon name="star" color="warning"></ion-icon>
+          <h1 color="dark">4.8 </h1>
+        </div>
+      </div>
+     </div>-->
   </ion-grid>
+
+  <!------------------Modal Add Dish --------------------------------->
+  <ion-modal 
+  [isOpen]="isModalOpen" 
+  mode="ios"
+  #modal
+  trigger="add"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)" color="blue">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-label>Add Dishes</ion-label>
+
+                  <ion-input required  type="text" label="Email"></ion-input>
+
+                  <ion-input required type="text" label="Password" ></ion-input>
+                  <ion-list>
+                    <ion-item fill="solid" mode="ios">
+                      <ion-label position="stacked">Changer votre Mot de passe </ion-label>
+                      <ion-input type="number" value="1234" mode="ios"></ion-input>
+                    </ion-item>
+                  </ion-list>
+                 
+      
+        
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 
 </ion-content>
