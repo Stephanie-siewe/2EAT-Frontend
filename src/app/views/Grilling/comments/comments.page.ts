@@ -16,5 +16,8 @@ export class CommentsPage implements OnInit {
 
   ngOnInit() {
   }
+  onClick(){
+    
+  }
 
 }

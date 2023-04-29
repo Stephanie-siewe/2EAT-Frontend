@@ -69,5 +69,7 @@ export const routes: Routes = [
   {
     path: 'comments',
     loadComponent: () => import('./views/Grilling/comments/comments.page').then( m => m.CommentsPage)
-  },
+  }
+  
+
 ];
