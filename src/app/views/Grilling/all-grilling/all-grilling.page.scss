@@ -5,6 +5,13 @@
   ion-grid{
     margin-top: 2vh;
   }
+  ion-toolbar {
+    --background: transparent;
+    --border-style:none;
+  } 
+  #bag-outline{
+    margin-right: 24px;
+  }
 .wrapper {
     max-height: 120px;
     display: flex;
@@ -49,7 +56,7 @@ ion-chip{
     font-size: 14px;
     line-height: 11px;
     letter-spacing: 0.03em;
-    text-transform: lowercase;
+    text-transform: initial;
   }
   ion-chip > ion-label{
     margin-left: -2px;
@@ -67,6 +74,7 @@ ion-chip{
     width: 0;
   }
 ion-searchbar{
-    --border: 1px solid #B3B3B3;
+    --border: 1px solid;
     --border-radius: 6px;
+
 }

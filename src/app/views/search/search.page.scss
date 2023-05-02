@@ -69,3 +69,34 @@ ion-searchbar{
 ion-label{
     margin-left: 15px;
 }
+ion-chip{
+  font-size: x-small;
+  margin-left: 74px;
+  margin-top: -42px;
+  font-weight: 700;
+}
+ion-card-title{
+  padding: 3px 5px;
+  font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 17px;
+letter-spacing: 0.03em;
+}
+ion-card-subtitle{
+  padding: 3px 5px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 11px;
+  letter-spacing: 0.03em;
+  text-transform: initial;
+}
+ion-chip > ion-label{
+  margin-left: -2px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+ion-card{
+  border-radius: 9px;
+}

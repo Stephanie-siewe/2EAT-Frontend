@@ -8,7 +8,7 @@
   .back{
     position: relative; 
     margin-top: -56px;
-    border-top-left-radius: 15px;
+    
     &::before{
       position: absolute;
       content:"";
@@ -21,18 +21,20 @@
   .back >img{
     width: 388px;
     height: 369px;
-    object-fit: fill;
+    object-fit: cover;
   }
   .wrapper::-webkit-scrollbar {
     width: 0;
   }
   .wrapper{
-    max-height: 233px;
-    display: flex;
-    width: 590px;
+    /*height: 248px;*/
+    display: -webkit-inline-box;
+    /* width: 451px; */
     overflow-x: auto;
-    margin-top: 67px;
+    margin-top: 211px;
+    /*white-space: nowrap;*/
     padding: 2px 0px 0px 12px;
+ 
   }
   .item {
     position: absolute;
@@ -66,15 +68,7 @@ top: 33.63px;
   font-size: 12px;
   letter-spacing: -0.3px;
 }
- /* .dish{
-    position: absolute;
-left: 3.65%;
-right: 62.29%;
-top: 70.09%;
-bottom: 8.8%;
-background: #FFFFFF;
-border-radius: 9.2px;
-  }*/
+
 .container{
   position: absolute;
     left: 4.65%;
@@ -124,7 +118,7 @@ h1{
   top: 60.43%;
   bottom: -0.33%;
 font-style: normal;
-font-weight: 600;
+font-weight: 500;
 font-size: 24px;
 color: #FFFFFF;
 line-height: 120%;
@@ -141,24 +135,62 @@ height: 29px;
 left: 15px;
 top: 545px;
 }
-.dishes >ion-label{
+.dishes {
+  ion-label{
   font-style: normal;
 font-weight: 600;
 font-size: 24px;
-line-height: 29px;
+line-height: 29px;}
 }
 .save-dish > ion-button{
   margin-top:227px;
 }
-ion-thumbtail{
-  --border-radius:6px;
+
+ion-input{
+  border: 1px #C4C4C4 solid;
+  border-radius: 8px; 
+  --color: #c4c4c4;
+  --label: 6px;
 }
-ion-item
-{
-    --background:var(--ion-color-blue-pale);
-    --color:var(--ion-color-text-blue);
-    --border-radius:10px;
-    margin-top:20px;
-    width: 314px;
-    
+.text-input::-webkit-input-placeholder{
+  text-align: center;
+}
+.modal-label{
+  font-size: medium;
+  font-weight: 700;
+  
+}
+.add-more{
+  margin-top: -18px;
+  margin-left: 70px;
+}
+#pic{
+  margin-top: -18px;
+}
+.save-button{
+  margin-top: 321px;
+}
+ion-thumbnail{
+  --border-radius: 15px;
+  margin-top: -4px;
+  margin-left: 16px;
+}
+ion-card{
+  border-radius: 9px;
+  width: 33%;
+}
+ion-card-title{
+  padding: 4px 8px;
+  /* font-style: normal; */
+  font-weight: 600;
+  font-size: 14.1379px;
+  line-height: 17px;
+  letter-spacing: 0.03em;
+  text-transform: initial;
+} 
+ion-chip{
+  font-size: x-small;
+  left: 76px;
+  margin-top: -13px;
+  font-weight: 700;
 }

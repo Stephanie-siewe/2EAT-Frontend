@@ -3,7 +3,10 @@
     src: url('/assets/fonts/Montserrat-SemiBold.ttf');
   }
 
-
+  ion-toolbar {
+    --background: transparent;
+    --border-style:none;
+  } 
 .connection {
   position:absolute;
   top:40%;

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+ion-toolbar {
+    --background: transparent;
+    --border-style:none;
+  }
+ .plus-button{
+    background: var(--ion-color-blue);
+    border-radius: 20px;
+    width: 27px;
+    color: white;
+    height: 27px;
+    margin-top: -130px;
+    margin-left: 126px;
+  }
+  .minus-button{
+    background: var(--ion-color-blue);
+    border-radius: 20px;
+    width: 27px;
+    color: white;
+    height: 27px;
+  }
+input{
+    border:none;
+    color: black;
+  }
+  ion-thumbnail{
+    --border-radius: 6px;
+    width: 102%;
+    height: 102%;
+  }
+ion-label{
+    font-size: medium;
+    font-weight: 600;
+}
+.butt{
+    margin-top: -101px;
+    margin-left: 199px;
+}
+container-accordion{
+    ion-label{
+        font-size: medium;
+        font-weight: 700;
+        
+      }
+}
