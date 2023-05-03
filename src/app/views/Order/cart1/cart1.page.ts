@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart1',
@@ -12,11 +13,14 @@ import { IonicModule } from '@ionic/angular';
 })
 export class Cart1Page implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
   handleChange(event:any) {
     const query = event.target.value.toLowerCase();
+  }
+  gotocart(){
+    this.route.navigate(['/commandes']);
   }
 }

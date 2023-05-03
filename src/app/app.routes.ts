@@ -81,7 +81,7 @@ export const routes: Routes = [
   },
   {
     path: 'commandes',
-    loadComponent: () => import('./views/order/commandes/commandes.page').then( m => m.CommandesPage)
+    loadComponent: () => import('./views/Order/commandes/commandes.page').then( m => m.CommandesPage)
   },
   
 

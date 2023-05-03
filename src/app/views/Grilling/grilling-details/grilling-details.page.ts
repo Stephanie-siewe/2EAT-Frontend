@@ -113,6 +113,6 @@ addtoCart(){
 }
   /*******************Routes************************ */
   CommentsPage(){
-    this.route.navigate(['/comment']);
+    this.route.navigate(['/comments']);
   }
 }
