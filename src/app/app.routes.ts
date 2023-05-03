@@ -78,10 +78,12 @@ export const routes: Routes = [
   {
     path: 'pwd',
     loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
-  },  {
+  },
+  {
     path: 'commandes',
     loadComponent: () => import('./views/order/commandes/commandes.page').then( m => m.CommandesPage)
   },
+  
 
   
 

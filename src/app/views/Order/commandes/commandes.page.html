@@ -19,6 +19,7 @@
       </ion-col>
       <ion-col size="3">
         <div>
+          <ion-icon name="trash-bin-outline" slot="end"  (click)="deleteDishFromCart()" id="open-toast-dish"></ion-icon>
           <ion-label>Brochettes</ion-label>
           <p>150 frs CFA</p>
         </div>
@@ -27,42 +28,67 @@
     </ion-row>  
   </ion-grid>
   <div  class = "increment">
-    <ion-button   color="blue" size="small" shape="circle" >
+    <ion-button   color="blue" size="small" shape="circle"(click)="onSub()">
       <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
     </ion-button>
-    <p>0</p>
-    <ion-button color="blue" size="small" shape="circle" >
+    <p>{{item_qty}}</p>
+    <ion-button color="blue" size="small" shape="circle" (click)="onAdd()">
       <ion-icon slot="icon-only" name="add-outline"></ion-icon>
     </ion-button>
   </div>
 
   <h1 (click)="gotodetails()">add more food</h1>
+  
+  <ion-toast
+  trigger="open-toast-dish"
+  message="Dish deleted Successfully !" 
+  [duration]="3000" 
+  [buttons]="toastButtons"
+  class="custom-toast"
+></ion-toast>
 </div>
  
 
 <div class="container-accordion">
   <h3>Order(s)</h3>
+
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>Commande <span>1</span></ion-label>
+        <ion-label>Order <span>1</span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         <h2>Additional</h2>
+        <ion-icon name="trash-bin-outline" slot="end"  (click)="deleteOrderFromCart()" id="open-toast-order"></ion-icon>
         <div class="additional">
           <ion-radio-group value="custom-checked">
             <ion-radio value="end" labelPlacement="end" aria-label="Custom checkbox"> Plantain</ion-radio>
           </ion-radio-group>
           <div  class = "increment-additional">
-            <ion-button   color="blue" size="small" shape="circle" >
+            <ion-button   color="blue" size="small" shape="circle" (click)="onSub()">
               <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
             </ion-button>
-            <p>0</p>
-            <ion-button color="blue" size="small" shape="circle" >
+            <p>{{item_qty}}</p>
+            <ion-button color="blue" size="small" shape="circle"(click)="onAdd()" >
               <ion-icon slot="icon-only" name="add-outline"></ion-icon>
             </ion-button>
           </div>
           <h3>100 FRS CFA</h3>
+
+          <ion-radio-group value="custom-checked">
+            <ion-radio value="end" labelPlacement="end" aria-label="Custom checkbox"> Mayonnaise</ion-radio>
+          </ion-radio-group>
+          <div  class = "increment-additional">
+            <ion-button   color="blue" size="small" shape="circle" >
+              <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+            </ion-button>
+            <p>{{item_qty}}</p>
+            <ion-button color="blue" size="small" shape="circle" >
+              <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+            </ion-button>
+          </div>
+          <h3>200 FRS CFA</h3>
+
           <ion-button  expand="block" fill="outline" shape="round" size="small" color="blue" id="save-button">
             Save
           </ion-button>
@@ -71,21 +97,64 @@
     </ion-accordion>
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
-        <ion-label>Commande <span>2</span></ion-label>
+        <ion-label>Order <span>2</span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         Second Content
       </div>
     </ion-accordion>
+    <ion-icon slot="end" name="add"></ion-icon>
     <ion-accordion value="third">
       <ion-item slot="header" color="light">
-        <ion-label>Commande <span>3 </span></ion-label>
+        <ion-label>Order <span>3 </span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         Third Content
       </div>
     </ion-accordion>
   </ion-accordion-group>
+
+  <ion-toast
+  trigger="open-toast-order"
+  message="Order deleted Successfully !" 
+  [duration]="3000" 
+  [buttons]="toastButtons"
+  class="custom-toast"
+>
+</ion-toast>
 </div>
+
+<ion-footer>
+  <h3>Order(s) Total </h3>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-label>Plantain * 1</ion-label>
+      <ion-chip  mode="md" color="gray" slot="end">
+        <ion-label>100 FRS CFA</ion-label>
+      </ion-chip>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>viande * 2</ion-label>
+      <ion-chip  mode="md" color="gray" slot="end">
+        <ion-label>1000 FRS CFA</ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+   <hr/>
+
+  <ion-list>
+    <ion-item lines="none">
+      <h3>Total </h3>
+      <ion-chip  mode="md" color="gray" slot="end">
+        <ion-label><strong>1100 FRS CFA</strong></ion-label>
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+  <div>
+    <ion-button  expand="block"  color="blue" (click)="gotoSucess()" size="large">
+    Save
+    </ion-button>
+  </div>
+</ion-footer>
   
 </ion-content>

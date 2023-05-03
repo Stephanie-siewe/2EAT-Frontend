@@ -12,13 +12,47 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class CommandesPage implements OnInit {
+  item_qty:any;
+
 
   constructor(private route: Router) { }
 
   ngOnInit() {
+    this.item_qty=0;
   }
 
   gotodetails(){
     this.route.navigate(['/grilling-details']);
   }
+  gotoSucess(){
+    this.route.navigate(['/sucess-order']);
+  }
+  deleteDishFromCart(){
+  }
+  deleteOrderFromCart(){}
+  /************toaster************* */
+  public toastButtons = [
+    {
+      text: 'OK',
+      role: 'cancel',
+    }
+  ];
+    /************plu-minus button************* */
+    async onAdd(){
+      this.item_qty += 1;
+      console.log(this.item_qty);
+    }
+  
+    async onSub(){
+      if(this.item_qty-1 < 1){
+        this.item_qty = 0;
+        console.log('item_1->' + this.item_qty)
+      }
+      else{
+        this.item_qty -= 1;
+        console.log('item_2->' + this.item_qty);
+      }
+  
+    }
+
 }
