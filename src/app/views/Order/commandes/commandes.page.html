@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <ion-label >Dish</ion-label>
+<div class="container">
+  <h3 >Dish</h3>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="3">
@@ -18,36 +18,60 @@
         </ion-thumbnail>
       </ion-col>
       <ion-col size="3">
-        <ion-label>Brochettes</ion-label>
-        <p>150 frs CFA</p>
+        <div>
+          <ion-label>Brochettes</ion-label>
+          <p>150 frs CFA</p>
+        </div>
+        
       </ion-col>
-
     </ion-row>  
   </ion-grid>
-  <div class="butt1">
-    <button class="minus-button">-</button>
-  </div>
-  <div class="butt2">
-    <input type="number" value="0">
-  </div>
-  <div class="butt3">
-   <button class="plus-button">+</button>
+  <div  class = "increment">
+    <ion-button   color="blue" size="small" shape="circle" >
+      <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+    </ion-button>
+    <p>0</p>
+    <ion-button color="blue" size="small" shape="circle" >
+      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
   </div>
 
+  <h1 (click)="gotodetails()">add more food</h1>
+</div>
+ 
+
 <div class="container-accordion">
-  <ion-label>Order(s)</ion-label>
+  <h3>Order(s)</h3>
   <ion-accordion-group>
     <ion-accordion value="first">
       <ion-item slot="header" color="light">
-        <ion-label>First Accordion</ion-label>
+        <ion-label>Commande <span>1</span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        First Content
+        <h2>Additional</h2>
+        <div class="additional">
+          <ion-radio-group value="custom-checked">
+            <ion-radio value="end" labelPlacement="end" aria-label="Custom checkbox"> Plantain</ion-radio>
+          </ion-radio-group>
+          <div  class = "increment-additional">
+            <ion-button   color="blue" size="small" shape="circle" >
+              <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+            </ion-button>
+            <p>0</p>
+            <ion-button color="blue" size="small" shape="circle" >
+              <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+            </ion-button>
+          </div>
+          <h3>100 FRS CFA</h3>
+          <ion-button  expand="block" fill="outline" shape="round" size="small" color="blue" id="save-button">
+            Save
+          </ion-button>
+        </div>
       </div>
     </ion-accordion>
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
-        <ion-label>Second Accordion</ion-label>
+        <ion-label>Commande <span>2</span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         Second Content
@@ -55,7 +79,7 @@
     </ion-accordion>
     <ion-accordion value="third">
       <ion-item slot="header" color="light">
-        <ion-label>Third Accordion</ion-label>
+        <ion-label>Commande <span>3 </span></ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
         Third Content
