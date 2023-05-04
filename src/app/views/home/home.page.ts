@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
     this.route.navigate(['/all-grilling']);
   }
   gotoSearch(){
-    this.route.navigate(['/search']);
+    this.route.navigate(['/tabs/search']);
 
   }
 }

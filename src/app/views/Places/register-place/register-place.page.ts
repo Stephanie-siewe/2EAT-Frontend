@@ -51,13 +51,13 @@ export class RegisterPlacePage implements OnInit {
   choosePhoto() {}
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Choisir une option',
+      header: 'Choose an option',
       cssClass: 'my-custom-class',
       mode:'ios',
       animated: true,
       buttons: [
         {
-          text: 'Prendre une photo',
+          text: 'Take a picture',
           icon: 'camera',
           handler: async () => {
             const photo = await Camera.getPhoto({
@@ -71,7 +71,7 @@ export class RegisterPlacePage implements OnInit {
           },
         },
         {
-          text: 'Sélectionner une photo',
+          text: 'Select a picture',
           icon: 'image',
           handler: async () => {
             const photo = await Camera.getPhoto({
@@ -85,7 +85,7 @@ export class RegisterPlacePage implements OnInit {
           },
         },
         {
-          text: 'Annuler',
+          text: 'Cancel',
           icon: 'close',
           role: 'cancel',
         },

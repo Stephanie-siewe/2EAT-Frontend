@@ -3,10 +3,7 @@
     src: url('/assets/fonts/Montserrat-SemiBold.ttf');
   }
 
-  ion-toolbar {
-    --background: transparent;
-    --border-style:none;
-  } 
+
 .connection {
   position:absolute;
   top:40%;
@@ -17,8 +14,12 @@
 .connection>img{
   width: 100vw;
   height: 100vh;
+  margin-top: -166px;
 }
 
+.button{
+  padding-top: 0.6vh !important;
+}
 
 .connection~div{
 padding-top: 40vh;
@@ -31,9 +32,6 @@ font-family: 'Montserrat' !important;
 }
 
 .connection~div>h4{
-    font-size: 15px;
-    margin-top: 104px;
-}
-ion-button{
-    margin-top: 14px;
+  font-size:15px;
+  margin-top: 16px;
 }

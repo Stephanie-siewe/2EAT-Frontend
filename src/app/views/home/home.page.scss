@@ -60,25 +60,30 @@ ion-header{
 }
 .wrapper-card{
   max-height: 233px;
-  display: flex;
-  width: 590px;
-  overflow-x: auto;
-  margin-top: 67px;
-  padding: 2px 0px 0px 12px;
+    display: -webkit-inline-box;
+    /* width: 451px; */
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2px 0px 0px 12px;
+
 }
 ion-card{
   border-radius: 9px;
+  width: 28%;
 }
 .wrapper-card::-webkit-scrollbar {
   width: 0;
 }
 .pub{
-  max-height: 152px;
-  display: flex;
-  width: 1017px;
+  max-height: 233px;
+  display: -webkit-inline-box;
+  /* width: 451px; */
   overflow-x: auto;
-  margin-top: 10px;
+  white-space: nowrap;
   padding: 2px 0px 0px 12px;
+}
+.pub::-webkit-scrollbar {
+  width: 0;
 }
 ion-chip{
   font-size: x-small;
@@ -101,16 +106,17 @@ ion-card-subtitle{
   font-size: 9.29064px;
   line-height: 11px;
   letter-spacing: 0.03em;
+  text-transform: initial;
 }
 ion-chip > ion-label{
   margin-left: -6px;
 }
 .search-icon{
-  padding: 0px 150px;
-    margin-left: 147px;
-    margin-top: -35px;
-    width:25px;
-    height:25px;
+      /* padding: 0px 150px; */
+      margin-left: 280px;
+      margin-top: -54px;
+      width: 25px;
+      height: 25px;
 }
 .search-icon > ion-icon{
   --width: 23px;
@@ -137,5 +143,9 @@ letter-spacing: 0.002em;
 font-style: normal;
 font-weight: 500;
 font-size: 16px;
+margin-left: 70px;
 line-height: 130%;
+}
+.place-text{
+  margin-top: 48px;
 }

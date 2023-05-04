@@ -1,6 +1,9 @@
 ion-icon:hover{
     color:var(--ion-color-blue);
 }
-ion-icon{
-    color:var(--ion-color-orange);
+ion-label:hover{
+    color:var(--ion-color-blue);
+}
+ion-icon ,ion-label{
+    color:var(--ion-color-text-blue);
 }

@@ -6,6 +6,10 @@
   span{
     color: var(--ion-color-orange);
 }
+ion-toolbar {
+  --background: transparent;
+  --border-style:none;
+}
 ion-grid{
   margin-top: 2vh;
 }

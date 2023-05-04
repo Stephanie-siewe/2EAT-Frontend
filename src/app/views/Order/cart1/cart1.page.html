@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Cart</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button color="blue"></ion-back-button>
+      <ion-back-button color="dark" mode="md" icon="chevron-back-outline" ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -16,7 +16,7 @@
         <h4>Well, there is no item in your cart :( </h4>
       </div>
 
-      <ion-button  expand="block" color="blue" size="medium">
+      <ion-button  expand="block" color="blue" size="medium" (click)="gotocart()">
         Add item
       </ion-button>
 

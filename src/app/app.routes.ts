@@ -66,10 +66,25 @@ export const routes: Routes = [
     path: 'comments',
     loadComponent: () => import('./views/Grilling/comments/comments.page').then( m => m.CommentsPage)
   },
+
   {
     path: 'pwd',
     loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
   },
+  {
+    path: 'sucess-order',
+    loadComponent: () => import('./views/sucess-order/sucess-order.page').then( m => m.SucessOrderPage)
+  },
+  {
+    path: 'pwd',
+    loadComponent: () => import('./views/forgotPwd/pwd/pwd.page').then( m => m.PwdPage)
+  },
+  {
+    path: 'commandes',
+    loadComponent: () => import('./views/Order/commandes/commandes.page').then( m => m.CommandesPage)
+  },
+  
+
   
 
 ];

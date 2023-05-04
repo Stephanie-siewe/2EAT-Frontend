@@ -5,22 +5,22 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cart1',
-  templateUrl: './cart1.page.html',
-  styleUrls: ['./cart1.page.scss'],
+  selector: 'app-sucess-order',
+  templateUrl: './sucess-order.page.html',
+  styleUrls: ['./sucess-order.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class Cart1Page implements OnInit {
+export class SucessOrderPage implements OnInit {
 
   constructor(private route: Router) { }
 
   ngOnInit() {
   }
-  handleChange(event:any) {
-    const query = event.target.value.toLowerCase();
+  gotoCart(){
+    this.route.navigate(['/cart1']);
   }
-  gotocart(){
-    this.route.navigate(['/commandes']);
+  gotoHome(){
+    this.route.navigate(['/tabs/home']);
   }
 }

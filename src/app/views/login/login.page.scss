@@ -40,15 +40,15 @@ ion-item
     --background:var(--ion-color-blue-pale);
     --color:var(--ion-color-text-blue);
     --border-radius:10px;
-    margin-top:20px;
-    width: 314px;
+     margin-top:20px;
+     width: 314px;
     
 }
 #pwd{
     margin-top: 15px;
     text-decoration: underline;
     font-size: small;
-    text-transform: lowercase;
+    text-transform: initial;
 }
 ion-button{
     margin-top: 55px;
@@ -58,7 +58,7 @@ ion-button{
     margin-top: -10px;
     font-size: 12px;
     margin-left: -16px;
-    text-transform: none;
+    text-transform: initial;
 }
 #login-button{
    margin-top: -10px;
