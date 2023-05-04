@@ -16,5 +16,8 @@ export class PlacesListPage implements OnInit {
 
   ngOnInit() {
   }
+  onClick(){
+    
+  }
 
 }

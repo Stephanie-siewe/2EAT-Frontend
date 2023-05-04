@@ -8,10 +8,10 @@
 }
 ion-grid{
   margin-top: 2vh;
+  
 }
-
-  .login-header{
-    font-family: 'Montserrat-Regular' !important;
+ .login-header{
+  font-family: 'Montserrat-Regular' !important;
     text-align: center;
     color:var(--ion-color-blue);
     font-size:32px;
@@ -26,16 +26,22 @@ ion-grid{
     stroke: var(--ion-color-blue) solid;
     
 }
-
+@-webkit-keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate-center{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 .loading {
+
+  -webkit-animation:rotate-center .6s ease-in-out both;animation:rotate-center .6s ease-in-out both;
+ 
   position:absolute;
-  top:40%;
-  left:50%;
-  transform:translate(-50%,-50%);
+  top: 10%;
+  
+ // top:40%;
+ // left:50%;
+  //transform:translate(-50%,-50%);
+ // transform: translate(-70%, -30%);
 }
 
 .loading>img{
-  width: 100vw;
+ width: 100vw;
   height: 100vh;
 }
 
