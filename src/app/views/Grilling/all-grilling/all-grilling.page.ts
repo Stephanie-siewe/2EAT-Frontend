@@ -28,7 +28,7 @@ export class AllGrillingPage implements OnInit {
   gotoCart(){
     this.route.navigate(['/cart1']);
   }
-  gotoFastFoodList(){
+  gotoPlaceList(){
     this.route.navigate(['/places-list']);
   }
 }

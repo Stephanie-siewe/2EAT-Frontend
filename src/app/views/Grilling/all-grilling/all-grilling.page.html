@@ -5,12 +5,12 @@
       <ion-back-button color="dark" icon="chevron-back-outline"mode="md" ></ion-back-button>
     </ion-buttons>
     <ion-icon slot="end" name="bag-outline" (click)="gotoCart()" id="bag-outline"></ion-icon>
-    <ion-icon name="fast-food-outline" (click)="gotoFastFoodList()" slot="end" id="fast-food-outline"></ion-icon>
+    <ion-icon name="fast-food-outline" (click)="gotoPlaceList()" slot="end" id="fast-food-outline"></ion-icon>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Search places " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
+  <ion-searchbar aria-label="Medium input" placeholder="Search places " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
 
   <!--/***********row for the different categories*****/-->
   <div class="wrapper">

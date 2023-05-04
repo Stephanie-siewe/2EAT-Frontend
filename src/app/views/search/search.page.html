@@ -17,7 +17,7 @@
 <ion-label color="blue">
   <strong>  Search</strong>
 </ion-label>
-  <ion-searchbar placeholder="Search places " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
+  <ion-searchbar aria-label="Medium input" placeholder="Search places " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
 
 <div *ngIf="search === 0" >
   <div class="connection" >

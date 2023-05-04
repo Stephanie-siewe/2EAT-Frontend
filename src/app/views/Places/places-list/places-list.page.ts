@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-places-list',
@@ -12,12 +13,19 @@ import { IonicModule } from '@ionic/angular';
 })
 export class PlacesListPage implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
-  onClick(){
-    
+  gotoPlaceEdit(){
+    this.route.navigate(['/place-edit']);
   }
+  
+  public toastButtons = [
+    {
+      text: 'OK',
+      role: 'cancel',
+    }
+  ];
 
 }

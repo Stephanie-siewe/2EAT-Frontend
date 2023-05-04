@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loading',
@@ -11,10 +12,13 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoadingPage implements OnInit {
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
  
+  }
+  gotohome(){
+    this.route.navigate(['/tabs/home']);
   }
 
 }

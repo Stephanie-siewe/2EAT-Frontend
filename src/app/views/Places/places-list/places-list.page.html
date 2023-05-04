@@ -1,49 +1,54 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="dark" icon="chevron-back-outline" mode="md"></ion-back-button>
     </ion-buttons>
-    <ion-title>places_list</ion-title>
   </ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button color="black"></ion-back-button>
-  </ion-buttons>
 </ion-header>
 
 <ion-content [fullscreen]="true">
  <ion-list>
-  <ion-title>Places</ion-title>
-  <br>
+  <h3>Saved places</h3>
+  
   <ion-item>
     <ion-avatar slot="start">
       <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" />
     </ion-avatar>
-    <ion-label>Item Avatar
-      <p>location</p>
+    <ion-label>Chef Bouf
+      <p>Biyem-assi</p>
     </ion-label>
     
-    <ion-button (click)="onClick()" fill="clear">
-      <ion-icon slot="icon-only" name="pencil-outline"  ></ion-icon>
+    <ion-button (click)="gotoPlaceEdit()" fill="clear">
+      <ion-icon slot="icon-only" name="pencil-outline" color="blue"  ></ion-icon>
     </ion-button>
-    <ion-button (click)="onClick()" fill="clear">
-      <ion-icon slot="icon-only" name="trash" ></ion-icon>
+    <ion-button id="open-toast" fill="clear">
+      <ion-icon slot="icon-only" name="trash" color="blue" ></ion-icon>
     </ion-button>
   </ion-item>
   <ion-item>
     <ion-avatar slot="start">
       <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" />
     </ion-avatar>
-    <ion-label>Item Avatar
-      <p>location</p>
+    <ion-label>Soya Man
+      <p>Simbock</p>
     </ion-label>
     
-    <ion-button (click)="onClick()" fill="clear">
-      <ion-icon slot="icon-only" name="pencil-outline" ></ion-icon>
+    <ion-button (click)="gotoPlaceEdit()" fill="clear">
+      <ion-icon slot="icon-only" name="pencil-outline"color="blue" ></ion-icon>
     </ion-button>
-    <ion-button (click)="onClick()" fill="clear">
-      <ion-icon slot="icon-only" name="trash" ></ion-icon>
+    <ion-button id="open-toast" fill="clear">
+      <ion-icon slot="icon-only" name="trash" color="blue"></ion-icon>
     </ion-button>
   </ion-item>
  
  </ion-list>
+ 
+ <ion-toast
+ trigger="open-toast"
+ message="Place deleted Successfully !" 
+ [duration]="3000" 
+ [buttons]="toastButtons"
+ class="custom-toast"
+>
+</ion-toast>
 </ion-content>

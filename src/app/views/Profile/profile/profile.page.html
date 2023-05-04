@@ -7,7 +7,7 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col >
+      <ion-col  size="10" >
         <div class="login-header">
           <ion-header class="ion-no-border"><span>Grub</span>Hubber</ion-header>
        </div>
@@ -72,7 +72,7 @@
      -->
 
      <ion-grid>
-      <ion-row>
+      <ion-row (click)="gotoEditProfil()">
         <ion-col size="11">
           <h2>Edit Profile</h2>
         </ion-col>
@@ -90,21 +90,21 @@
         </ion-col>
       </ion-row>
 
-      <ion-row>
+      <ion-row (click)="gotoAddPlace()">
         <ion-col size="11">
-          <h2>Add A Place</h2>
+          <h2>Add a Place</h2>
         </ion-col>
         <ion-col>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <ion-col size="10">
-          <h2>Push notifications</h2>
+      <ion-row (click)="gotoPlaceList()">
+        <ion-col size="11">
+          <h2>Saved Places</h2>
         </ion-col>
         <ion-col>
-          <ion-toggle [checked]="true" mode="ios"></ion-toggle>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-col>
       </ion-row>
 
@@ -122,25 +122,6 @@
       
      </ion-grid>
     <h2 class="title">More</h2>
-
-
-    <!-- <ion-list>
-      
-      <ion-item>
-        <div class="subtitle">
-          <h2>About US</h2>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-      </ion-item>
-
-      <ion-item >
-        <div class="subtitle">
-          <h2>Privacy Policy</h2>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </div>
-      </ion-item>
-    </ion-list> -->
-
     <ion-grid>
       <ion-row>
         <ion-col size="11">
@@ -150,7 +131,7 @@
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-col>
       </ion-row>
-     <ion-row>
+     <ion-row >
         <ion-col size="11">
           <h2>Privacy Policy</h2>
         </ion-col>

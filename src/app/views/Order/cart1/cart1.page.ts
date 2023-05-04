@@ -12,15 +12,20 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class Cart1Page implements OnInit {
-
+cart :any;
+isModalOpen = false;
   constructor(private route: Router) { }
 
   ngOnInit() {
+    this.cart =1;
   }
   handleChange(event:any) {
     const query = event.target.value.toLowerCase();
   }
   gotocart(){
     this.route.navigate(['/commandes']);
+  }
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 }

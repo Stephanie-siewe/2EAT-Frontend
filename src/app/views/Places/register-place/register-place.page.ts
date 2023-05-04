@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { Router } from '@angular/router';
 // import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
@@ -18,9 +19,14 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class RegisterPlacePage implements OnInit {
-  constructor(public actionSheetController: ActionSheetController) {}
+  constructor(public actionSheetController: ActionSheetController, private route: Router ) {}
 
   ngOnInit() {}
+
+  gotoPlaceList(){
+    this.route.navigate(['/places-list'])
+  }
+
   addLastName() {
     this.presentActionSheet();
   }

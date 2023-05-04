@@ -1,9 +1,10 @@
-<!-- <ion-header [translucent]="true" >
+<ion-header >
   <ion-toolbar>
-      
-    <ion-title>Edit Profile</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+    <ion-buttons slot="start">
+      <ion-back-button color="white" icon="chevron-back-outline" mode="md"></ion-back-button>
+    </ion-buttons>
+    </ion-toolbar>
+</ion-header> 
 
 <ion-content [fullscreen]="true">
 <!-- <div>
@@ -21,9 +22,8 @@
   <img src="assets/images/user.png">
 </div> -->
 <div class="header" >
-  <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
-  </ion-buttons>
+
+  
   <h2>Edit Profile</h2>
 
   <!-- <div class="space-between">
@@ -127,7 +127,7 @@
         </ion-col> -->
 
         <ion-col size="12">
-          <ion-button expand="block"  type="submit"  size="medium"  class="signin-button" id="open-toast" >
+          <ion-button expand="block"  type="submit"  size="medium"  class="signin-button" id="open-toast" (click)="backtoSettings()">
             Update
           </ion-button>
         </ion-col>

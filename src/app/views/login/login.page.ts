@@ -23,8 +23,8 @@ export class LoginPage implements OnInit {
   gotoPwd(){
     this.route.navigate(['/pwd']);
   }
-  gotohome(){
-    this.route.navigate(['/tabs/home']);
+  gotoloading(){
+    this.route.navigate(['/loading']);
   }
 
 }

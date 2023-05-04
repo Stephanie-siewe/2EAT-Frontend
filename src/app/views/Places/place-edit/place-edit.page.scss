@@ -13,7 +13,13 @@ ion-label{
     color:black;
     font-weight: 600;
 }
-
+ion-toolbar {
+  --background: var(--ion-color-blue);
+  --border-style:none;
+}
+ion-header{
+  --border-style:none;
+}
 
 ion-input, ion-textarea, ion-select{
    border: 1px #C4C4C4 solid;
