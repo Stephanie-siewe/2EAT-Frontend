@@ -1,0 +1,46 @@
+ion-content{
+    --background:rgb(225, 214, 187);
+  
+
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+  }
+span{
+    color: var(--ion-color-orange);
+}
+small{
+    color:var(--ion-color-blue);
+    font-size: 12px;
+}
+
+
+.login-header{
+    font-family: 'Montserrat-Regular' !important;
+    text-align: center;
+    color:var(--ion-color-blue);
+    font-size:3rem;
+    font-weight: 400;
+    filter:drop-shadow(2px 2px 2px var(--ion-color-blue));
+    margin-top: 95px; 
+    letter-spacing: 0.75px;
+    line-height: 28px;
+    vertical-align: auto;
+    stroke: var(--ion-color-blue) solid;
+     
+}
+
+
+
+@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}
+.img{
+    -webkit-animation:slide-in-left .4s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left .4s cubic-bezier(.25,.46,.45,.94) both;
+    img{
+        height: 25rem;
+        margin-top: auto;
+       margin-left: auto;
+    }
+
+}

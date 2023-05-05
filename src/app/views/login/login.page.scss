@@ -41,7 +41,7 @@ ion-item
     --color:var(--ion-color-text-blue);
     --border-radius:10px;
      margin-top:20px;
-     width: 314px;
+     width: 100%;
     
 }
 #pwd{
@@ -62,4 +62,12 @@ ion-button{
 }
 #login-button{
    margin-top: -10px;
+}
+
+ ion-col{
+    width: 100%;
+}
+
+ion-input{
+    width: 70rem;
 }

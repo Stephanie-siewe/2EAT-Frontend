@@ -41,6 +41,14 @@ ion-item
     --color:var(--ion-color-text-blue);
     --border-radius:10px;
     margin-top:20px;
-    width: 314px;
+    width: 100%;
     
+}
+
+ion-col{
+    width: 100%;
+}
+
+ion-input{
+    width: 70rem;
 }

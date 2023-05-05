@@ -5,11 +5,11 @@ export const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: '',
+  //   redirectTo: '/login',
+  //   pathMatch: 'full',
+  // },
   {
     path: 'login',
     loadComponent: () => import('./views/login/login.page').then( m => m.LoginPage)
@@ -83,6 +83,11 @@ export const routes: Routes = [
     path: 'commandes',
     loadComponent: () => import('./views/Order/commandes/commandes.page').then( m => m.CommandesPage)
   },
+  {
+    path: 'splash',
+    loadComponent: () => import('./splash/splash.page').then( m => m.SplashPage)
+  },
+
   
 
   

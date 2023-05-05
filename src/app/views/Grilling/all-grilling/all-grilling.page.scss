@@ -10,7 +10,14 @@
     --border-style:none;
   } 
   #bag-outline{
-    margin-right: 24px;
+    margin-right: 1.2rem;
+    //size: 10rem;
+    scale: 1.5;
+  }
+  #fast-food-outline{
+    margin-right: 1.5rem;
+    scale: 1.5;
+
   }
 .wrapper {
     max-height: 120px;
@@ -36,10 +43,10 @@
     font-size: 12px;
 }
 ion-chip{
-    font-size: x-small;
-    margin-left: 87px;
-    margin-top: -32px;
-    font-weight: 700;
+     font-size: x-small;
+    // margin-left: 11rem;
+    // margin-top: -4rem;
+     font-weight: 700;
   }
   ion-card-title{
     padding: 3px 5px;

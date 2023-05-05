@@ -27,15 +27,20 @@
     <!--/***********row for the text and search icon*****/-->
 
     <ion-row class="choose">
-      <ion-col size="auto">
-        <ion-label color="blue">
+      <ion-col>
+       <div class="flex1" >
+        <!-- <ion-label color="blue"  class="label-search" >
           Choose a Category
-        </ion-label>
-      </ion-col>
-      <ion-col size="auto" class="search-icon">
-        <ion-button expand="block" fill="clear" color="blue"  (click)="gotoSearch()" size="large">
+        </ion-label> -->
+      <!-- </ion-col>
+      <ion-col size="auto" class="search-icon"> -->
+        <ion-text color="blue"   class="label-search" >
+          <h5> Choose a Category</h5>
+        </ion-text>
+        <ion-button expand="block" fill="clear" color="blue"  (click)="gotoSearch()" size="large" class="search-icon">
           <ion-icon slot="end" name="search" ></ion-icon>
         </ion-button>
+       </div>
       </ion-col>
     </ion-row>
 
@@ -96,7 +101,7 @@
       <ion-card>
         <img src="assets/images/place1.jpg" alt="photo de omar">
         <ion-card-title>Chez Ali</ion-card-title>
-        <ion-card-subtitle color="black">Nkolbisson </ion-card-subtitle>
+        <ion-card-subtitle color="black" > Nkolbisson </ion-card-subtitle>
         <ion-chip color="gray" mode="ios" >
           <ion-icon name="star" color="warning"></ion-icon>
           <ion-label color="dark">4.8 </ion-label>
@@ -106,7 +111,9 @@
         <img src="assets/images/place3.jpg" alt="photo de mozzarella">
         <ion-card-title>Makala</ion-card-title>
         <ion-card-subtitle color="black">Jouvence </ion-card-subtitle>
+        
         <ion-chip color="gray" mode="ios">
+         
           <ion-icon name="star" color="warning"></ion-icon>
           <ion-label color="dark">1.8 </ion-label>
         </ion-chip>

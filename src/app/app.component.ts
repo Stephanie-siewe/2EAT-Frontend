@@ -3,6 +3,7 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { Router } from '@angular/router';
 
 register();
 
@@ -16,6 +17,13 @@ register();
 export class AppComponent {
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor() {}
+  constructor(public route:Router) {
+
+    this.initapp();
+  }
+
+  initapp(){
+    this.route.navigateByUrl('splash');
+  }
  
 }
