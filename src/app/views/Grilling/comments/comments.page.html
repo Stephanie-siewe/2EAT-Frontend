@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button color="dark" mode="md" icon="chevron-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title color="blue" >Comments</ion-title>
   </ion-toolbar>
@@ -24,7 +24,7 @@
     </ion-item>
     
     <ion-button size="small" fill="clear" (click)="onClick()">
-      <ion-icon name="return-down-forward-outline"></ion-icon> 116
+      <ion-icon name="return-down-forward-outline"></ion-icon> Reply
     </ion-button>
     <ion-button size="small" fill="clear" (click)="onClick()">
       <ion-icon name="heart-outline"></ion-icon> 210
@@ -48,7 +48,7 @@
   </ion-item>
   
   <ion-button size="small" fill="clear" (click)="onClick()">
-    <ion-icon name="return-down-forward-outline"></ion-icon> 116
+    <ion-icon name="return-down-forward-outline"></ion-icon> Reply
   </ion-button>
   <ion-button size="small" fill="clear" (click)="onClick()">
     <ion-icon name="heart-outline"></ion-icon> 210
@@ -70,29 +70,29 @@
     </ion-item>
    
     <ion-button size="small" fill="clear" (click)="onClick()">
-      <ion-icon name="return-down-forward-outline"></ion-icon> 116
+      <ion-icon name="return-down-forward-outline"></ion-icon> Reply
     </ion-button>
     <ion-button size="small" fill="clear" (click)="onClick()">
       <ion-icon name="heart-outline"></ion-icon> 210
     </ion-button>
   </ion-card>
  
-   <!-- <ion-card>
-    <input type="text" placeholder="your comment">
-   </ion-card> -->
-   <ion-footer>
-    <ion-card>
-      <input type="text" placeholder="your comment">
-     </ion-card>
-   </ion-footer>
-    
- 
+
 </ion-content>
-<!-- <ion-footer>
- <input type="text" placeholder="your comment">
-</ion-footer> -->
-<!-- <ion-footer>
-  <ion-card>
-    <input type="text" placeholder="your comment">
-   </ion-card>
- </ion-footer> -->
+
+<ion-footer>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="10">
+          <ion-input  aria-label="Medium input" type="text"  placeholder="  Enter your comment"></ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button   color="blue" size="small" shape="circle" >
+            <ion-icon name="send" slot="icon-only" ></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+ </ion-footer>
+  

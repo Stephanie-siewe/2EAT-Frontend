@@ -37,3 +37,50 @@ font-family: 'Montserrat' !important;
 ion-button{
     margin-top: 14px;
 }
+
+ion-list{
+  ion-label{
+    margin-left: 12px;
+  }
+  ion-thumbnail{
+    --border-radius: 6px;
+    //width: 102%;
+   // height: 102%;
+  }
+  h3{
+    font-size: medium;
+    font-weight: 600;
+    letter-spacing: 0.002em;
+    line-height: 130%;
+    margin: 21px 22px;
+    text-transform: initial;
+  
+  }
+}
+ion-modal{
+  ion-thumbnail{
+    --border-radius: 6px;
+    //width: 102%;
+   // height: 102%;
+  }
+  hr{
+    border: 0.5px solid #B3B3B3;
+//width: 371px;
+  } 
+  ion-label{
+    letter-spacing: 0.02em;
+  }
+  p{
+    letter-spacing: 0.02em;
+  }
+  ion-icon{
+    position: absolute;
+    bottom: 38%;
+    left: -30%;
+  }
+  .modal-label{
+    font-size: medium;
+    font-weight: 700;
+    
+  }
+}

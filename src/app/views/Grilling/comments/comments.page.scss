@@ -12,7 +12,9 @@ ion-title{
     font-size: 6vw;
     font-family: 'Montserrat-Medium';
 }
-
+ion-toolbar {
+    --background: transparent;
+  } 
 
 .header {
     background-color: #2196F3;
@@ -81,8 +83,17 @@ ion-title{
 img{
     font-size: 3rem;
 }
-input{
-   // width: 23rem;
-   // max-width: max-content;
-   width: 100%;
-}
+
+ion-input{
+    border: 1px #C4C4C4 solid;
+ //    margin-left:1vw;
+ //    margin-right: 100vw;   
+    border-radius: 8px; 
+ }
+ ion-button[shape=circle]{
+    --border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    /*margin: auto;
+    margin-right: 12px;*/
+  }

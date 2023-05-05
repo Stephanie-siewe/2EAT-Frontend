@@ -1,9 +1,10 @@
-<!-- <ion-header [translucent]="true" >
+<ion-header>
   <ion-toolbar>
-      
-    <ion-title>Edit Place</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="white" icon="chevron-back-outline" mode="md"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content [fullscreen]="true">
   <!-- <div>
@@ -72,7 +73,7 @@
         </ion-row>
         <ion-row>
           <ion-col >
-            <ion-input  type="text"></ion-input>
+            <ion-input  type="text" aria-label="Medium input" placeholder="  Enter the place name"></ion-input>
     
         </ion-col>
         </ion-row>
@@ -85,7 +86,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-select class="select_location">
+            <ion-select class="select_location" >
               <ion-select-option value="Paris">Mendong</ion-select-option>
               <ion-select-option value="Londres">Odza</ion-select-option>
               <ion-select-option value="New York">Meec</ion-select-option>
@@ -102,7 +103,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-textarea  placeholder="your description" ></ion-textarea>
+            <ion-textarea aria-label="Medium input" placeholder="  Your description" ></ion-textarea>
             <!-- <ion-input  type="text"></ion-input> -->
     
         </ion-col>
@@ -121,7 +122,7 @@
           </ion-col> -->
   
           <ion-col size="12">
-            <ion-button expand="block"  type="submit"  size="medium"  class="signin-button" id="open-toast" >
+            <ion-button expand="block"  type="submit"  size="medium"  class="signin-button" (click)="gotoSettings()">
               Update
             </ion-button>
           </ion-col>
@@ -131,5 +132,6 @@
   
     </form>
   </div>
+
   </ion-content>
   

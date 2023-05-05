@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
-
+<div class="container" *ngIf="cart === 0">
   <div class="connection">
     <img src="assets/images/bag.svg">
   </div>
@@ -19,7 +19,112 @@
       <ion-button  expand="block" color="blue" size="medium" (click)="gotocart()">
         Add item
       </ion-button>
+</div>
 
-
- 
+  <div  *ngIf="cart === 1">
+    <ion-list>
+      <h3>My Cart</h3>
+      
+      <ion-item>
+        <ion-thumbnail>
+          <img src="assets/images/mozzarella.jpg" />
+        </ion-thumbnail>
+        <ion-label>Riz sauté
+          <p>Jeff store</p>
+          <p><small>Nkolbisson</small></p>
+        </ion-label>
+        
+       <ion-button  fill="clear" (click)="setOpen(true)" id="see" >
+          <ion-icon slot="icon-only" name="eye" color="blue" ></ion-icon>
+        </ion-button>
+         <!--<ion-button id="open-toast" fill="clear">
+          <ion-icon slot="icon-only" name="trash" color="blue" ></ion-icon>
+        </ion-button>-->
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail>
+          <img src="assets/images/mozzarella.jpg" />
+        </ion-thumbnail>
+        <ion-label>Poulet Roti
+          <p>Chez Mami</p>
+          <p><small>Nkolbisson</small></p>
+        </ion-label>
+        
+       <ion-button  fill="clear"  (click)="setOpen(true)" id="see">
+          <ion-icon slot="icon-only" name="eye"color="blue"></ion-icon>
+        </ion-button>
+         <!--<ion-button id="open-toast" fill="clear">
+          <ion-icon slot="icon-only" name="trash" color="blue"></ion-icon>
+        </ion-button>-->
+      </ion-item>
+     
+     </ion-list>
+  </div>
 </ion-content>
+<!------------------see order details --------------------------------->
+<ion-modal 
+[isOpen]="isModalOpen" 
+#modal
+trigger="see"
+[initialBreakpoint]="0.5"
+>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)" color="blue">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <ion-label class="modal-label">Details</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-thumbnail>
+              <img src="assets/images/mozzarella.jpg" />
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-label>Poulet Roti
+              <p>Chez Mami</p>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-icon name="location" color="blue"></ion-icon>
+          </ion-col>
+          <ion-col size="4">
+            <p>Nkolbisson</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto">
+            <ion-icon name="time" color="blue"></ion-icon>
+          </ion-col>
+          <ion-col size="4">
+            <p>11 h 00</p>
+          </ion-col>
+        </ion-row>
+        <hr/>
+        <ion-row>
+          <ion-col size="2">
+            <p>Prix</p>
+          </ion-col>
+          <ion-col size="10">
+            <p><strong>1000 FRS CFA</strong></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Add place</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" icon="chevron-back-outline" mode="md"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -21,8 +24,9 @@
             <div class="div-flex1">
               <ion-input
                 type="text"
-                placeholder="Location's name "
+                placeholder="  Location's name "
                 class="input-name"
+                aria-label="Medium input"
               ></ion-input>
               <ion-button (click)="presentActionSheet()" fill="clear"
                 ><ion-icon slot="end" name="camera" color="blue"></ion-icon
@@ -41,8 +45,9 @@
               
               <ion-input
                 type="tel"
-                placeholder="Location's phone number "
+                placeholder="  Location's phone number "
                 class="input-name"
+                aria-label="Medium input"
               ></ion-input>
             
             </div>
@@ -86,7 +91,7 @@
               value="Name"
               class="input-description"
             ></ion-input> -->
-            <ion-textarea  placeholder="your description" ></ion-textarea>
+            <ion-textarea  aria-label="Medium input" placeholder="  Description" ></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -166,7 +171,7 @@
 
       <ion-row>
         <ion-col>
-          <ion-button type="submit" expand="block" id="save-button"  size="medium">Save</ion-button>
+          <ion-button type="submit" expand="block" id="save-button"  size="medium" (click)="gotoPlaceList()">Save</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

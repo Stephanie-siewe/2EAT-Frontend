@@ -109,7 +109,7 @@ dishForm:FormGroup;
   }
 /***************************Add to cart *************** */
 addtoCart(){
-  this.route.navigate(['/cart1']);
+  this.route.navigate(['/commandes']);
 }
   /*******************Routes************************ */
   CommentsPage(){
