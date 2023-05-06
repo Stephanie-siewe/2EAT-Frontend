@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { PhotoService } from 'src/app/Services/photo.service';
 import { Router } from '@angular/router';
 // import { Camera } from '@ionic-native/camera/ngx';
 
@@ -19,7 +20,7 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class RegisterPlacePage implements OnInit {
-  constructor(public actionSheetController: ActionSheetController, private route: Router ) {}
+  constructor(public actionSheetController: ActionSheetController, private route: Router,public photoService: PhotoService ) {}
 
   ngOnInit() {}
 
@@ -101,5 +102,9 @@ export class RegisterPlacePage implements OnInit {
     await actionSheet.present();
   }
 
+  /*****************AddPhotoToGallery******************** */
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
+  }
 }
 

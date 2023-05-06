@@ -51,13 +51,16 @@
         
         <div class="img-box">
           
-          <img src="assets/images/me.jpg">
+          <img src="assets/images/me.jpg" *ngIf="image === ''">
+
+          <img [src]=" image" *ngIf="image !== ''">
+          
         </div>
       </div>
     </div>
     <!-- <ion-badge mode="ios" slot="end"><ion-icon color="blue"  name="camera"></ion-icon></ion-badge> -->
   </div>
-  <ion-badge mode="ios" color="write" slot="end"><ion-icon  name="camera"></ion-icon></ion-badge>
+  <ion-badge mode="ios" color="write" slot="end"><ion-icon  name="camera" (click)="addPhotoToGallery()" ></ion-icon></ion-badge>
    
 </div> 
 <div class ="login-form">
@@ -132,7 +135,12 @@
           </ion-button>
         </ion-col>
       
-        
+        <ion-row>
+          <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+            <ion-img [src]="photo.webviewPath"></ion-img>
+          </ion-col>
+        </ion-row>
+
     </ion-grid>
 
   </form>
