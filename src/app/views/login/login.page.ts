@@ -26,5 +26,9 @@ export class LoginPage implements OnInit {
   gotoloading(){
     this.route.navigate(['/loading']);
   }
+  gotohome(){
+    this.route.navigate(['/tabs/home']);
+
+  }
 
 }

@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Router } from '@angular/router';
+import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
 // import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
@@ -19,7 +20,9 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class RegisterPlacePage implements OnInit {
-  constructor(public actionSheetController: ActionSheetController, private route: Router ) {}
+  constructor(public actionSheetController: ActionSheetController, 
+    private route: Router,
+    private modalcontroller:ModalController ) {}
 
   ngOnInit() {}
 
@@ -31,30 +34,35 @@ export class RegisterPlacePage implements OnInit {
     this.presentActionSheet();
   }
   onSubmit() {}
-  // async presentActionSheet() {
-  //   const actionSheet = await this.actionSheetController.create({
-  //   header: 'Albums',
-  //   cssClass: 'actionsheet-button',
-  //   buttons: [{
-
-  //     role: 'destructive',
-  //     icon: 'camera',
-  //     handler: () => { console.log('Delete clicked'); }
-  //     }, {
-
-  //     icon: 'image'
-  //     ,
-  //     handler: () => { console.log('Share clicked'); }
-  //     }
-  //     ] // C’EST DANS CE TABLEAU QUE L’ON DEFINIT LES ACTIONS
-  //   });
-  //   await actionSheet.present();
-  //   const { role } = await actionSheet.onDidDismiss();
-  //   console.log('onDidDismiss resolved with role', role);
-  //   }
+ 
 
   takePhoto() {}
   choosePhoto() {}
+
+  async openOptionSelection() {
+    const modal = await this.modalcontroller.create({
+      component: OptionscameraPage,
+      cssClass: 'transparent-modal'
+    });
+    modal.onDidDismiss()
+    .then(res => {
+      console.log(res);
+      if (res.role !== 'backdrop') {
+        this.takePicture(res.data);
+      }
+    });
+    return await modal.present();
+  }
+  async takePicture(type:any) {
+    const photo = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera,
+    });
+    // this.photo = image.webPath;
+  
+  }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Choose an option',

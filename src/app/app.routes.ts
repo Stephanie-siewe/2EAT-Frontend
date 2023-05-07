@@ -86,7 +86,11 @@ export const routes: Routes = [
   {
     path: 'splash',
     loadComponent: () => import('./splash/splash.page').then( m => m.SplashPage)
+  },  {
+    path: 'optionscamera',
+    loadComponent: () => import('./views/optionscamera/optionscamera.page').then( m => m.OptionscameraPage)
   },
+
 
   
 

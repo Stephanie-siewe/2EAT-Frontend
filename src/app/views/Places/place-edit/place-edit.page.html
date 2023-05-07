@@ -3,7 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button color="white" icon="chevron-back-outline" mode="md"></ion-back-button>
     </ion-buttons>
-  </ion-toolbar>
+   <h2>Edit Place</h2>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -22,10 +23,10 @@
     <img src="assets/images/user.png">
   </div> -->
   <div class="header" >
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <h2>Edit Place</h2>
+    <h2>Edit Place</h2> -->
   
     <!-- <div class="space-between">
       <div class="followings">
@@ -43,21 +44,24 @@
   <div>
     <div class="flex">
       <!-- <ion-button (click)="onClick()" fill="clear" >
-        <ion-icon slot="icon-only" name="camera"></ion-icon>
-      </ion-button> -->
-      <div >
-        
+      <ion-icon slot="icon-only" name="camera"></ion-icon>
+    </ion-button> -->
+      
         <div class="border-white">
-          
           <div class="img-box">
-            
-            <img src="assets/images/me.jpg">
-          
+            <img src="assets/images/me.jpg" />
+            <!-- <div  class="outer" ><ion-icon name="camera" class="camera-icon"   ></ion-icon
+              ></div> -->
           </div>
+          <div  class="outer"  ><ion-button (click)="openOptionSelection()" expand="block" fill="clear" shape="round">
+            <ion-icon name="camera" class="camera-icon"  color="blue" ></ion-icon
+              >
+          </ion-button></div>
         </div>
-      </div>
+      
+      <!-- <ion-badge mode="ios" slot="end"><ion-icon color="blue"  name="camera"></ion-icon></ion-badge> -->
     </div>
-    <ion-badge mode="ios" color="write" slot="end"><ion-icon  name="camera"></ion-icon></ion-badge>
+  
   </div>
   
     
