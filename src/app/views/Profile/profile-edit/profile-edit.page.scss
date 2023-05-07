@@ -1,141 +1,141 @@
 @font-face {
-    font-family: 'Montserrat';
-    src: url('/assets/fonts/Montserrat-SemiBold.ttf');
-  }
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-SemiBold.ttf');
+}
 
-  @font-face {
-    font-family: 'Montserrat-Medium';
-    src: url('/assets/fonts/Montserrat-Medium.ttf');
-  }
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('/assets/fonts/Montserrat-Medium.ttf');
+}
 ion-label{
-    font-size: 4vw;
-    font-family: 'Montserrat-Medium';
-    color:black;
-    font-weight: 600;
+  font-size: 4vw;
+  font-family: 'Montserrat-Medium';
+  color:black;
+  font-weight: 600;
 }
 ion-toolbar {
-  --background:var(--ion-color-blue);
-  --border-style:none;
+--background:var(--ion-color-blue);
+--border-style:none;
 } 
 
 
 ion-input{
-   border: 1px #C4C4C4 solid;
+ border: 1px #C4C4C4 solid;
 //    margin-left:1vw;
 //    margin-right: 100vw;   
-   border-radius: 8px; 
+ border-radius: 8px; 
 }
 
 // 
 ion-col>ion-button{
-    --background:var(--ion-color-blue);
-    
+  --background:var(--ion-color-blue);
+  
 }
 
 
 .header {
-  --background:var(--ion-color-blue);
-  background-color:#5861A1;
-  height: 130px;
-  padding-top: 1px;
+--background:var(--ion-color-blue);
+background-color:#5861A1;
+height: 130px;
+padding-top: 1px;
 }
 ion-toolbar > h2 {
-  color: white;
-  font-weight: bold;
-  text-align: center;
+color: white;
+font-weight: bold;
+text-align: center;
 }
 .space-between {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px 0px 10px;
+display: flex;
+justify-content: space-between;
+padding: 10px 10px 0px 10px;
 }
 
 .followings {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 .followings p {
-  color: white;
-  margin: 8px 0px 0px 0px;
+color: white;
+margin: 8px 0px 0px 0px;
 }
 
 .camera-icon {
-  height: 30px;
-  width: 30px;
- // color: white;
+height: 30px;
+width: 30px;
+// color: white;
 }
 
 
 .img-box {
-  height: 130px;
-  width: 130px;
-  border-radius: 50%;
-  overflow: hidden;
+height: 130px;
+width: 130px;
+border-radius: 50%;
+overflow: hidden;
 
-  // width: 100% !important;
-  // height: 100% !important;
-  // max-width: 150px !important; /* any size */
-  // max-height: 150px !important; /* any size */
-  // margin: auto;
-  // border-radius: 100%;
-  // position: relative;
-  // background-size: 150px 150px;
+// width: 100% !important;
+// height: 100% !important;
+// max-width: 150px !important; /* any size */
+// max-height: 150px !important; /* any size */
+// margin: auto;
+// border-radius: 100%;
+// position: relative;
+// background-size: 150px 150px;
 }
 .border-white {
-  //border: 4px solid white;
-  border-radius: 50%;
-  width: fit-content;
+//border: 4px solid white;
+border-radius: 50%;
+width: fit-content;
 
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 150px !important; /* any size */
-  max-height: 150px !important; /* any size */
-  margin: auto;
-  
-  border-radius: 100%;
-  position: relative;
-  background-size: 150px 150px;
+width: 100% !important;
+height: 100% !important;
+max-width: 150px !important; /* any size */
+max-height: 150px !important; /* any size */
+margin: auto;
+
+border-radius: 100%;
+position: relative;
+background-size: 150px 150px;
 }
 .border-blue {
-  border: 7px solid #5861A1;
-  border-radius: 50%;
-  width: fit-content;
+border: 7px solid #5861A1;
+border-radius: 50%;
+width: fit-content;
 }
 .flex {
-  display: flex;
-  justify-content: center;
-  margin-top: -76px;
+display: flex;
+justify-content: center;
+margin-top: -76px;
 }
 .outer{
 
-  width: 45px;
-  height: 45px;
-  border-radius: 100%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 45px;
+height: 45px;
+border-radius: 100%;
+position: absolute;
+bottom: 0;
+right: 0;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .outer>ion-button{
-  margin-left: -1rem;
+margin-left: -1rem;
 }
 
 ion-badge{
-   //height: 1rem;
-  // margin-top: 5rem;
-  //  margin-left: 19.7rem;
-  //  margin-top: -22rem;
-    margin-left: 14.8rem;
-    padding-top: -5rem;
-  //  padding-bottom: 4.5rem;
-  //  max-height: 0.3rem;
-   position: fixed;
-   
-  // position: fixed;
-  
+ //height: 1rem;
+// margin-top: 5rem;
+//  margin-left: 19.7rem;
+//  margin-top: -22rem;
+  margin-left: 14.8rem;
+  padding-top: -5rem;
+//  padding-bottom: 4.5rem;
+//  max-height: 0.3rem;
+ position: fixed;
+ 
+// position: fixed;
+
 }
 ion-icon{
 font-size: 28px;
