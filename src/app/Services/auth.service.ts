@@ -22,15 +22,12 @@ export class AuthService {
   constructor(private _http:HttpClient) { }
 
 
-  async save(user:User){
+  async save(user:any){
     return this._http.post(this.baseUrl.url+"/registration",user,this.baseUrl.httOptions).toPromise()
   }
 
-  async login(data:any){
-    this._http.post(this.baseUrl.url+"/login",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-    });
+  login(data:any){
+    return this._http.post(this.baseUrl.url+"/login",data,this.baseUrl.httOptions);
   }
   async changeInfos(data:any){
     this._http.post(this.baseUrl.url+"/user/changeinfo",data,this.baseUrl.httOptions).toPromise().then((el)=>{

@@ -9,31 +9,52 @@
   </div>
 
   <div class ="login-form">
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="sign()">
+      <div *ngIf="er==true">
+       {{messageErrorApi}}
+      </div>
       <ion-grid fixed>
+      
         <ion-row>
 
-          <ion-col  size="auto">
+          <ion-col  size="auto" >
+           <div *ngIf="registerForm.get('email')?.invalid && ((registerForm.get('email')?.dirty) || registerForm.get('email')?.touched)">
+            <div *ngIf="registerForm.get('email')?.errors?.['required']" color="danger"> Email is required</div>
+            <div *ngIf="registerForm.get('email')?.errors?.['email']" color="danger">Email is not valid</div>
+           </div>
             <ion-item lines="none">
-              <ion-input aria-label="Medium input"  required  type="text" label="Email"></ion-input>
+              <ion-input aria-label="Medium input"  required  type="text" label="Email" formControlName="email"></ion-input>
             </ion-item>
           </ion-col>
 
           <ion-col  size="auto">
+            <div *ngIf="registerForm.get('username')?.invalid && ((registerForm.get('username')?.dirty) || registerForm.get('username')?.touched)">
+              <div *ngIf="registerForm.get('username')?.errors?.['required']" color="danger"> Username is required</div>
+              <!-- <div *ngIf="registerForm.get('username')?.errors?.['email']">Email is not valid</div> -->
+             </div>
+             
             <ion-item lines="none">
-              <ion-input aria-label="Medium input" required type="text" label="Username" ></ion-input>
+              <ion-input aria-label="Medium input" required type="text" label="Username" formControlName="username"></ion-input>
             </ion-item >
           </ion-col>
 
           <ion-col  size="auto">
+            <div *ngIf="registerForm.get('password')?.invalid && ((registerForm.get('password')?.dirty) || registerForm.get('password')?.touched)">
+              <div *ngIf="registerForm.get('password')?.errors?.['required']" color="danger"> Password is required</div>
+              <div *ngIf="registerForm.get('password')?.errors?.['minlength']" color="danger">Password has minlength of 6</div>
+             </div>
             <ion-item lines="none">
-              <ion-input required  aria-label="Medium input" type="text" label="Password" maxlength="6" ></ion-input>
+              <ion-input required  aria-label="Medium input" type="text" label="Password" minlength="6" formControlName="password"></ion-input>
             </ion-item >
           </ion-col>
 
           <ion-col size="auto">
+            <div *ngIf="registerForm.get('confirm_password')?.invalid && ((registerForm.get('confirm_password')?.dirty) || registerForm.get('confirm_password')?.touched)">
+              <div *ngIf="registerForm.get('confirm_password')?.errors?.['required']" color="danger"> Confirmation of Password is required</div>
+              <div *ngIf="registerForm.get('confirm_password')?.errors?.['passwordMismatch']"color="danger">Confirmation of Password and Password have not a same</div>
+             </div>
             <ion-item lines="none">
-              <ion-input required aria-label="Medium input" type="text" label="Confirm Password" maxlength="6" ></ion-input>
+              <ion-input required aria-label="Medium input" type="text" label="Confirm Password" minlength="6" formControlName="confirm_password"></ion-input>
             </ion-item >
           </ion-col>
 
@@ -51,11 +72,11 @@
     <div>
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="auto">
+          <ion-col size="auto" >
             <small>Already have an account?</small>
           </ion-col>
-          <ion-col size="auto">
-            <ion-button  expand="block" fill="clear" color="orange" id="sign-up" (click)="login()">
+          <ion-col size="auto" (click)="login()">
+            <ion-button  expand="block" fill="clear" color="orange" id="sign-up" type="submit" >
               <span>Sign in</span> 
              </ion-button>
           </ion-col>

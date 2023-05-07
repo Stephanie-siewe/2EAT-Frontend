@@ -8,12 +8,15 @@
   </div>
 
   <div class="login-form">
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div *ngIf="er==true">
+        {{messageErrorApi}}
+       </div>
       <ion-grid fixed>
         <ion-row>
           <ion-col size="auto">
             <ion-item lines="none">
-              <ion-input aria-label="Medium input" required  type="text" label="Email"></ion-input>
+              <ion-input aria-label="Medium input" required  type="text" label="Email or Username" formControlName="username"></ion-input>
             </ion-item>
           </ion-col>
 
@@ -38,7 +41,7 @@
         <ion-row>
           <ion-col size="auto">
             <ion-item lines="none">
-              <ion-input required type="text" label="Password"></ion-input>
+              <ion-input required type="text" label="Password" formControlName="password"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -63,7 +66,7 @@
               shape="round"
               size="medium"
               id="login-button"
-              (click)="gotohome()"
+             
             >
               Login
             </ion-button>
