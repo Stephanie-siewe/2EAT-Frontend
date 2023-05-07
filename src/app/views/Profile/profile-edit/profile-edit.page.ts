@@ -6,6 +6,12 @@ import { Router } from '@angular/router';
 import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
 
 import { CameraResultType, CameraSource } from '@capacitor/camera';
+import { HttpClientModule } from '@angular/common/http';
+import { Profile } from 'src/app/class/profile';
+import { PhotoService } from 'src/app/Services/photo.service';
+
+
+
 
 
 @Component({
@@ -13,19 +19,35 @@ import { CameraResultType, CameraSource } from '@capacitor/camera';
   templateUrl: './profile-edit.page.html',
   styleUrls: ['./profile-edit.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule]
 })
 export class ProfileEditPage implements OnInit {
-
-  constructor(private route: Router,
+  image: any = '';
+  person: Profile = new Profile(); 
+  isUpload = false;
+  constructor(private route: Router, public photoService: PhotoService,
     public modalcontroller:ModalController) { }
 
   ngOnInit() {
+    this.image= '';
   }
+  
   backtoSettings(){
     this.route.navigate(['/tabs/profile'])
   }
-  photo = "https://i.pravatar.cc/150"
+/***************updateProfile**********************/
+  updateProfile(person: Profile){
+    
+  }
+  /*****************AddPhotoToGallery******************** */
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery().then(
+      data => {
+        this.image = data;
+        console.log("data is "+ data);
+      }
+    );
+  }
 
   
     async openOptionSelection() {

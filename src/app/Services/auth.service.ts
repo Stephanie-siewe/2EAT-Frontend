@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseUrl } from '../class/base-url';
 
+
 export interface User{
   username:string
   email:string
