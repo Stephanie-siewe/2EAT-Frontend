@@ -45,6 +45,7 @@ export class LoginPage implements OnInit {
     console.log('user',userData);
     this.auth.login(userData).subscribe(res=>{
         this.er = false
+        localStorage.setItem('name',userData.username);
         console.log('response',res);
         this.gotohome()
     },err=>{

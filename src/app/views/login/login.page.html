@@ -9,7 +9,7 @@
 
   <div class="login-form">
     <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <div *ngIf="er==true">
+      <div *ngIf="er===true">
         {{messageErrorApi}}
        </div>
       <ion-grid fixed>
