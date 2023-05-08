@@ -22,12 +22,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
     IonicModule.forRoot({}),
     HttpClientModule,
-    FormsModule,
-    IonicStorageModule.forRoot({
-      name:'2eatbd',
-      driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB]
-      }),
-      
+    FormsModule
+   
     ),
     provideRouter(routes),
     
