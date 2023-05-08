@@ -22,11 +22,11 @@ export class HttpServiceService {
   }
 
   async listPlaces(){
-    return this._http.get(this.baseUrl.url+"/place/placesimple",this.baseUrl.httOptions).toPromise();
+    return this._http.get(this.baseUrl.url+"/place/placesimple/",this.baseUrl.httOptions).toPromise();
   }
 
   async listPlacesWithNote(){
-    return this._http.get(this.baseUrl+"/place/listNotePlace",this.baseUrl.httOptions).toPromise();
+    return this._http.get(this.baseUrl+"/place/listnoteplace/",this.baseUrl.httOptions).toPromise();
   }
 
   async getPlace(id:number){

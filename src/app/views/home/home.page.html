@@ -40,8 +40,8 @@
     </ion-row>
 
     <!--/***********row for the different categories*****/-->
-    <div class="wrapper" *ngFor="let cate of categorie">
-      <div class="item">
+    <div class="wrapper" >
+      <div class="item" *ngFor="let cate of categorie">
         <h6 (click)="goToDinner(cate)"> {{cate.name}}</h6>
       </div>
       <!--<div class="item">

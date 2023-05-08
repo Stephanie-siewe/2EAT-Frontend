@@ -14,37 +14,32 @@
 
   <!--/***********row for the different categories*****/-->
   <div class="wrapper">
-    <div class="item">
-      <h6 (click)="goToDinner()"> Fast-food</h6>
+    <div class="item" *ngFor="let cate of categorie">
+      <h6 (click)="goToDinner()"> {{cate.name}}</h6>
     </div>
-    <div class="item">
-      <h6>Street-food</h6>
-    </div>
-    <div class="item">
-      <h6>Cafeteria</h6>
-    </div>
-    <div class="item">
-      <h6>Café-Resto</h6>
-    </div>
-    <div class="item">
-      <h6>Classic Restaurant</h6>
-    </div>
-    <div class="item">
-      <h6>Traditional meals</h6>
-    </div>
+    
   </div>
 
   <div>
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="6">
-          <ion-card (click)="gotoDetails(places.id)">
-            <ion-img [src]=places.picture></ion-img>
-            <ion-card-title>{{places.name}}</ion-card-title>
-            <ion-card-subtitle color="black">{{places.localisation.quarter}},{{places.localisation.city}} </ion-card-subtitle>
+        <div *ngIf="result === ' '">
+          <div class="connection" >
+            <img src="assets/images/data.svg">
+          </div>
+          <h4>Well, there is no place corresponding to this category :( </h4>
+        </div>
+        <ion-col size="6" *ngFor="let place of result">
+          
+          <ion-card *ngIf="result !== null">
+            <ion-img src="assets/images/place1.jpg" *ngIf="place.picture === ''" ></ion-img>
+            <ion-img [src]="'data:image/jpeg;bytes'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
+            
+            <ion-card-title>{{place.name}}</ion-card-title>
+            <ion-card-subtitle color="black">{{place.quarter}},{{place.city}} </ion-card-subtitle>
             <ion-chip color="gray" mode="ios" >
               <ion-icon name="star" color="warning"></ion-icon>
-              <ion-label color="dark">4.8 </ion-label>
+              <ion-label color="dark">{{place.note}}</ion-label>
             </ion-chip>
 
           </ion-card> 

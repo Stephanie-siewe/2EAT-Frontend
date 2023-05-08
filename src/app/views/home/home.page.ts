@@ -15,7 +15,7 @@ import { CategorieService } from 'src/app/Services/categorie.service';
 export class HomePage implements OnInit {
   username:any;
   categorie:any;
-  constructor(private route: Router,private cat:CategorieService) { }
+  constructor(private route: Router,private cat: CategorieService) { }
 
   ngOnInit() {
     this .username =localStorage.getItem('name');

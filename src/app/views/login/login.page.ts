@@ -52,7 +52,8 @@ export class LoginPage implements OnInit {
       this.db.set('firstopen',0);
         this.er = false
 
-        localStorage.setItem('user_id',res['user_id'])
+        localStorage.setItem('user_id',res['user_id']);
+        this.db.set('user_id',res['user_id']);
         // console.log('response',res['token']);
         this.db.set('firstopen',false)
 
