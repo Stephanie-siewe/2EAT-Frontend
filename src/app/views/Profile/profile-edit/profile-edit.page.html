@@ -47,7 +47,7 @@
       
         <div class="border-white">
           <div class="img-box">
-            <img src="assets/images/me.jpg" *ngIf="image === ''" />
+            <img src="assets/images/me.jpg" *ngIf="user.profile_image == null" />
             <img [src]=" image" *ngIf="image !== ''">
           </div>
           <div  class="outer"  ><ion-button (click)="openOptionSelection()" expand="block" fill="clear" shape="round">
@@ -72,6 +72,7 @@
     ></ion-badge> -->
   </div>
   <div class="login-form">
+    {{messageErrorApi}}
     <form>
       <ion-grid fixed>
         <ion-row>
@@ -81,7 +82,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
           </ion-col>
         </ion-row>
   <!-- <ion-badge mode="ios" color="write" slot="end"><ion-icon  name="camera" (click)="addPhotoToGallery()" ></ion-icon></ion-badge>
@@ -100,7 +101,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-input type="email"></ion-input>
+            <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
           </ion-col>
         </ion-row>
 
@@ -111,10 +112,10 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" [(ngModel)]="user.phone_number" name="phone_number"></ion-input>
           </ion-col>
         </ion-row>
-        <ion-row>
+        <!-- <ion-row>
           <ion-col size="auto">
             <ion-label> Password</ion-label>
           </ion-col>
@@ -123,7 +124,7 @@
           <ion-col>
             <ion-input type="text"></ion-input>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
         <!-- <ion-col  size="auto">
           <ion-item lines="none">
             <ion-input required type="text" label="Password" maxlength="6" ></ion-input>
@@ -143,7 +144,7 @@
             size="medium"
             class="signin-button"
             id="open-toast"
-            (click)="backtoSettings()"
+            (click)="updateUSerInfos()"
           >
             Update
           </ion-button>

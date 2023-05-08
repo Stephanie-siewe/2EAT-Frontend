@@ -29,11 +29,11 @@ export class AuthService {
   login(data:any){
     return this._http.post(this.baseUrl.url+"/login",data,this.baseUrl.httOptions);
   }
-  async changeInfos(data:any){
-    this._http.post(this.baseUrl.url+"/user/changeinfo",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-    });
+  logout(data:any){
+
+  }
+  changeInfos(data:any){
+    return this._http.post(this.baseUrl.url+"/user/changeinfo",data,this.baseUrl.httOptions);
   }
 
   async changeImage(data:any){
@@ -41,6 +41,12 @@ export class AuthService {
       console.log('response',el);
       return el
     });
+  }
+  verifyToken(token:any){
+    return this._http.post(this.baseUrl.url+"/validity",token,this.baseUrl.httOptions);
+  }
+  getUserInfos(id:number){
+    return this._http.get(this.baseUrl.url+"/users/"+id +"/",this.baseUrl.httOptions);
   }
 }
 

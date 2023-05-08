@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup,ReactiveFormsModule, FormsModule, Validators } f
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
-import { log } from 'console';
+import { DbService } from 'src/app/Services/db.service';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { log } from 'console';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private route: Router,private auth:AuthService, private formBuilder: FormBuilder) { }
+  constructor(private route: Router,private auth:AuthService, private formBuilder: FormBuilder, public db:DbService) { }
 
   loginForm! : FormGroup ;
   er = false;
@@ -43,9 +44,16 @@ export class LoginPage implements OnInit {
       password:this.loginForm?.get('password')?.value
     };
     console.log('user',userData);
-    this.auth.login(userData).subscribe(res=>{
+    this.auth.login(userData).subscribe((res:any) =>{
+      this.db.set('username',userData.username);
+      this.db.set('password',userData.password);
+
+      this.db.set('token',res['token']);
+      this.db.set('firstopen',0);
         this.er = false
-        console.log('response',res);
+        localStorage.setItem('user_id',res['user_id'])
+        // console.log('response',res['token']);
+        this.db.set('firstopen',false)
         this.gotohome()
     },err=>{
       console.log("error",err.error)

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { DbService } from 'src/app/Services/db.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private db:DbService, private auth:AuthService) { }
 
   ngOnInit() {
   }
@@ -25,5 +27,10 @@ export class ProfilePage implements OnInit {
   }
   gotoPlaceList(){
     this.route.navigate(['/places-list']);
+  }
+
+  logout(){
+
+    
   }
 }

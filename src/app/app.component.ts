@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { DbService } from './Services/db.service';
 
 register();
 
@@ -22,13 +23,14 @@ export class AppComponent {
  
   public environmentInjector = inject(EnvironmentInjector);
 
-  constructor(public route:Router) {
-
+  constructor(public route:Router, public db:DbService) {
     this.initapp();
+    
   }
 
   initapp(){
     this.route.navigateByUrl('splash');
+    
   }
  
 }
