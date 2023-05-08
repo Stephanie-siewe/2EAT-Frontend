@@ -37,10 +37,7 @@ export class AuthService {
   }
 
   async changeImage(data:any){
-    this._http.post(this.baseUrl.url+"/user/changeimage",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-    });
+    return this._http.post(this.baseUrl.url+"/user/changeimage",data,this.baseUrl.httOptions);
   }
   verifyToken(token:any){
     return this._http.post(this.baseUrl.url+"/validity",token,this.baseUrl.httOptions);

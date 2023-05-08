@@ -11,6 +11,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { PhotoService } from 'src/app/Services/photo.service';
 import { Router } from '@angular/router';
 import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
+import { GoogleMap } from '@capacitor-community/google-maps';
 // import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
@@ -21,11 +22,16 @@ import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class RegisterPlacePage implements OnInit {
+  open = false;
+  map!: GoogleMap;
   constructor(public actionSheetController: ActionSheetController, 
     private route: Router,
     private modalcontroller:ModalController,
     private photoService:PhotoService ) {}
-
+  
+  ionViewDidEnter(){
+    this.open = false;
+  }
   ngOnInit() {}
 
   gotoPlaceList(){
@@ -111,9 +117,17 @@ export class RegisterPlacePage implements OnInit {
     await actionSheet.present();
   }
 
-  /*****************AddPhotoToGallery******************** */
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+
+  showMap(){
+    this.open = true;
   }
+
+ 
+  
+
+  /*****************AddPhotoToGallery******************** */
+  // addPhotoToGallery() {
+  //   this.photoService.addNewToGallery();
+  // }
 }
 
