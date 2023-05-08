@@ -67,3 +67,19 @@ ion-col{
 ion-input{
     width: 70rem;
 }
+.danger{
+    color: red;
+}
+.toast {
+    background-color:blue;
+    border-radius: 16px;
+}
+.e-toast-message .e-toast-title {
+    font-style: normal;
+}    
+.e-toast-buttons {
+    border-left: 1px solid #fff;
+    color: #fff;
+    font-size: 15px;
+    background: white;
+}

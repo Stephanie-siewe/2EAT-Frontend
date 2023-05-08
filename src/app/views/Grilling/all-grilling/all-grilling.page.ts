@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { CategorieService } from 'src/app/Services/categorie.service';
 
 @Component({
   selector: 'app-all-grilling',
@@ -12,17 +13,30 @@ import { Router } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class AllGrillingPage implements OnInit {
-  constructor(private route: Router) { }
+  catId: any;
+  places: any;
+  details:any;
+  constructor(private route: Router,private cat: CategorieService) { }
 
   ngOnInit() {
+    this.getPLaceByIdCategorie();
   }
+  /************searchplace by categorie id************* */
+    getPLaceByIdCategorie(){
+      this.catId= JSON.stringify(localStorage.getItem('infos'));
+      this.places = this.cat.listPlacesByIdCategorie(this.catId.id);
+      console.log(this.places);
+    }
+
   goToDinner(){
     this.route.navigate(['/all-grilling']);
   }
   handleChange(event:any) {
     const query = event.target.value.toLowerCase();
   }
-  gotoDetails(){
+  gotoDetails(det:any){
+    this.details= localStorage.setItem('details',JSON.stringify(det));
+
     this.route.navigate(['/grilling-details']);
   }
   gotoCart(){
