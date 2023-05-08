@@ -16,6 +16,7 @@ import { DbService } from 'src/app/Services/db.service';
 
 
 
+
 @Component({
   selector: 'app-profile-edit',
   templateUrl: './profile-edit.page.html',
@@ -31,8 +32,8 @@ export class ProfileEditPage implements OnInit {
   image: any = '';
   person: Profile = new Profile(); 
   isUpload = false;
-  constructor(private route: Router, public photoService: PhotoService,
-    public modalcontroller:ModalController, private auth:AuthService, private db:DbService) { 
+  constructor(private route: Router, 
+    public modalcontroller:ModalController, private auth:AuthService, private db:DbService, private photo:PhotoService) { 
      this.user_id = localStorage.getItem('user_id');
     }
 
@@ -77,22 +78,12 @@ export class ProfileEditPage implements OnInit {
   backtoSettings(){
     this.route.navigate(['/tabs/profile'])
   }
-/***************updateProfile**********************/
-  updateProfile(person: Profile){
-    
-  }
-  /*****************AddPhotoToGallery******************** */
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery().then(
-      data => {
-        this.image = data;
-        console.log("data is "+ data);
-      }
-    );
-  }
 
-  
-    async openOptionSelection() {
+
+
+
+
+async openOptionSelection() {
       const modal = await this.modalcontroller.create({
         component: OptionscameraPage,
         cssClass: 'transparent-modal'
@@ -101,19 +92,14 @@ export class ProfileEditPage implements OnInit {
       .then(res => {
         console.log(res);
         if (res.role !== 'backdrop') {
-          this.takePicture(res.data);
+          // this.takePicture(res.data);
+          let img = this.photo.getimage();
+          this.user.profile_image = img;
+          this.route.navigate(['/profile-edit'])
         }
       });
       return await modal.present();
     }
-    async takePicture(type:any) {
-      // const image = await Camera.getPhoto({
-      //   quality: 90,
-      //   allowEditing: false,
-      //   resultType: CameraResultType.Uri,
-      //   source: CameraSource[type]
-      // });
-      // this.photo = image.webPath;
     
-    }
+    
 }
