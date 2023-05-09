@@ -80,9 +80,6 @@ export class ProfileEditPage implements OnInit {
   }
 
 
-
-
-
 async openOptionSelection() {
       const modal = await this.modalcontroller.create({
         component: OptionscameraPage,

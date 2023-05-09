@@ -15,7 +15,7 @@
   <!--/***********row for the different categories*****/-->
   <div class="wrapper">
     <div class="item" *ngFor="let cate of categorie">
-      <h6 (click)="goToDinner()"> {{cate.name}}</h6>
+      <h6> {{cate.name}}</h6>
     </div>
     
   </div>
@@ -31,7 +31,7 @@
         </div>
         <ion-col size="6" *ngFor="let place of result">
           
-          <ion-card *ngIf="result !== null">
+          <ion-card  *ngIf="result !== null" (click)="goToDinner(place.id)">
             <ion-img src="assets/images/place1.jpg" *ngIf="place.picture === ''" ></ion-img>
             <ion-img [src]="'data:image/jpeg;bytes'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
             

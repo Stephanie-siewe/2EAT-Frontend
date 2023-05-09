@@ -13,7 +13,7 @@ import{IonicStorageModule}from'@ionic/storage-angular';
 import{Drivers}from'@ionic/storage';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-//import { GoogleMap } from '@capacitor-community/google-maps';
+import { GoogleMap } from '@capacitor-community/google-maps';
 
 
 if (environment.production) {
