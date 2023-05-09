@@ -17,7 +17,7 @@
 <ion-label color="blue">
   <strong>  Search</strong>
 </ion-label>
-  <ion-searchbar class="form-control" aria-label="Medium input" placeholder="Search Here " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale" [(ngModel)]="term"></ion-searchbar>
+  <ion-searchbar aria-label="Medium input" placeholder="Search Here " show-clear-button="focus" show-cancel-button="focus" color="blue-pale"  [(ngModel)]="term"></ion-searchbar>
 
 <div *ngIf="search === 0" >
   <div class="connection" >
@@ -30,18 +30,18 @@
 </div>
 
 
-<div *ngIf="search === 1">
+<div>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6">
-        <ion-card (click)="gotoDetails()" *ngFor="let item of list | filter:term">
-          <ion-img src="assets/images/place1.jpg" *ngIf="item.picture === ''" ></ion-img>
-            <ion-img [src]="'data:image/jpeg;bytes'+ item.picture" *ngIf="item.picture !== ''"></ion-img>
-          <ion-card-title>{{item.name}}</ion-card-title>
+      <ion-col size="6"  *ngIf="search === 1" >
+        <ion-card (click)="gotoDetails(item)" *ngFor="let item of results | filter:term">
+          <ion-img src="assets/images/place1.jpg" *ngIf="item.placepicture === ''" ></ion-img>
+          <ion-img [src]="'data:image/png;base64'+ item.picture" *ngIf="item.placepicture !== ''"></ion-img>
+          <ion-card-title>{{item.placename}}</ion-card-title>
           <ion-card-subtitle color="black">{{item.quarter}} </ion-card-subtitle>
           <ion-chip color="gray" mode="ios" >
             <ion-icon name="star" color="warning"></ion-icon>
-            <ion-label color="dark">{{item.note}} </ion-label>
+            <ion-label color="dark">{{item.noteplace}} </ion-label>
           </ion-chip>
         </ion-card> 
       </ion-col>

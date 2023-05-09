@@ -33,7 +33,7 @@ dishForm:FormGroup;
    }
 
   ngOnInit() {
-    this.show = 1;
+    this.show = 0;
   }
 
 

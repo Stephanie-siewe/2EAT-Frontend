@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { CategorieService } from 'src/app/Services/categorie.service';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +15,23 @@ import { CategorieService } from 'src/app/Services/categorie.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class HomePage implements OnInit {
-  username:any;
+  usr:any;
   categorie:any;
-  constructor(private route: Router,private cat: CategorieService) { }
+  name:any;
+  constructor(private route: Router,private cat: CategorieService,private auth:AuthService) { }
 
   ngOnInit() {
-    this .username =localStorage.getItem('name');
+    this.getUsrInfos();
     this.getCatList();
+  }
+  /**************get user info*********** */
+  getUsrInfos(){
+    this .usr =localStorage.getItem('user_id');
+    this.auth.getUserInfos(this.usr).subscribe((res:any)=>{
+      this.name =res;
+      console.log("res",res);
+      console.log("name",this.name.username);
+    })
   }
   /*************get categrories list******** */
   getCatList(){
@@ -40,5 +52,9 @@ export class HomePage implements OnInit {
   }
   gotoProfile(){
     this.route.navigate(['/tabs/profile']);
+  }
+
+  gotomap(){
+    this.route.navigate(['/map-page'])
   }
 }

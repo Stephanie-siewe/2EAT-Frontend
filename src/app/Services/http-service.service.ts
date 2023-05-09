@@ -81,6 +81,12 @@ export class HttpServiceService {
 
   }
 
+  
+  async listDishes(){
+    return this._http.get(this.baseUrl.url+"/place/dishsimple/",this.baseUrl.httOptions).toPromise();
+
+  }
+
 
 
   async saveDish(data:any){

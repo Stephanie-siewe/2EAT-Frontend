@@ -55,7 +55,8 @@ export class AllGrillingPage implements OnInit {
     /*********filter list********* */
 
 
-  goToDinner(){
+  goToDinner(obj:any){
+    localStorage.setItem('detailsinfo',JSON.stringify(obj));
     this.route.navigate(['/all-grilling']);
   }
   handleChange(event:any) {

@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActionSheetController, ModalController } from '@ionic/angular';
 
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { PhotoService } from 'src/app/Services/photo.service';
 import { Router } from '@angular/router';
 import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
-import { GoogleMap } from '@capacitor-community/google-maps';
+import { environment } from 'src/environments/environment';
 // import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
@@ -23,11 +23,15 @@ import { GoogleMap } from '@capacitor-community/google-maps';
 })
 export class RegisterPlacePage implements OnInit {
   open = false;
-  map!: GoogleMap;
+
+  mapRef: any;
   constructor(public actionSheetController: ActionSheetController, 
     private route: Router,
     private modalcontroller:ModalController,
     private photoService:PhotoService ) {}
+
+
+  
   
   ionViewDidEnter(){
     this.open = false;
@@ -122,7 +126,7 @@ export class RegisterPlacePage implements OnInit {
     this.open = true;
   }
 
- 
+
   
 
   /*****************AddPhotoToGallery******************** */
