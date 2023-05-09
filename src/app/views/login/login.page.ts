@@ -65,6 +65,8 @@ export class LoginPage implements OnInit {
       this.er = true;
       this.messageErrorApi = err.error.error;
     })
+
+    //  this.route.navigate(['/tabs/home']);
   }
   gotohome(){
     this.route.navigate(['/tabs/home']);

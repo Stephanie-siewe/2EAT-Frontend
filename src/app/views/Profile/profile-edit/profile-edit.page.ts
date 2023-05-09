@@ -12,6 +12,7 @@ import { PhotoService } from 'src/app/Services/photo.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { DbService } from 'src/app/Services/db.service';
 
+import { Location } from '@angular/common';
 
 
 
@@ -33,7 +34,7 @@ export class ProfileEditPage implements OnInit {
   person: Profile = new Profile(); 
   isUpload = false;
   constructor(private route: Router, 
-    public modalcontroller:ModalController, private auth:AuthService, private db:DbService, private photo:PhotoService) { 
+    public modalcontroller:ModalController, private auth:AuthService, private db:DbService, private photo:PhotoService, private location: Location) { 
      this.user_id = localStorage.getItem('user_id');
     }
 
@@ -88,15 +89,21 @@ async openOptionSelection() {
       modal.onDidDismiss()
       .then(res => {
         console.log(res);
-        if (res.role !== 'backdrop') {
+        if (res.role == 'backdrop') {
           // this.takePicture(res.data);
-          let img = this.photo.getimage();
-          this.user.profile_image = img;
-          this.route.navigate(['/profile-edit'])
+          // location.reload()
+          this.reloadComponent()
+          
         }
       });
       return await modal.present();
     }
     
+    reloadComponent() {
+      // window.location.replace(window.location.href)
+      this.ionViewWillEnter()
+      console.log('refreshed!');
+      
+    }
     
 }

@@ -53,4 +53,8 @@ export class HomePage implements OnInit {
   gotoProfile(){
     this.route.navigate(['/tabs/profile']);
   }
+
+  gotomap(){
+    this.route.navigate(['/map-page'])
+  }
 }

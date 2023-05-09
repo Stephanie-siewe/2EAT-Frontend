@@ -162,9 +162,10 @@ text-transform: initial;
 .container{
   h1{
     position: absolute;
+   
 width: 112px;
 height: 21px;
-left: 150px;
+left: 14rem;
 top: 163px;
 font-style: normal;
 font-weight: 500;
@@ -176,7 +177,7 @@ color: var(--ion-color-blue);
   }
   ion-icon{
     position: absolute;
-    margin: 0 251px;
+   // margin: 0 251px;
   }
 }
 ion-footer{
@@ -212,4 +213,8 @@ box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
     width: 95%;
   }
 
+}
+#open-toast-dish{
+  scale: 2;
+  margin-left: 15rem;
 }

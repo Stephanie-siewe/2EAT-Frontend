@@ -91,6 +91,11 @@ export const routes: Routes = [
     path: 'optionscamera',
     loadComponent: () => import('./views/optionscamera/optionscamera.page').then( m => m.OptionscameraPage)
   },
+  {
+    path: 'map-page',
+    loadComponent: () => import('./views/map-page/map-page.page').then( m => m.MapPagePage)
+  },
+
 
 
   
