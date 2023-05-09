@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class Cart1Page implements OnInit {
 cart :any;
 isModalOpen = false;
+open = false;
   constructor(private route: Router) { }
 
   ngOnInit() {
@@ -28,4 +29,10 @@ isModalOpen = false;
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
+
+  showMap(){
+    this.open = true;
+  }
+
+
 }

@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, FormsModule, Reac
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService, User } from 'src/app/Services/auth.service';
+import { ToastService } from 'src/app/Services/toast.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { AuthService, User } from 'src/app/Services/auth.service';
 
 export class SignPage implements OnInit {
 
-  constructor(private route: Router, private auth:AuthService, private formBuilder: FormBuilder) { }
+  constructor(private route: Router, private auth:AuthService, private formBuilder: FormBuilder, private toast:ToastService) { }
   
   registerForm! : FormGroup ;
   er = false;
@@ -89,6 +90,7 @@ export class SignPage implements OnInit {
 
     this.auth.save(userData).then((response:any)=>
     {
+      this.toast.presentToast("User Created Successfully !")
       console.log('response',response);
       
       this.login()
@@ -106,12 +108,12 @@ export class SignPage implements OnInit {
     this.route.navigate(['/login']);
   }
 
-  public toastButtons = [
+  /*public toastButtons = [
     {
       text: 'OK',
       role: 'cancel',
     }
-  ];
+  ];*/
 
   
 }

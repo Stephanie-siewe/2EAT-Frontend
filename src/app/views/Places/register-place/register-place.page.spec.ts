@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RegisterPlacePage } from './register-place.page';
 
 describe('RegisterPlacePage', () => {
