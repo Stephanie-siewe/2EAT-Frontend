@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule } from '@angular/forms';
-import { ActionSheetController, IonicModule } from '@ionic/angular';
+import { ActionSheetController, IonicModule, ModalController } from '@ionic/angular';
 import { CommentsPage } from '../comments/comments.page';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -15,12 +15,18 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class GrillingDetailsPage implements OnInit {
+
+  
+rating() {
+
+}
  show: any;
  isModalOpen = false;
 image:any= '';
 dishForm:FormGroup;
  
-  constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder) {
+  constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder,
+    private modalcontroller:ModalController) {
     this.dishForm = this.fb.group({
       add:this.fb.array([]),
     });
@@ -114,5 +120,28 @@ addtoCart(){
   /*******************Routes************************ */
   CommentsPage(){
     this.route.navigate(['/comments']);
+  }
+
+
+  //*******************Rating*************************** */
+  stars: string[] = ['star-outline', 'star-outline', 'star-outline', 'star-outline', 'star-outline'];
+  selectedRating!: number;
+
+
+  selectRating(star: string) {
+    const index = this.stars.indexOf(star);
+    this.stars = this.stars.map((_, i) => (i <= index ? 'star' : 'star-outline'));
+    this.selectedRating = index + 1;
+    
+  }
+
+  isSelected(star: string): boolean {
+    return this.stars.includes(star);
+  }
+
+  submitRating() {
+    // Envoyer la note sélectionnée à votre backend ou effectuer une action supplémentaire
+    this.modalcontroller.dismiss(this.selectedRating);
+    console.log(this.selectedRating);
   }
 }
