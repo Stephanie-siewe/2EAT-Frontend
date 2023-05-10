@@ -25,7 +25,6 @@ term!:string;
   constructor(private route: Router, private cat:CategorieService){ }
 
   ngOnInit() {
-    this.search=1;
     this.listPl();
   }
 
@@ -36,73 +35,15 @@ listPl(){
   this.cat.listPlacesByIdCategorie().subscribe(
     (p) =>{
       this.places=p
-      console.log("listnote",this.places);
       this.results=this.cat.PlacesListwithDish(this.places);
       console.log("Finalresults",this.results);
-    });
-    
-  
-   
+    }); 
    
 }
 
 
-
-/*
-   listNote():Observable<any>{
-    let listTab:any =[];
-    this.cat.listPlacesByIdCategorie().subscribe(
-      (p) =>{
-        listTab=p
-        console.log("listtab",listTab);
-      });
-    //  console.log("listTab", listTab);
-    return listTab;
-  }*/
- /* listNote(){
-    this.cat.listPlacesByIdCategorie().subscribe( 
-      (p) =>{
-       //this.places=p
-       console.log("listnote",p);
-       /*
-       this.cat.PlacesList(p).subscribe((res:any)=>{
-        this.places = res;
-        console.log("places",this.places);
-        
-        return this.places;
-       })
-       */
-      /* this.cat.PlacesList(p).toPromise().then((res:any)=>{
-        this.places = res;
-        console.log("places",this.places);
-        console.log("listnote1",p);
-       })
-      
-
-  }*/
-   /*placeList(){
-    this.listNote().pipe(
-      switchMap((result: any[]) => this.cat.PlacesList(result) )
-     ).subscribe(
-      (result: any[]) =>{
-         console.log("result",result)})
-  }  */
-    /*let c = await this.listNote()
-    console.log("pla",c );
-    this.search=1;*/
-    /*this.cat.PlacesList().subscribe((res:any)=>{
-      this.list = res;
-      console.log("listresearch",this.list);
-    });*/
-  
-
-  handleChange(event:any) {
-    const query = event.target.value.toLowerCase();
-    //this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
-  }
-
   gotoDetails(obj:any){
-    localStorage.setItem('detailPlace', JSON.stringify(obj));
+    localStorage.setItem('detailsinfo', JSON.stringify(obj));
     this.route.navigate(['/grilling-details']);
   }
 }

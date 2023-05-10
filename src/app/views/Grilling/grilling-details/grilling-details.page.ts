@@ -5,6 +5,7 @@ import { ActionSheetController, IonicModule } from '@ionic/angular';
 import { CommentsPage } from '../comments/comments.page';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
 
 
 @Component({
@@ -18,19 +19,35 @@ export class GrillingDetailsPage implements OnInit {
  show: any;
  isModalOpen = false;
 image:any= '';
-dishForm:FormGroup;
+details:any;
+dish:any;
+listD:any;
+
+
  
-  constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder) {
-    this.dishForm = this.fb.group({
-      add:this.fb.array([]),
-    });
+  constructor(private route: Router, public actionSheetController: ActionSheetController,private hp:HttpServiceService) {
+   
    }
 
   ngOnInit() {
-    this.show = 0;
+    this.show = 1;
+    this.details=JSON.parse(localStorage.getItem('detailsinfo')|| '{}');
+    this.getDishesByIdPlace();
+
   }
+/*****************list of dish for a place************ */
+getDishesByIdPlace(){
+      
+  this.hp.listDishes().then(
+     (result:any) =>{
+    this.dish=result;
+    this.listD=this.dish.filter((item:any) => item.place.id == this.details.id);
+ 
+    console.log("listD",this.listD);
 
+});
 
+}
   /**************Save dishes************************** */
   saveDish(){
     this.show = 1;
@@ -86,28 +103,11 @@ dishForm:FormGroup;
     await actionSheet.present();
   }
   /******************add dish************************* */
-  add() : FormArray {  
-    return this.dishForm.get("add") as FormArray  }
-
-  newDish(): FormGroup {  
-    return this.fb.group({  
-      name: '',  
-      price: '',  
-    })  
-  }  
-
   addDish(){
-    this.add().push(this.newDish());
+
   }
 
-  removeDish(i:number) {  
-    this.add().removeAt(i);  
-  }  
-
-  onSubmit() {  
-    console.log(this.dishForm.value);  
-  }
-/***************************Add to cart *************** */
+/*******************Add to cart *************** */
 addtoCart(){
   this.route.navigate(['/commandes']);
 }

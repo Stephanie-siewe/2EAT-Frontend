@@ -33,8 +33,8 @@
 <div>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6"  *ngIf="search === 1" >
-        <ion-card (click)="gotoDetails(item)" *ngFor="let item of results | filter:term">
+      <ion-col size="6"    *ngFor="let item of results | filter:term">
+        <ion-card (click)="gotoDetails(item)">
           <ion-img src="assets/images/place1.jpg" *ngIf="item.placepicture === ''" ></ion-img>
           <ion-img [src]="'data:image/png;base64'+ item.picture" *ngIf="item.placepicture !== ''"></ion-img>
           <ion-card-title>{{item.placename}}</ion-card-title>

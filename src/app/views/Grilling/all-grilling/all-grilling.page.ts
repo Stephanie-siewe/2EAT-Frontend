@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { CategorieService } from 'src/app/Services/categorie.service';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { SearchPage } from '../../search/search.page';
 
 @Component({
   selector: 'app-all-grilling',
@@ -24,6 +25,7 @@ export class AllGrillingPage implements OnInit {
 
   ngOnInit() {
     this.getPLaceByIdCategorie();
+    this.getCatList();
   }
   /****************categorie************* */
   getCatList(){
@@ -45,7 +47,7 @@ export class AllGrillingPage implements OnInit {
 
         this.details=this.places.filter((item:any) => item.category == this.catId[6]);
         console.log("details", this.details);
-        this.result =  this.cat.PlacesList(this.details);
+        this.result =  this.cat.PlacesListwithDish(this.details);
         console.log("result",this.result);
 
     });
@@ -55,16 +57,13 @@ export class AllGrillingPage implements OnInit {
     /*********filter list********* */
 
 
-  goToDinner(obj:any){
-    localStorage.setItem('detailsinfo',JSON.stringify(obj));
+    goToDinner(obj:any){
+    localStorage.setItem('infos',JSON.stringify(obj));
     this.route.navigate(['/all-grilling']);
   }
-  handleChange(event:any) {
-    const query = event.target.value.toLowerCase();
-  }
-  gotoDetails(det:any){
-    this.details= localStorage.setItem('details',JSON.stringify(det));
 
+  gotoDetails(det:any){
+   localStorage.setItem('detailsinfo',JSON.stringify(det));
     this.route.navigate(['/grilling-details']);
   }
   gotoCart(){

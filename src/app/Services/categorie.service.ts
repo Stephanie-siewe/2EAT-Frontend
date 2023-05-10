@@ -64,15 +64,14 @@ export class CategorieService {
          let dish ={};
          
          this.listDish.forEach((element:any) => {
-          console.log("ele",element.place.user.username)
-          console.log("no",d.id)
            if(element.place.id == d.id){
 
              dish = {
-               id:element.place.id,
+               id:d.id,
                dishes:element.name,
                dishpicture:element.picture,
                price:element.price,
+               catid:element.place.category.id,
                placecat:element.place.category.name,
                username:element.place.user.username,
                useremail:element.place.user.email,
@@ -93,6 +92,7 @@ export class CategorieService {
 
            }   
          }); 
+     
        }
        );
     });
