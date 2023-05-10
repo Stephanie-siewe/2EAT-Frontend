@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule } from '@angular/forms';
-import { ActionSheetController, IonicModule } from '@ionic/angular';
+import { ActionSheetController, IonicModule, ModalController } from '@ionic/angular';
 import { CommentsPage } from '../comments/comments.page';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
@@ -16,6 +16,11 @@ import { HttpServiceService } from 'src/app/Services/http-service.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class GrillingDetailsPage implements OnInit {
+
+  
+rating() {
+
+}
  show: any;
  isModalOpen = false;
 image:any= '';
@@ -25,8 +30,9 @@ listD:any;
 
 
  
-  constructor(private route: Router, public actionSheetController: ActionSheetController,private hp:HttpServiceService) {
-   
+  constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder,
+    private modalcontroller:ModalController,private hp:HttpServiceService) {
+
    }
 
   ngOnInit() {
@@ -114,5 +120,28 @@ addtoCart(){
   /*******************Routes************************ */
   CommentsPage(){
     this.route.navigate(['/comments']);
+  }
+
+
+  //*******************Rating*************************** */
+  stars: string[] = ['star-outline', 'star-outline', 'star-outline', 'star-outline', 'star-outline'];
+  selectedRating!: number;
+
+
+  selectRating(star: string) {
+    const index = this.stars.indexOf(star);
+    this.stars = this.stars.map((_, i) => (i <= index ? 'star' : 'star-outline'));
+    this.selectedRating = index + 1;
+    
+  }
+
+  isSelected(star: string): boolean {
+    return this.stars.includes(star);
+  }
+
+  submitRating() {
+    // Envoyer la note sélectionnée à votre backend ou effectuer une action supplémentaire
+    this.modalcontroller.dismiss(this.selectedRating);
+    console.log(this.selectedRating);
   }
 }
