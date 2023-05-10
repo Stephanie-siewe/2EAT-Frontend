@@ -51,9 +51,14 @@ export class LoginPage implements OnInit {
       this.db.set('token',res['token']);
       this.db.set('firstopen',0);
         this.er = false
-
-        localStorage.setItem('user_id',JSON.stringify(res['user_id']));
+        console.log("res",res);
+        
+        localStorage.setItem('user_id',res['user_id']);
+        localStorage.setItem('user_name',res['username']);
+        
         this.db.set('user_id',res['user_id']);
+        this.db.set('user_name',res['username']);
+       
         // console.log('response',res['token']);
         this.db.set('firstopen',false)
 
@@ -65,8 +70,6 @@ export class LoginPage implements OnInit {
       this.er = true;
       this.messageErrorApi = err.error.error;
     })
-
-    //  this.route.navigate(['/tabs/home']);
   }
   gotohome(){
     this.route.navigate(['/tabs/home']);

@@ -17,8 +17,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class HomePage implements OnInit {
   usr:any;
   categorie:any;
-  name:any;
-  constructor(private route: Router,private cat: CategorieService,private auth:AuthService) { }
+  
+  constructor(private route: Router,private cat: CategorieService) { }
 
   ngOnInit() {
     this.getUsrInfos();
@@ -26,12 +26,8 @@ export class HomePage implements OnInit {
   }
   /**************get user info*********** */
   getUsrInfos(){
-    this .usr =localStorage.getItem('user_id');
-    this.auth.getUserInfos(this.usr).subscribe((res:any)=>{
-      this.name =res;
-      console.log("res",res);
-      console.log("name",this.name.username);
-    })
+    this.usr =localStorage.getItem('user_name');
+    console.log(this.usr);
   }
   /*************get categrories list******** */
   getCatList(){

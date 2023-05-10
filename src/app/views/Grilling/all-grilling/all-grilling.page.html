@@ -10,11 +10,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar aria-label="Medium input" placeholder="Search places " inputmode="decimal" type="decimal" (ionChange)="handleChange($event)" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
+  <ion-searchbar aria-label="Medium input" placeholder="Search places " inputmode="decimal" type="decimal" [debounce]="250" show-clear-button="focus" show-cancel-button="focus" color="blue-pale"></ion-searchbar>
 
   <!--/***********row for the different categories*****/-->
   <div class="wrapper">
-    <div class="item" *ngFor="let cate of categorie">
+    <div class="item" *ngFor="let cate of categorie" (click)="goToDinner(cate)">
       <h6> {{cate.name}}</h6>
     </div>
     
@@ -29,17 +29,16 @@
           </div>
           <h4>Well, there is no place corresponding to this category :( </h4>
         </div>
-        <ion-col size="6" *ngFor="let place of result">
-          
-          <ion-card  *ngIf="result !== null" (click)="goToDinner(place.id)">
+        <ion-col size="6" *ngFor="let place of result">   
+          <ion-card  *ngIf="result !== null" (click)="gotoDetails(place)" >
             <ion-img src="assets/images/place1.jpg" *ngIf="place.picture === ''" ></ion-img>
             <ion-img [src]="'data:image/jpeg;bytes'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
             
-            <ion-card-title>{{place.name}}</ion-card-title>
+            <ion-card-title>{{place.placename}}</ion-card-title>
             <ion-card-subtitle color="black">{{place.quarter}},{{place.city}} </ion-card-subtitle>
             <ion-chip color="gray" mode="ios" >
               <ion-icon name="star" color="warning"></ion-icon>
-              <ion-label color="dark">{{place.note}}</ion-label>
+              <ion-label color="dark">{{place.noteplace}}</ion-label>
             </ion-chip>
 
           </ion-card> 

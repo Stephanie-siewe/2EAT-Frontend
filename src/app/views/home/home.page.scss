@@ -78,9 +78,9 @@ h6 {
   font-size: 12px;
 }
 .wrapper-card{
-max-height: 233px;
+//max-height: 233px;
   display: -webkit-inline-box;
-  /* width: 451px; */
+   width: 106%; 
   overflow-x: auto;
   white-space: nowrap;
   padding: 2px 0px 0px 12px;
@@ -88,7 +88,7 @@ max-height: 233px;
 }
 ion-card{
 border-radius: 9px;
-width: 28%;
+width: 41%;
 }
 .wrapper-card::-webkit-scrollbar {
 width: 0;
@@ -111,7 +111,7 @@ ion-chip{
   margin-top: -2.6rem;
 }
 ion-card-title{
-// padding: 0 0.7rem;
+padding: 0 5px;
 margin-left: 1%;
 font-style: normal;
 font-weight: 700;
@@ -120,9 +120,8 @@ line-height: 17px;
 letter-spacing: 0.03em;
 }
 ion-card-subtitle{
-// padding: 0 5px;
+padding: 0 5px;
 //margin-left: 0.1rem;
-text-align: center;
 font-style: normal;
 font-weight: 500;
 font-size: 9.29064px;
