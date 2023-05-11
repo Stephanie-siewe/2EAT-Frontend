@@ -19,8 +19,16 @@
 
     <ion-row>
       <ion-col size="12"> 
-        <h1> <strong>Hi,{{usr}}</strong></h1>
+        <h1> <strong>{{'HOME.salutations'| translate }},{{usr}}</strong></h1>
         <small>Get your favorite food here !</small>
+      </ion-col>
+      <ion-col size="3">
+        <ion-chip id="language">
+          <ion-icon slot="start" name="language-outline"></ion-icon>
+          <ion-select (ionChange)="handleChange($event)" placeholder="EN">
+            <ion-select-option :value="{{item.value}}" *ngFor="let item of lang">{{item.value}}</ion-select-option>
+          </ion-select>
+        </ion-chip>
       </ion-col>
     </ion-row>
 

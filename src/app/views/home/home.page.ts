@@ -4,25 +4,43 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { CategorieService } from 'src/app/Services/categorie.service';
-import { HttpServiceService } from 'src/app/Services/http-service.service';
-import { AuthService } from 'src/app/Services/auth.service';
+import { LangageService } from 'src/app/Services/langage.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,TranslateModule]
 })
 export class HomePage implements OnInit {
   usr:any;
   categorie:any;
-  
-  constructor(private route: Router,private cat: CategorieService) { }
+  lang:any[] =[];
+  constructor(private route: Router,private cat: CategorieService, private lng:LangageService, private translate:TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.addLangs(['en','fr']);
+    this.translate.use('en');
+    this.translate.get('HELLO',{value:'world'}).subscribe((res:string) =>{
+
+    });
+     
+   }
+
+   Change(lg:string){
+    this.lng.setLanguage(lg);
+   }
+   handleChange(env:any){
+    console.log('env',env.target.value);
+    this.lng.setLanguage(env.target.value);
+   }
 
   ngOnInit() {
     this.getUsrInfos();
     this.getCatList();
+    this.lang= this.lng.getLanguages();
+    console.log('lang',this.lng);   
   }
   /**************get user info*********** */
   getUsrInfos(){

@@ -45,7 +45,7 @@ export class MapPagePage implements OnInit, AfterViewInit {
       id: 'mapbox/streets-v11',
       tileSize: 512,
       zoomOffset: -1,
-      accessToken: environment.mapbox.accessToken,
+      accessToken:'pk.eyJ1IjoiZXBhbGV5dmFuIiwiYSI6ImNsZDBvbmZydDAwZHMzcnF4M3E4MmZzZzgifQ.Wr4NvYRxU0lhSWe4JkC4fw',
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
     }).addTo(this.map);
 var marker: L.Marker<any> ;
