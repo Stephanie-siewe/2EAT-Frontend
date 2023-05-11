@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 
 import * as L from 'leaflet';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map-page',
@@ -30,7 +31,9 @@ export class MapPagePage implements OnInit, AfterViewInit {
 //   lat:3.866667,
 //   lng:11.516667
 //  }
- constructor() { }
+ constructor(private route :Router) { }
+
+ location:any;
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -59,6 +62,7 @@ var marker: L.Marker<any> ;
   }
   marker = L.marker(e.latlng,{icon:this.smallIcon}).addTo(this.map);
   console.log(e.latlng);
+  
 });
   
   }
@@ -84,6 +88,11 @@ var marker: L.Marker<any> ;
   reloadPage(){
     
    
+  }
+
+
+  Finish(){
+    this.route.navigate(['/tabs/home']);
   }
 
 
