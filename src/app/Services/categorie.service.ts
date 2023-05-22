@@ -23,7 +23,7 @@ export class CategorieService {
 
   PlacesList(data:any):Observable<any>{
    let tab:any = [];
-   this.hp.listPlaces().then((res:any)=>{
+   this.hp.listPlaces().subscribe((res:any)=>{
       this.list = res;
       console.log("list",this.list);
 

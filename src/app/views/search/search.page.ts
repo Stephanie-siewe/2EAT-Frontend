@@ -35,6 +35,8 @@ listPl(){
   this.cat.listPlacesByIdCategorie().subscribe(
     (p) =>{
       this.places=p
+      console.log('places',this.places);
+      
       this.results=this.cat.PlacesListwithDish(this.places);
       console.log("Finalresults",this.results);
     }); 

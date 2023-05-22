@@ -13,16 +13,12 @@ export class HttpServiceService {
 
   constructor(private _http:HttpClient) { }
   
-  async savePlace(data:any){
-    this._http.post(this.baseUrl.url+"/place/add/place",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-      
-    });
+  savePlace(data:any){
+    return this._http.post(this.baseUrl.url+"/place/add/place",data,this.baseUrl.httOptions)
   }
 
-  async listPlaces(){
-    return this._http.get(this.baseUrl.url+"/place/placesimple/",this.baseUrl.httOptions).toPromise();
+  listPlaces(){
+    return this._http.get(this.baseUrl.url+"/place/placesimple/",this.baseUrl.httOptions);
   }
 
   async listPlacesWithNote(){

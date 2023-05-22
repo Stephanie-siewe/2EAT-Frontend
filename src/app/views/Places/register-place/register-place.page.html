@@ -14,8 +14,12 @@
     </ion-toolbar>
   </ion-header> -->
 
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerForm" (ngSubmit)="SavePlace()">
+    
     <ion-grid>
+      <div *ngIf="er===true" class="error">
+        {{messageErrorApi}}
+       </div>
       <ion-row>
         <ion-col>
           <ion-item lines="none">
@@ -27,6 +31,7 @@
                 placeholder="  Location's name "
                 class="input-name"
                 aria-label="Medium input"
+                formControlName="name"
               ></ion-input>
               <ion-button (click)="openOptionSelection()" fill="clear"
                 ><ion-icon slot="end" name="camera" color="blue"></ion-icon
@@ -58,25 +63,37 @@
       <ion-row>
         <ion-col>
           <ion-item lines="none">
-            <ion-label position="stacked">Town</ion-label>
+            <ion-label position="stacked">City</ion-label>
             <br />
-            <ion-select class="select_location">
-              <ion-select-option value="Paris">Yaounde</ion-select-option>
-              <ion-select-option value="Londres">Douala</ion-select-option>
+            <ion-select class="select_location" formControlName="city">              
+               <ion-select-option value="Yaounde">Yaounde</ion-select-option>
+              <ion-select-option value="Douala">Douala</ion-select-option> 
               
             </ion-select>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
+        <!-- <ion-col>
           <ion-item lines="none">
-            <ion-label position="stacked">City</ion-label>
+            <ion-label position="stacked">Quarter</ion-label>
             <br />
             <ion-select class="select_location">
               <ion-select-option value="Paris">Mendong</ion-select-option>
               <ion-select-option value="Londres">Odza</ion-select-option>
               <ion-select-option value="New York">Meec</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col> -->
+
+        <ion-col>
+          <ion-item lines="none">
+            <ion-label position="stacked">Category</ion-label>
+            <br />
+            <ion-select class="select_location" formControlName="category">
+              <div *ngFor="let category of categorie; let i=index">
+                <ion-select-option [value]="category.id">{{category.name}}</ion-select-option>
+              </div>
             </ion-select>
           </ion-item>
         </ion-col>
@@ -91,7 +108,7 @@
               value="Name"
               class="input-description"
             ></ion-input> -->
-            <ion-textarea  aria-label="Medium input" placeholder="  Description" ></ion-textarea>
+            <ion-textarea  aria-label="Medium input" placeholder="  Description" formControlName="description"></ion-textarea>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -129,6 +146,8 @@
                 <ion-button  fill="clear"  (click)="showMap()" id="see">
                   <ion-icon slot="icon-only" name="eye"color="blue"></ion-icon>
                 </ion-button>
+
+                <h3>Give us a precise location</h3>
 
                 
                 <!-- <ion-button
@@ -178,7 +197,7 @@
 
       <ion-row>
         <ion-col>
-          <ion-button type="submit" expand="block" id="save-button"  size="medium" (click)="gotoPlaceList()">Save</ion-button>
+          <ion-button type="submit" expand="block" id="save-button"  size="medium">Save</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

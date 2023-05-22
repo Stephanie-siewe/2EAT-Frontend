@@ -8,14 +8,48 @@ import { AuthService } from './auth.service';
 })
 export class PhotoService {
   image:any;
+  where!: number;
+  localisation :any;
+  info:any;
   constructor() { }
+  
+  
+  setinfoLocalisation(data:any){
+    this.info = data;
+  }
 
-  setimage(data:any){
+  getinfoLocalisation(){
+    return this.info
+  }
+  setLocalisation(data:any){
+    this.localisation = data;
+  }
+  getlocalisation(){
+    return this.localisation
+  }
+
+  setimageplace(data:any){
     this.image = data;
   }
 
-  getimage(){
+  getimageplace(){
     return this.image
+  }
+
+  setimagedish(data:any){
+    this.image = data;
+  }
+
+  getimageDish(){
+    return this.image
+  }
+
+  SetWhere(data:number){
+    this.where = data;
+  }
+
+  getWhere(){
+    return this.where
   }
 
 }

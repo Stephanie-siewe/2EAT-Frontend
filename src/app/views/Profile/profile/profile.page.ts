@@ -14,10 +14,30 @@ import { AuthService } from 'src/app/Services/auth.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ProfilePage implements OnInit {
+  user_id:any;
+  image: any = '';
+  user: any = {};
+  constructor(private route: Router, private db:DbService, private auth:AuthService) { 
+    this.user_id = localStorage.getItem('user_id');
+    this.auth.getUserInfos(this.user_id).subscribe((res:any)=>{
+      this.user = res;
+      console.log('response2',res);
+      
+    })
+  }
 
-  constructor(private route: Router, private db:DbService, private auth:AuthService) { }
+
+  ionViewWillEnter(){
+    this.auth.getUserInfos(this.user_id).subscribe((res:any)=>{
+      this.user = res;
+      console.log('response3',res);
+      
+    })
+  }
 
   ngOnInit() {
+    this.ionViewWillEnter()
+
   }
   gotoEditProfil(){
     this.route.navigate(['/profile-edit']);

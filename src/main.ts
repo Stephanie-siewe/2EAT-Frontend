@@ -7,7 +7,7 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import{IonicStorageModule}from'@ionic/storage-angular';
 import{Drivers}from'@ionic/storage';
@@ -30,7 +30,7 @@ bootstrapApplication(AppComponent, {
     
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
-    importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,FormsModule,Ng2SearchPipeModule,LangageService),
+    importProvidersFrom(IonicModule.forRoot({}),HttpClientModule,FormsModule,ReactiveFormsModule,Ng2SearchPipeModule,LangageService),
     importProvidersFrom(IonicStorageModule.forRoot({
       name: 'user',
       driverOrder: [CordovaSQLiteDriver._driver,Drivers.IndexedDB]

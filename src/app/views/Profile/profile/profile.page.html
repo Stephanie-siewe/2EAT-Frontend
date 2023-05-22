@@ -23,7 +23,9 @@
       <ion-row>
         <ion-col size="2">
           <ion-avatar>
-            <img alt="Silhouette of a person's head" src="assets/images/me.jpg" />
+          
+            <img  alt="Silhouette of a person's head" src="assets/images/user.png" *ngIf="user.profile_image == null" />
+            <img  alt="Silhouette of a person's head" [src]="'data:image/jpeg;base64,' + user.profile_image" *ngIf="user.profile_image != null">
           </ion-avatar>
         </ion-col>
         <ion-col>

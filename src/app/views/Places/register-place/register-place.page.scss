@@ -90,6 +90,12 @@ ion-label{
     border  : 2px solid gray;  
 }
 
+.error{
+    color: red;
+    text-align: center;
+    font-weight:600;
+    text-transform: uppercase;
+}
 ion-input, ion-textarea, ion-select{
     border: 1px #C4C4C4 solid;
  //    margin-left:1vw;

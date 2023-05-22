@@ -1,11 +1,13 @@
 import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, NgModule, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { environment } from 'src/environments/environment';
+import { IonicModule, ModalController } from '@ionic/angular';
+
 
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
+import { PhotoService } from 'src/app/Services/photo.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-map-page',
@@ -16,6 +18,9 @@ import { Router } from '@angular/router';
   
 })
 export class MapPagePage implements OnInit, AfterViewInit {
+
+   api ='pk.eyJ1IjoiZXBhbGV5dmFuIiwiYSI6ImNsZDBvbmZydDAwZHMzcnF4M3E4MmZzZzgifQ.Wr4NvYRxU0lhSWe4JkC4fw';
+      
  private map:any;
  smallIcon = new L.Icon({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-icon.png',
@@ -31,24 +36,25 @@ export class MapPagePage implements OnInit, AfterViewInit {
 //   lat:3.866667,
 //   lng:11.516667
 //  }
- constructor(private route :Router) { }
+ constructor(private route :Router, private photoService:PhotoService, private modalController: ModalController) { }
 
  location:any;
+ 
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [3.866667, 11.516667 ],
-      zoom: 10
+      zoom: 12
     });
     
     
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 20,
+      maxZoom: 25,
       minZoom:10 ,
       id: 'mapbox/streets-v11',
       tileSize: 512,
       zoomOffset: -1,
-      accessToken:'pk.eyJ1IjoiZXBhbGV5dmFuIiwiYSI6ImNsZDBvbmZydDAwZHMzcnF4M3E4MmZzZzgifQ.Wr4NvYRxU0lhSWe4JkC4fw',
+      accessToken: this.api,
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
     }).addTo(this.map);
 var marker: L.Marker<any> ;
@@ -56,14 +62,38 @@ var marker: L.Marker<any> ;
   lat:3.866667,
   lng:11.516667
  }
- this.map.on('click', (e: any) => {
-  if (marker) {
-      this.map.removeLayer(marker);
-  }
-  marker = L.marker(e.latlng,{icon:this.smallIcon}).addTo(this.map);
-  console.log(e.latlng);
-  
-});
+
+ if (this.photoService.getWhere() == 1){
+  this.map.on('click', (e: any) => {
+    if (marker) {
+        this.map.removeLayer(marker);
+    }
+    
+    marker = L.marker(e.latlng,{icon:this.smallIcon}).addTo(this.map);
+    console.log(e.latlng);
+    this.photoService.setLocalisation(e.latlng);
+
+    const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${e.latlng.lat}&lon=${e.latlng.lng}&apiKey=f87e5ff45b4f429a830b9af29e3867f9`;
+     // call Reverse Geocoding API - https://www.geoapify.com/reverse-geocoding-api/
+  fetch(reverseGeocodingUrl).then(result => result.json())
+  .then(featureCollection => {
+    const infosLocalisation ={
+      'quarter': featureCollection.features[0].properties.suburb,
+      'info': featureCollection.features[0].properties.formatted
+    } 
+
+    console.log('yo');
+    
+    console.log(featureCollection);
+    console.log('Linfos',infosLocalisation);
+    this.photoService.setinfoLocalisation(infosLocalisation)
+    
+    
+  });
+    
+  });
+ }
+ 
   
   }
 
@@ -76,7 +106,13 @@ var marker: L.Marker<any> ;
   
 
   ngAfterViewInit(){
-    this.initMap();
+
+    setTimeout(
+      this.initMap.bind(this),
+      500
+    )
+    
+    console.log('ffff');
   }
 
   ngOnInit() {
@@ -90,9 +126,15 @@ var marker: L.Marker<any> ;
    
   }
 
-
+  
   Finish(){
-    this.route.navigate(['/tabs/home']);
+    console.log('where', this.photoService.getWhere());
+    this.modalController.dismiss(null, 'backdrop');
+    // if (this.photoService.getWhere() == 1){
+    //   this.route.navigate(['/add-place'])
+    // };
+
+    // this.route.navigate(['/tabs/home']);
   }
 
 

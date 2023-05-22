@@ -82,6 +82,7 @@ export class ProfileEditPage implements OnInit {
 
 
 async openOptionSelection() {
+     this.photo.SetWhere(0);
       const modal = await this.modalcontroller.create({
         component: OptionscameraPage,
         cssClass: 'transparent-modal'
@@ -100,7 +101,7 @@ async openOptionSelection() {
     }
     
     reloadComponent() {
-      // window.location.replace(window.location.href)
+      
       this.ionViewWillEnter()
       console.log('refreshed!');
       

@@ -31,54 +31,83 @@ export class OptionscameraPage implements OnInit {
   }
 
   async takePicture() {
-    const image = await Camera.getPhoto({
-      quality: 100,
-      allowEditing: false,
-      resultType: CameraResultType.Base64,
-      source: CameraSource.Camera
-    });
-    this.imageData = image.base64String;
-    console.log('image',this.imageData);
+    
+      const image = await Camera.getPhoto({
+        quality: 100,
+        allowEditing: false,
+        resultType: CameraResultType.Base64,
+        source: CameraSource.Camera
+      });
+      this.imageData = image.base64String;
+      console.log('image',this.imageData);
+  
+      if (this.photo.getWhere()== 0){
+        const userData = {
+          profile_image:this.imageData,
+          id: this.userid
+        }
+        ;(await this.auth.changeImage(userData)).subscribe((res:any)=>{
+          console.log('response image',res);
+          
+          
+        },(error:any)=>{
+          console.log('error',error);
+          
+        })
+      }
+      
+    
 
-    const userData = {
-      profile_image:this.imageData,
-      id: this.userid
+
+    if (this.photo.getWhere() == 1){
+     
+      this.photo.setimageplace(this.imageData);
     }
-    ;(await this.auth.changeImage(userData)).subscribe((res:any)=>{
-      console.log('response image',res);
-      
-    },(error:any)=>{
-      console.log('error',error);
-      
-    })
+    
     
   }
 
 
   async selectPicture() {
-    const image = await Camera.getPhoto({
-      quality: 80,
-      allowEditing: false,
-      resultType: CameraResultType.Base64,
-      source: CameraSource.Photos
-    });
-    this.imageData = image.base64String;
-    console.log('image',this.imageData);
+
+    
+      const image = await Camera.getPhoto({
+        quality: 80,
+        allowEditing: false,
+        resultType: CameraResultType.Base64,
+        source: CameraSource.Photos
+      });
+      this.imageData = image.base64String;
+      console.log('image',this.imageData);
+  
+      if (this.photo.getWhere()== 0){
+        const userData = {
+          profile_image:this.imageData,
+          id: this.userid
+        }
+        ;(await this.auth.changeImage(userData)).subscribe((res:any)=>{
+          console.log('response image',res);
+          // this.photo.setimageplace(this.imageData)
+          
+        },(error:any)=>{
+          console.log('error',error);
+          
+        })
+      }
+      
+    
 
 
-    const userData = {
-      profile_image:this.imageData,
-      id: this.userid
+    if (this.photo.getWhere() == 1){
+     
+      this.photo.setimageplace(this.imageData);
     }
-    ;(await this.auth.changeImage(userData)).subscribe((res:any)=>{
-      console.log('response image',res);
-      this.photo.setimage(this.imageData)
-      
-    },(error:any)=>{
-      console.log('error',error);
-      
-    })
-  }
+    }
+
+
+
+    
+
 
  
 }
