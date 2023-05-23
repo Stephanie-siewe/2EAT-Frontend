@@ -5,6 +5,7 @@ import { Camera, CameraOptions, CameraResultType, CameraSource } from '@capacito
 import { IonicModule, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/Services/auth.service';
 import { PhotoService } from 'src/app/Services/photo.service';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
 
 @Component({
   selector: 'app-optionscamera',
@@ -16,9 +17,11 @@ import { PhotoService } from 'src/app/Services/photo.service';
 export class OptionscameraPage implements OnInit {
   imageData:any;
   userid:any;
+  placeInfos:any;
   messageErrorApi = '';
-  constructor( private modalController: ModalController, private auth:AuthService, private photo:PhotoService) { 
+  constructor( private modalController: ModalController, private auth:AuthService, private photo:PhotoService, private http:HttpServiceService) { 
     this.userid  = localStorage.getItem('user_id');
+    this.placeInfos =JSON.parse(localStorage.getItem('place_selected')!);
   }
 
   ngOnInit() {
@@ -64,6 +67,24 @@ export class OptionscameraPage implements OnInit {
       this.photo.setimageplace(this.imageData);
     }
     
+    if (this.photo.getWhere()==2){
+      const place = {
+        object_id:this.placeInfos.id,
+        picture: this.imageData
+      }
+      console.log('photo updated?', place);
+      
+      this.http.modifyPicturePlace(place).subscribe((res)=>{
+        console.log('response upated picture', res);
+        this.placeInfos.picture = this.imageData;
+        localStorage.setItem('place_selected', JSON.stringify(this.placeInfos))
+      }, err =>{
+        console.log('err', err.error);
+        
+      })
+    }
+    
+    
     
   }
 
@@ -98,10 +119,26 @@ export class OptionscameraPage implements OnInit {
     
 
 
-    if (this.photo.getWhere() == 1){
+      if (this.photo.getWhere() == 1){
      
-      this.photo.setimageplace(this.imageData);
-    }
+        this.photo.setimageplace(this.imageData);
+      }
+
+      if (this.photo.getWhere()==2){
+        const place = {
+          object_id:this.placeInfos.id,
+          picture: this.imageData
+        }
+        console.log('photo updated?', place);
+        
+        this.http.modifyPicturePlace(place).subscribe((res)=>{
+          console.log('response upated picture', res);
+          
+        }, err =>{
+          console.log('err', err.error);
+          
+        })
+      }
     }
 
 

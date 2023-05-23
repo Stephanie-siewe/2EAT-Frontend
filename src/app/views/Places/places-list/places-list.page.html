@@ -19,11 +19,11 @@
         <p>{{place.localisation.quarter}},{{place.localisation.city}}</p>
       </ion-label>
       
-      <ion-button (click)="gotoPlaceEdit()" fill="clear">
+      <ion-button (click)="gotoPlaceEdit(place)" fill="clear">
         <ion-icon slot="icon-only" name="pencil-outline" color="blue"  ></ion-icon>
       </ion-button>
-      <ion-button id="open-toast" fill="clear">
-        <ion-icon slot="icon-only" name="trash" color="blue" ></ion-icon>
+      <ion-button id="open-toast" fill="clear"(click)="deletePlace(place.id)">
+        <ion-icon slot="icon-only" name="trash" color="blue"  ></ion-icon>
       </ion-button>
     </ion-item>
   </div>

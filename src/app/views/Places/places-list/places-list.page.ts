@@ -24,11 +24,12 @@ places:any;
   ionViewDidEnter(){ 
     setTimeout(
       this.listPlaces.bind(this),
-      500
+      200
     )
     
   }
-  gotoPlaceEdit(){
+  gotoPlaceEdit(data:any){
+    localStorage.setItem('place_selected', JSON.stringify(data))
     this.route.navigate(['/place-edit']);
   }
 
@@ -48,8 +49,19 @@ places:any;
   listPlaces(){
     this.httpservice.listPlaces().subscribe((res:any)=>{
       console.log('places',res);
+      res.filter((p:any) => p.user.id == this.user_id)
+      this.places = res.filter((p:any) => p.user.id == this.user_id)
+    }, err=>{
+      console.log('error', err.error.error);
       
-      this.places = res
+    })
+  }
+
+
+  deletePlace(id:number){
+    this.httpservice.deletePlace(id).subscribe((res:any)=>{
+      console.log('response',res);
+      this.listPlaces()
     }, err=>{
       console.log('error', err.error.error);
       

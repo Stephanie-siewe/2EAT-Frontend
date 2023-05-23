@@ -21,8 +21,8 @@ export class HttpServiceService {
     return this._http.get(this.baseUrl.url+"/place/placesimple/",this.baseUrl.httOptions);
   }
 
-  async listPlacesWithNote(){
-    return this._http.get(this.baseUrl+"/place/listnoteplace/",this.baseUrl.httOptions).toPromise();
+  listPlacesWithNote(){
+    return this._http.get(this.baseUrl.url+"/place/listnoteplace",this.baseUrl.httOptions);
   }
 
   async getPlace(id:number){
@@ -30,27 +30,16 @@ export class HttpServiceService {
   }
 
 
-  async deletePlace(id:number){
-    return this._http.delete(this.baseUrl.url+"/place/delete/place/"+id,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      
-    });
+  deletePlace(id:number){
+    return this._http.delete(this.baseUrl.url+"/place/delete/place/"+id,this.baseUrl.httOptions)
   }
 
-  async modifyPicturePlace(data:any){
-    this._http.post(this.baseUrl.url+"/place/update/place/photo",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-      
-    });
+  modifyPicturePlace(data:any){
+    return this._http.post(this.baseUrl.url+"/place/update/place/photo",data,this.baseUrl.httOptions)
   }
 
-  async modifyPlaceInformations(data:any){
-    this._http.post(this.baseUrl.url+"/place/update/place",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-      
-    });
+  modifyPlaceInformations(data:any){
+    return this._http.post(this.baseUrl.url+"/place/update/place",data,this.baseUrl.httOptions)
 
   }
 
@@ -112,8 +101,8 @@ export class HttpServiceService {
   }
 
 
-  async searchDishesByPlaceId(id: number){
-    return this._http.get(this.baseUrl+"/place/searchdishesbyplace/"+id,this.baseUrl.httOptions).toPromise()
+  searchDishesByPlaceId(id: number){
+    return this._http.get(this.baseUrl+"/place/searchdishesbyplace/"+id,this.baseUrl.httOptions)
   }
 
   async deleteDish(id:number){
