@@ -48,6 +48,9 @@ export class ProfilePage implements OnInit {
   gotoPlaceList(){
     this.route.navigate(['/places-list']);
   }
+  goToAbout(){
+    this.route.navigate(['/about']);
+  }
 
   logout(){
 
