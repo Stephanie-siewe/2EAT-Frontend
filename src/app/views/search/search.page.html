@@ -1,4 +1,4 @@
-<
+
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-grid>
     <ion-row>
@@ -18,7 +18,11 @@
   <strong>  Search</strong>
 </ion-label>
   <ion-searchbar aria-label="Medium input" placeholder="Search Here " show-clear-button="focus" show-cancel-button="focus" color="blue-pale"  [(ngModel)]="term"></ion-searchbar>
-
+  <div class="wrapper">
+    <div class="item" *ngFor="let cate of categorie">
+      <h6> {{cate.name}}</h6>
+    </div>
+  </div>
 <div *ngIf="search === 0" >
   <div class="connection" >
     <img src="assets/images/restaurant.svg">

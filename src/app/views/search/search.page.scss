@@ -100,3 +100,27 @@ ion-chip > ion-label{
 ion-card{
   border-radius: 9px;
 }
+
+.wrapper {
+  max-height: 120px;
+  display: flex;
+  overflow-x: auto;
+  margin-top: 10px;
+  padding: 2px 0px 0px 12px;
+}
+.item {
+  min-width: 105px;
+  height: 51px;
+  line-height: 110px;
+  text-align: center;
+  background: var(--ion-color-blue-pale);
+  color: var(--ion-color-black);
+  border-radius: 30px;
+  margin-right: 5px;
+}
+.wrapper::-webkit-scrollbar {
+  width: 0;
+}
+h6 {
+  font-size: 12px;
+}

@@ -45,21 +45,20 @@
 <ion-content fullscreen="true">
   <div class="img-box" >
     <div class="back">
-      <img src="assets/images/place3.jpg" alt="photo d'un vendeur" *ngIf="details.placepicture !== ''" >
-      <!--<ion-img [src]="'data:image/jpeg;bytes'+ details.placepicture" *ngIf="details.placepicture !== ''"></ion-img>-->
-            
+      
+      <ion-img [src]="'data:image/jpeg;base64,'+ place.picture" *ngIf="place.picture !== ''"></ion-img>      
   </div>
   
   <div class="container" >
-          <h2>{{details.placename}}</h2>
+          <h2>{{place.name}}</h2>
           <div class="chip">
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
-            <ion-label color="white">{{details.noteplace}}</ion-label>
+            <ion-label color="white">{{place.note}}</ion-label>
           </div>       
-          <h3>{{details.quarter}},{{details.city}}</h3>
+          <h3>{{place.quarter}},{{place.city}}</h3>
   </div>
   </div>
 
@@ -73,7 +72,7 @@
               <strong> Description</strong>
             </ion-label>
               <ion-icon name="chatbubble-outline" (click)="CommentsPage()" color="blue" id="chat"></ion-icon>
-            <p>{{details.placedescription}}</p>
+            <p>{{place.description}}</p>
           </div>
         </ion-col>
         
@@ -119,8 +118,8 @@
           </ion-grid>
         </div>
 
-          <ion-card *ngFor="let item of listD">
-            <img src="assets/images/mozzarella.jpg" alt="photo de mozzarella" *ngIf="item.picture !== ''">
+          <ion-card *ngFor="let item of dishes">
+            <ion-img [src]="'data:image/jpeg;base64,'+ item.picture" ></ion-img>      
             <!--<ion-img [src]="'data:image/jpeg;bytes'+ details.dishpicture" *ngIf="details.dishpicture !== ''"></ion-img>-->
             <ion-card-title color="dark">{{item.name}}</ion-card-title>
             <ion-chip color="gray" mode="ios">

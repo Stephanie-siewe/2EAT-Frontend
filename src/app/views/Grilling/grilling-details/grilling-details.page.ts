@@ -25,33 +25,45 @@ rating() {
  isModalOpen = false;
 image:any= '';
 details:any;
-dish:any;
+dishes:any;
 listD:any;
+place:any;
 
 
  
   constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder,
     private modalcontroller:ModalController,private hp:HttpServiceService) {
+      this.place = JSON.parse(localStorage.getItem('place_selected')!)
+      console.log('place', this.place)
+   }
 
+
+   ionViewDidEnter(){
+    this.getDishesByIdPlace();
    }
 
   ngOnInit() {
-    this.show = 1;
-    this.details=JSON.parse(localStorage.getItem('detailsinfo')|| '{}');
-    this.getDishesByIdPlace();
+    // this.show = 1;
+    // this.details=JSON.parse(localStorage.getItem('detailsinfo')|| '{}');
+    // this.getDishesByIdPlace();
 
   }
 /*****************list of dish for a place************ */
 getDishesByIdPlace(){
       
-  this.hp.listDishes().then(
-     (result:any) =>{
-    this.dish=result;
-    this.listD=this.dish.filter((item:any) => item.place.id == this.details.id);
+//   this.hp.listDishes().then(
+//      (result:any) =>{
+//     this.dish=result;
+//     this.listD=this.dish.filter((item:any) => item.place.id == this.details.id);
  
-    console.log("listD",this.listD);
+//     console.log("listD",this.listD);
 
-});
+// });
+
+
+this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
+  this.dishes = res;
+})
 
 }
   /**************Save dishes************************** */

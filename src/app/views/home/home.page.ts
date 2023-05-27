@@ -53,15 +53,19 @@ export class HomePage implements OnInit {
       cats =>{
         this.categorie=cats;
         console.log(cats);
+        localStorage.setItem('categorie',JSON.stringify(cats))
       }
     );
   }
-  goToDinner(obj:any){
-    localStorage.setItem('infos',JSON.stringify(obj));
-    this.route.navigate(['/all-grilling']);
-  }
-  gotoSearch(){
+  see(){
+    
     this.route.navigate(['/tabs/search']);
+    ;
+  }
+  gotoSearch(obj:any){
+    
+    this.route.navigate(['/tabs/search']);
+    
 
   }
   gotoProfile(){

@@ -43,12 +43,8 @@ export class HttpServiceService {
 
   }
 
-  async searchPlacesByCategoryId(id:number){
-    this._http.get(this.baseUrl.url+"place/searchplacesbycategory/"+id,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-      
-    });
+  searchPlacesByCategoryId(id:number){
+    return this._http.get(this.baseUrl.url+"place/searchplacesbycategory/"+id,this.baseUrl.httOptions)
   }
 
   async nearPlaces(userLongitude:any,userLatitude:any){
@@ -61,8 +57,8 @@ export class HttpServiceService {
   
 
 
-  async listCategories(){
-    return this._http.get(this.baseUrl.url+"/place/categorie",this.baseUrl.httOptions).toPromise();
+  listCategories(){
+    return this._http.get(this.baseUrl.url+"/place/categorie",this.baseUrl.httOptions);
 
   }
 

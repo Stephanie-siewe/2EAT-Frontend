@@ -20,20 +20,41 @@ export class SearchPage implements OnInit {
 search: any;
 results:any;
 list:any;
+categorie:any;
+comefromhome = 0;
+choice:any;
 result: any = [];
 places:any = [];
 notes: any = [];
 term!:string;
-  constructor(private route: Router, private cat:CategorieService, private http:HttpServiceService){ }
+  constructor(private route: Router, private cat:CategorieService, private http:HttpServiceService){
+  this.categorie = JSON.parse(localStorage.getItem('categorie')!);
+  this.choice = JSON.parse(localStorage.getItem('Infos')!);
+  if (this.choice == undefined){
+    this.comefromhome = 1;
+  }
+   }
 
   ngOnInit() {
-    // this.listPl();
    
+  //  this.getListCategorie();
   }
 
 ionViewDidEnter(){
-  this.essaiSteph();
+ 
+this.essaiSteph();
+ 
+ if (this.comefromhome = 1){
+  this.result = this.result.fitler((data:any)=>data.categorie.id == this.choice.id )
+ }
+ 
 }
+
+// getListCategorie(){
+//   this.http.listCategories().subscribe((cat)=>{
+//     this.categorie = cat;
+//   });
+// }
 
 listPl(){
   console.log("d1",this.search);
@@ -51,38 +72,6 @@ listPl(){
 
 essaiSteph(){
 
-//   this.http.listPlaces().subscribe( (res)=>{
-//     this.places = res;
-//     console.log('places',this.places);
-    
-     
-//     this.http.listPlacesWithNote().subscribe((response)=>{
-//       console.log('notes places', response);
-//       this.notes = response;
-//       this.result = this.places.map((place:any) =>{
-//         // this.http.searchDishesByPlaceId(place.id).
-//       const rating = this.notes.find((note:any)=>note.id == place.id);
-//       console.log('rating',rating)
-//       console.log('place',place);
-//       return {
-//         name:place.name,
-//         note:rating,
-//         category:place.category,
-//         localisation:place.localisation,
-//         picture: place.picture
-
-//       }
-     
-      
-//     }
-//     )
-
-//   });
-//   console.log('result',this.result);
-  
-//   console.log('fin');
-  
-// })
 
 forkJoin([
   this.http.listPlaces().pipe(map((data:any) => Array.from(data))),
