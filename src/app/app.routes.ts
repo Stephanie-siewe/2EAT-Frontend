@@ -94,7 +94,11 @@ export const routes: Routes = [
   {
     path: 'map-page',
     loadComponent: () => import('./views/map-page/map-page.page').then( m => m.MapPagePage)
+  },  {
+    path: 'about',
+    loadComponent: () => import('./views/about/about.page').then( m => m.AboutPage)
   },
+
 
 
 

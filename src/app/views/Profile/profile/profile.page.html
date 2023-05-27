@@ -24,8 +24,8 @@
         <ion-col size="2">
           <ion-avatar>
           
-            <img  alt="Silhouette of a person's head" src="assets/images/user.png" *ngIf="user.profile_image == null" />
-            <img  alt="Silhouette of a person's head" [src]="'data:image/jpeg;base64,' + user.profile_image" *ngIf="user.profile_image != null">
+            <img  alt="Silhouette of a person's head" src="assets/images/user.png" *ngIf="user.profile_image === null" />
+            <img  alt="Silhouette of a person's head" [src]="'data:image/jpeg;base64,' + user.profile_image" *ngIf="user.profile_image !== null">
           </ion-avatar>
         </ion-col>
         <ion-col>
@@ -121,7 +121,7 @@
      </ion-grid>
     <h2 class="title">More</h2>
     <ion-grid>
-      <ion-row>
+      <ion-row (click)="goToAbout()">
         <ion-col size="11">
           <h2>About US</h2>
         </ion-col>
