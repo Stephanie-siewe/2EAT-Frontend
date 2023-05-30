@@ -46,7 +46,7 @@
   <div class="img-box" >
     <div class="back">
       
-      <ion-img [src]="'data:image/jpeg;base64,'+ place.picture" *ngIf="place.picture !== ''"></ion-img>      
+      <ion-img [src]="'data:image/jpeg;base64,'+ place.picture"></ion-img>      
   </div>
   
   <div class="container" >
@@ -56,17 +56,19 @@
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
-            <ion-label color="white">{{place.note}}</ion-label>
+            <ion-label color="white">{{note}}</ion-label>
           </div>       
-          <h3>{{place.quarter}},{{place.city}}</h3>
+          <h3>{{place.localisation.quarter}},{{place.localisation.city}}</h3>
   </div>
   </div>
 
   <div>
     <ion-grid fixed>
+     
       <ion-row>
        
         <ion-col size="auto">
+         
           <div  class="description">
             <ion-label>
               <strong> Description</strong>
@@ -74,12 +76,13 @@
               <ion-icon name="chatbubble-outline" (click)="CommentsPage()" color="blue" id="chat"></ion-icon>
             <p>{{place.description}}</p>
           </div>
+          <h3>Category {{place.category.name}}</h3>
         </ion-col>
         
       </ion-row>
     
   
-      <div class="save-dish" *ngIf="show === 0">
+      <div class="save-dish">
   
         <div class="dishes">
           <ion-grid fixed>
@@ -101,7 +104,7 @@
         </ion-button>
       </div>
   
-      <div class="wrapper" *ngIf="show === 1">
+      <div class="wrapper">
   
         <div class="dishes">
           <ion-grid fixed>

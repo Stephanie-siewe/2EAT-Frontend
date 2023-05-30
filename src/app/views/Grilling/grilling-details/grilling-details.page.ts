@@ -6,6 +6,7 @@ import { CommentsPage } from '../comments/comments.page';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -18,14 +19,13 @@ import { HttpServiceService } from 'src/app/Services/http-service.service';
 export class GrillingDetailsPage implements OnInit {
 
   
-rating() {
 
-}
  show: any;
  isModalOpen = false;
 image:any= '';
 details:any;
 dishes:any;
+note:any;
 listD:any;
 place:any;
 
@@ -40,6 +40,7 @@ place:any;
 
    ionViewDidEnter(){
     this.getDishesByIdPlace();
+
    }
 
   ngOnInit() {
@@ -49,23 +50,31 @@ place:any;
 
   }
 /*****************list of dish for a place************ */
-getDishesByIdPlace(){
-      
-//   this.hp.listDishes().then(
-//      (result:any) =>{
-//     this.dish=result;
-//     this.listD=this.dish.filter((item:any) => item.place.id == this.details.id);
- 
-//     console.log("listD",this.listD);
+getDishesByIdPlace(){      
+// this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
+//   this.dishes = res;
+// })
 
-// });
+const noteObservable = this.hp.getNote(this.place.id);
+const dishesObservable = this.hp.searchDishesByPlaceId(this.place.id);
 
 
-this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
-  this.dishes = res;
-})
+forkJoin([noteObservable, dishesObservable]).subscribe(([note, dishes]) => {
+  this.dishes = dishes;
+  let not:any = note;
+  this.note = not.note
+  
+  console.log('Note:', this.note);
+  console.log('Dishes:', dishes);
+});
+
 
 }
+
+
+
+
+
   /**************Save dishes************************** */
   saveDish(){
     this.show = 1;
@@ -127,6 +136,7 @@ this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
 
 /*******************Add to cart *************** */
 addtoCart(){
+  
   this.route.navigate(['/commandes']);
 }
   /*******************Routes************************ */

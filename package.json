@@ -41,6 +41,7 @@
     "@types/image-size": "^0.8.0",
     "bootstrap": "^5.2.3",
     "cordova-sqlite-storage": "^6.1.0",
+    "date-fns": "^2.30.0",
     "import": "^0.0.6",
     "ionicons": "^7.0.0",
     "leaflet": "^1.9.3",

@@ -83,6 +83,7 @@ forkJoin([
   this.result = places.map((place: any) => {
     const rating:any = notes.find((note: any) => note.id === place.id);
     return {
+      id:place.id,
       name: place.name,
       note: rating.moy,
       category: place.category,
@@ -112,7 +113,7 @@ forkJoin([
 
 
   gotoDetails(obj:any){
-    localStorage.setItem('detailsinfo', JSON.stringify(obj));
+    localStorage.setItem('place_selected', JSON.stringify(obj));
     this.route.navigate(['/grilling-details']);
   }
 }

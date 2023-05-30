@@ -11,8 +11,8 @@
  <ion-list >
   <div *ngFor="let place of places">
     <ion-item >
-      <ion-avatar slot="start" (click)="gotoDetailPlace()">
-        <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" *ngIf="place.picture == ''"/>
+      <ion-avatar slot="start" (click)="gotoDetailPlace(place)">
+        <!-- <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" *ngIf="place.picture == ''"/> -->
         <ion-img [src]="'data:image/jpeg;base64,'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
       </ion-avatar>
       <ion-label>{{place.name}}

@@ -33,7 +33,8 @@ places:any;
     this.route.navigate(['/place-edit']);
   }
 
-  gotoDetailPlace(){
+  gotoDetailPlace(data:any){
+    localStorage.setItem('place_selected', JSON.stringify(data))
     this.route.navigate(['/grilling-details'])
   }
   
