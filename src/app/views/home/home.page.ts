@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { CategorieService } from 'src/app/Services/categorie.service';
 import { LangageService } from 'src/app/Services/langage.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +17,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class HomePage implements OnInit {
   usr:any;
+  user_id:number;
+  picture_user:any;
   categorie:any;
   lang:any[] =[];
-  constructor(private route: Router,private cat: CategorieService, private lng:LangageService, private translate:TranslateService) {
+  constructor(private route: Router,private cat: CategorieService, private lng:LangageService, private translate:TranslateService, private Auth:AuthService) {
+    this.user_id = JSON.parse(localStorage.getItem('user_id')!)
+    
     this.translate.setDefaultLang('en');
     this.translate.addLangs(['en','fr']);
     this.translate.use('en');
@@ -36,7 +41,12 @@ export class HomePage implements OnInit {
     this.lng.setLanguage(env.target.value);
    }
 
+   ionViewDidEnter(){
+    this.getuser();
+   }
+
   ngOnInit() {
+
     this.getUsrInfos();
     this.getCatList();
     this.lang= this.lng.getLanguages();
@@ -71,8 +81,11 @@ export class HomePage implements OnInit {
   gotoProfile(){
     this.route.navigate(['/tabs/profile']);
   }
+  getuser(){
+    this.Auth.getUserInfos(this.user_id).subscribe((res:any)=>{
+      this.picture_user = res.profile_image;
+    })
+      }
 
-  gotomap(){
-    this.route.navigate(['/map-page'])
-  }
+  
 }

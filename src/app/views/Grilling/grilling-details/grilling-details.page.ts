@@ -18,7 +18,7 @@ import { forkJoin } from 'rxjs';
 })
 export class GrillingDetailsPage implements OnInit {
 
-  
+commandes = new Array();
 
  show: any;
  isModalOpen = false;
@@ -27,13 +27,16 @@ details:any;
 dishes:any;
 note:any;
 listD:any;
+noted = false;
 place:any;
+user_id:number;
 
 
  
   constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder,
     private modalcontroller:ModalController,private hp:HttpServiceService) {
       this.place = JSON.parse(localStorage.getItem('place_selected')!)
+      this.user_id = JSON.parse(localStorage.getItem('user_id')!)
       console.log('place', this.place)
    }
 
@@ -47,6 +50,8 @@ place:any;
     // this.show = 1;
     // this.details=JSON.parse(localStorage.getItem('detailsinfo')|| '{}');
     // this.getDishesByIdPlace();
+
+    this.VerifyIfUserHadLikedPlace();
 
   }
 /*****************list of dish for a place************ */
@@ -135,9 +140,24 @@ forkJoin([noteObservable, dishesObservable]).subscribe(([note, dishes]) => {
   }
 
 /*******************Add to cart *************** */
-addtoCart(){
+addtoCart(dish_id:number){
+  let commandlocal = localStorage.getItem('orders');
+
   
-  this.route.navigate(['/commandes']);
+    const order = {
+        user:this.user_id,
+        dish:dish_id
+    };
+    if(commandlocal == undefined){
+      this.commandes.push(order);
+    localStorage.setItem('orders',JSON.stringify(this.commandes));
+    }
+    else{
+      this.commandes = JSON.parse(commandlocal);
+      this.commandes.push(order);
+      localStorage.setItem('orders',JSON.stringify(this.commandes));
+    }
+     this.route.navigate(['/commandes']);
 }
   /*******************Routes************************ */
   CommentsPage(){
@@ -163,7 +183,21 @@ addtoCart(){
 
   submitRating() {
     // Envoyer la note sélectionnée à votre backend ou effectuer une action supplémentaire
-    this.modalcontroller.dismiss(this.selectedRating);
-    console.log(this.selectedRating);
+    
+    this.hp.Rating(this.user_id,this.place.id,this.selectedRating).subscribe(res =>{
+      console.log('note',this.selectedRating);
+      console.log('response',res);
+      this.modalcontroller.dismiss(this.selectedRating);
+      this.ionViewDidEnter();
+    })
+    
+    
+  }
+
+
+  VerifyIfUserHadLikedPlace(){
+    this.hp.VerifyIfUserHadNotePlace(this.user_id,this.place.id).subscribe((res:any)=>{
+      this.noted = res.response;
+    })
   }
 }

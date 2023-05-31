@@ -161,6 +161,14 @@ export class HttpServiceService {
   getCommentByIdPlace(id:any){
     return this._http.get(this.baseUrl.url+"/place/commentsplace/"+id,this.baseUrl.httOptions);
   }
+  
 
+  Rating(user_id:number,place_id:number, note:number){
+    return this._http.get(this.baseUrl.url+"/place/noteplace/"+user_id+"/"+place_id+"/"+note,this.baseUrl.httOptions);
+  }
+
+  VerifyIfUserHadNotePlace(user_id:number,place_id:number){
+    return this._http.get(this.baseUrl.url+"/place/verify/"+user_id+"/"+place_id, this.baseUrl.httOptions);
+  }
 
 }

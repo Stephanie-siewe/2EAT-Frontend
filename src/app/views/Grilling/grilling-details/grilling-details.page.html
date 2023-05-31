@@ -3,7 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button color="white" mode="md" icon="chevron-back-outline" ></ion-back-button>
     </ion-buttons>
-    <ion-icon slot="end" name="star-outline"  id="star-outline"></ion-icon>
+    <ion-icon slot="end" name="star-outline"  id="star-outline" class="noted" *ngIf="noted == true "></ion-icon>
+    <ion-icon slot="end" name="star-outline"  id="star-outline"  *ngIf="noted != true "></ion-icon>
     </ion-toolbar>
 </ion-header>
 
@@ -121,12 +122,12 @@
           </ion-grid>
         </div>
 
-          <ion-card *ngFor="let item of dishes">
+          <ion-card *ngFor="let item of dishes" (click)="addtoCart(item.id)">
             <ion-img [src]="'data:image/jpeg;base64,'+ item.picture" ></ion-img>      
             <!--<ion-img [src]="'data:image/jpeg;bytes'+ details.dishpicture" *ngIf="details.dishpicture !== ''"></ion-img>-->
             <ion-card-title color="dark">{{item.name}}</ion-card-title>
             <ion-chip color="gray" mode="ios">
-              <ion-icon name="bag-outline" color="dark" (click)="addtoCart()"></ion-icon>
+              <ion-icon name="bag-outline" color="dark" ></ion-icon>
             </ion-chip>
           </ion-card>
         

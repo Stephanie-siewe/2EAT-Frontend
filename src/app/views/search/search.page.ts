@@ -7,6 +7,7 @@ import { HttpServiceService } from 'src/app/Services/http-service.service';
 import { CategorieService } from 'src/app/Services/categorie.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Observable, forkJoin, map, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/Services/auth.service';
 
 
 @Component({
@@ -18,6 +19,8 @@ import { Observable, forkJoin, map, switchMap } from 'rxjs';
 })
 export class SearchPage implements OnInit {
 search: any;
+user_id:number;
+picture_user:any;
 results:any;
 list:any;
 categorie:any;
@@ -27,16 +30,18 @@ result: any = [];
 places:any = [];
 notes: any = [];
 term!:string;
-  constructor(private route: Router, private cat:CategorieService, private http:HttpServiceService){
+  constructor(private route: Router, private cat:CategorieService, private http:HttpServiceService, private Auth:AuthService){
   this.categorie = JSON.parse(localStorage.getItem('categorie')!);
   this.choice = JSON.parse(localStorage.getItem('Infos')!);
   if (this.choice == undefined){
     this.comefromhome = 1;
   }
+
+  this.user_id = JSON.parse(localStorage.getItem('user_id')!)
    }
 
   ngOnInit() {
-   
+   this.getuser()
   //  this.getListCategorie();
   }
 
@@ -115,5 +120,15 @@ forkJoin([
   gotoDetails(obj:any){
     localStorage.setItem('place_selected', JSON.stringify(obj));
     this.route.navigate(['/grilling-details']);
+  }
+
+getuser(){
+this.Auth.getUserInfos(this.user_id).subscribe((res:any)=>{
+  this.picture_user = res.profile_image;
+})
+  }
+
+  gotoProfile(){
+    this.route.navigate(['/tabs/profile']);
   }
 }

@@ -8,8 +8,9 @@
        </div>
       </ion-col>
       <ion-col>
-        <ion-avatar>
-          <img alt="Silhouette of a person's head" src="assets/images/user.png" />
+        <ion-avatar (click)="gotoProfile()">
+          <ion-img [src]="'data:image/jpeg;base64,'+ picture_user" *ngIf="picture_user !=undefined"></ion-img>
+          <img alt="Silhouette of a person's head" src="assets/images/user.png" *ngIf="picture_user ==undefined" /> 
         </ion-avatar>
       </ion-col>
     </ion-row>
