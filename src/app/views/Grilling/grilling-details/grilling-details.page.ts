@@ -6,6 +6,7 @@ import { CommentsPage } from '../comments/comments.page';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { forkJoin } from 'rxjs';
 
 
 @Component({
@@ -17,29 +18,32 @@ import { HttpServiceService } from 'src/app/Services/http-service.service';
 })
 export class GrillingDetailsPage implements OnInit {
 
-  
-rating() {
+commandes = new Array();
 
-}
  show: any;
  isModalOpen = false;
 image:any= '';
 details:any;
 dishes:any;
+note:any;
 listD:any;
+noted = false;
 place:any;
+user_id:number;
 
 
  
   constructor(private route: Router, public actionSheetController: ActionSheetController,private fb: FormBuilder,
     private modalcontroller:ModalController,private hp:HttpServiceService) {
       this.place = JSON.parse(localStorage.getItem('place_selected')!)
+      this.user_id = JSON.parse(localStorage.getItem('user_id')!)
       console.log('place', this.place)
    }
 
 
    ionViewDidEnter(){
     this.getDishesByIdPlace();
+
    }
 
   ngOnInit() {
@@ -47,25 +51,35 @@ place:any;
     // this.details=JSON.parse(localStorage.getItem('detailsinfo')|| '{}');
     // this.getDishesByIdPlace();
 
+    this.VerifyIfUserHadLikedPlace();
+
   }
 /*****************list of dish for a place************ */
-getDishesByIdPlace(){
-      
-//   this.hp.listDishes().then(
-//      (result:any) =>{
-//     this.dish=result;
-//     this.listD=this.dish.filter((item:any) => item.place.id == this.details.id);
- 
-//     console.log("listD",this.listD);
+getDishesByIdPlace(){      
+// this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
+//   this.dishes = res;
+// })
 
-// });
+const noteObservable = this.hp.getNote(this.place.id);
+const dishesObservable = this.hp.searchDishesByPlaceId(this.place.id);
 
 
-this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
-  this.dishes = res;
-})
+forkJoin([noteObservable, dishesObservable]).subscribe(([note, dishes]) => {
+  this.dishes = dishes;
+  let not:any = note;
+  this.note = not.note
+  
+  console.log('Note:', this.note);
+  console.log('Dishes:', dishes);
+});
+
 
 }
+
+
+
+
+
   /**************Save dishes************************** */
   saveDish(){
     this.show = 1;
@@ -126,8 +140,24 @@ this.hp.searchDishesByPlaceId(this.place.id).subscribe((res:any)=>{
   }
 
 /*******************Add to cart *************** */
-addtoCart(){
-  this.route.navigate(['/commandes']);
+addtoCart(dish_id:number){
+  let commandlocal = localStorage.getItem('orders');
+
+  
+    const order = {
+        user:this.user_id,
+        dish:dish_id
+    };
+    if(commandlocal == undefined){
+      this.commandes.push(order);
+    localStorage.setItem('orders',JSON.stringify(this.commandes));
+    }
+    else{
+      this.commandes = JSON.parse(commandlocal);
+      this.commandes.push(order);
+      localStorage.setItem('orders',JSON.stringify(this.commandes));
+    }
+     this.route.navigate(['/commandes']);
 }
   /*******************Routes************************ */
   CommentsPage(){
@@ -153,7 +183,21 @@ addtoCart(){
 
   submitRating() {
     // Envoyer la note sélectionnée à votre backend ou effectuer une action supplémentaire
-    this.modalcontroller.dismiss(this.selectedRating);
-    console.log(this.selectedRating);
+    
+    this.hp.Rating(this.user_id,this.place.id,this.selectedRating).subscribe(res =>{
+      console.log('note',this.selectedRating);
+      console.log('response',res);
+      this.modalcontroller.dismiss(this.selectedRating);
+      this.ionViewDidEnter();
+    })
+    
+    
+  }
+
+
+  VerifyIfUserHadLikedPlace(){
+    this.hp.VerifyIfUserHadNotePlace(this.user_id,this.place.id).subscribe((res:any)=>{
+      this.noted = res.response;
+    })
   }
 }

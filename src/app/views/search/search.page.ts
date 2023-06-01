@@ -10,6 +10,8 @@ import { Observable, forkJoin, map, switchMap } from 'rxjs';
 import { PhotoService } from 'src/app/Services/photo.service';
 import { MapPagePage } from '../map-page/map-page.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { AuthService } from 'src/app/Services/auth.service';
+
 
 @Component({
   selector: 'app-search',
@@ -22,6 +24,7 @@ export class SearchPage implements OnInit {
   search: any;
   results: any;
   list: any;
+  picture_user:any;
   categorie: any;
   comefromhome = 0;
   choice: any;
@@ -31,23 +34,29 @@ export class SearchPage implements OnInit {
   term!: string;
   catId: any;
   listcat: any = [];
+  user_id:number;
+
   constructor(
     private route: Router,
     private http: HttpServiceService,
     private modalcontroller:ModalController,
     private photoService:PhotoService,
+    private Auth:AuthService
   ) {
     this.categorie = JSON.parse(localStorage.getItem('categorie')!);
     this.choice = JSON.parse(localStorage.getItem('Infos')!);
     if (this.choice == undefined) {
       this.comefromhome = 1;
     }
+    this.user_id = JSON.parse(localStorage.getItem('user_id')!);
+
   }
 
   ngOnInit() {
     this.search=0;
-    //  this.getListCategorie();
+    this.getuser();
   }
+    
 
   ionViewDidEnter() {
     this.catId = JSON.parse(localStorage.getItem('CatId')!);
@@ -107,14 +116,6 @@ export class SearchPage implements OnInit {
 
     });
   }
-
-  gotoDetails(obj: any) {
-    localStorage.setItem('detailsinfo', JSON.stringify(obj));
-    this.route.navigate(['/grilling-details']);
-  }
-
-
-
   allList() {
     this.search=1;
     this.listcat=this.result ;    
@@ -136,4 +137,18 @@ export class SearchPage implements OnInit {
     });
     return await modal.present();
   }
+
+  gotoDetails(obj:any){
+    localStorage.setItem('place_selected', JSON.stringify(obj));
+    this.route.navigate(['/grilling-details']);
+  }
+
+getuser(){
+this.Auth.getUserInfos(this.user_id).subscribe((res:any)=>{
+  this.picture_user = res.profile_image;
+})
+  }
+
+  gotoProfile(){
+    this.route.navigate(['/tabs/profile']);}
 }

@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseUrl } from '../class/base-url';
+import { DbService } from './db.service';
 
 
 export interface User{
@@ -19,7 +20,7 @@ export class AuthService {
   baseUrl =  new BaseUrl();
   userInfos:any;
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient,public db:DbService) { }
 
 
   async save(user:any){
@@ -29,8 +30,11 @@ export class AuthService {
   login(data:any){
     return this._http.post(this.baseUrl.url+"/login",data,this.baseUrl.httOptions);
   }
-  logout(data:any){
-
+  async logout(){
+    let token = await this.db.get('token')
+    const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
+    return this._http.post('/logout/', {}, { headers });
+ 
   }
   changeInfos(data:any){
     return this._http.post(this.baseUrl.url+"/user/changeinfo",data,this.baseUrl.httOptions);
@@ -45,5 +49,7 @@ export class AuthService {
   getUserInfos(id:number){
     return this._http.get(this.baseUrl.url+"/users/"+id +"/",this.baseUrl.httOptions);
   }
+
+  
 }
 

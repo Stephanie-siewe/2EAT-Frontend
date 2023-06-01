@@ -9,31 +9,38 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-card>
+  <ion-card *ngFor="let comment of comments">
     <ion-item lines="none">
       <ion-avatar slot="start">
-        <img src="assets/images/user.png" />
+        <img src="assets/images/user.png" *ngIf="comment.user.profile_image ==undefined"/>
+        <ion-img [src]="'data:image/jpeg;base64,'+ comment.user.profile_image" *ngIf="comment.user.profile_image !=undefined"></ion-img>  
       </ion-avatar>
       <ion-label>
-        <h2><b>Steph</b></h2>
-        <p>Il y a 14 heures</p>
+        <h2><b>{{comment.user.username}}</b></h2>
+        <p>{{comment.createdAt}}</p>
       </ion-label>
     </ion-item>
     <ion-item lines="none" class="tweet">
-      <ion-label text-wrap>Production version will be a lot more polished than this prototype, but still fun to see</ion-label>
+      <ion-label text-wrap>{{comment.body}}</ion-label>
     </ion-item>
     
-    <ion-button size="small" fill="clear" (click)="onClick()">
+    <!-- <ion-button size="small" fill="clear" (click)="onClick()">
       <ion-icon name="return-down-forward-outline"></ion-icon> Reply
+    </ion-button> -->
+    <ion-button size="small" fill="clear" (click)="likecomment(comment)" *ngIf="comment.is_liked == 0">
+
+      <ion-icon name="heart-outline" ></ion-icon> {{comment.num_likes.likes}}
     </ion-button>
-    <ion-button size="small" fill="clear" (click)="onClick()">
-      <ion-icon name="heart-outline"></ion-icon> 210
+
+    <ion-button size="small" fill="clear" (click)="likecomment(comment)" *ngIf="comment.is_liked == 1" >
+
+       <ion-icon name="heart-outline"  class="like"></ion-icon> <span class="like">{{comment.num_likes.likes}}</span> 
     </ion-button>
   </ion-card>
 
 
 
-<ion-card>
+<!-- <ion-card>
   <ion-item lines="none">
     <ion-avatar slot="start">
       <img src="assets/images/user.png" />
@@ -44,14 +51,14 @@
     </ion-label>
   </ion-item>
   <ion-item lines="none" class="tweet">
-    <ion-label text-wrap>Production version will be a lot more polished than this prototype, but still fun to see</ion-label>
+    <ion-label text-wrap>blabla</ion-label>
   </ion-item>
   
-  <ion-button size="small" fill="clear" (click)="onClick()">
+   <ion-button size="small" fill="clear" (click)="onClick()">
     <ion-icon name="return-down-forward-outline"></ion-icon> Reply
-  </ion-button>
+  </ion-button> 
   <ion-button size="small" fill="clear" (click)="onClick()">
-    <ion-icon name="heart-outline"></ion-icon> 210
+    <ion-icon name="heart-outline"></ion-icon>230
   </ion-button>
 </ion-card>
 
@@ -76,22 +83,25 @@
       <ion-icon name="heart-outline"></ion-icon> 210
     </ion-button>
   </ion-card>
- 
+  -->
 
 </ion-content>
 
 <ion-footer>
     <ion-grid fixed>
-      <ion-row>
-        <ion-col size="10">
-          <ion-input  aria-label="Medium input" type="text"  placeholder="  Enter your comment" ></ion-input>
-        </ion-col>
-        <ion-col size="2">
-          <ion-button   color="blue" size="small" shape="circle" >
-            <ion-icon name="send" slot="icon-only" ></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
+      <form  [formGroup]="commentForm" (ngSubmit)="makeComment()">
+        <ion-row>
+          <ion-col size="10">
+            <ion-input  aria-label="Medium input" type="text"  placeholder="  Enter your comment" formControlName="body" ></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button   color="blue" size="small" shape="circle" type="submit">
+              <ion-icon name="send" slot="icon-only" ></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+      
     </ion-grid>
    
  </ion-footer>

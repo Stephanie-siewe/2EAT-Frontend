@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
 
 @Component({
   selector: 'app-commandes',
@@ -13,9 +14,14 @@ import { Router } from '@angular/router';
 })
 export class CommandesPage implements OnInit {
   item_qty:any;
+  commandes: any;
+  dishWithInfos:any;
 
-
-  constructor(private route: Router) { }
+  constructor(private route: Router,private http:HttpServiceService) {
+    this.commandes = JSON.parse(localStorage.getItem('orders')!);
+    console.log('commandes', this.commandes);
+    
+   }
 
   ngOnInit() {
     this.item_qty=0;
@@ -53,6 +59,11 @@ export class CommandesPage implements OnInit {
         console.log('item_2->' + this.item_qty);
       }
   
+    }
+
+    getListDishWithConstituent(){
+      
+      
     }
 
 }

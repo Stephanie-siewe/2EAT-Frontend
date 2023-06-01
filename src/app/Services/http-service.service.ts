@@ -21,12 +21,16 @@ export class HttpServiceService {
     return this._http.get(this.baseUrl.url+"/place/placesimple/",this.baseUrl.httOptions);
   }
 
+  getNote(id:any){
+    return this._http.get(this.baseUrl.url+ "/place/notebyplaceid/"+id,this.baseUrl.httOptions)
+  }
+
   listPlacesWithNote(){
     return this._http.get(this.baseUrl.url+"/place/listnoteplace",this.baseUrl.httOptions);
   }
 
-  async getPlace(id:number){
-    return this._http.get(this.baseUrl.url+"/place/placesimple/"+id,this.baseUrl.httOptions).toPromise();
+  getPlace(id:number){
+    return this._http.get(this.baseUrl.url+"/place/placesimple/"+id+"/",this.baseUrl.httOptions);
   }
 
 
@@ -97,8 +101,8 @@ export class HttpServiceService {
   }
 
 
-  searchDishesByPlaceId(id: number){
-    return this._http.get(this.baseUrl+"/place/searchdishesbyplace/"+id,this.baseUrl.httOptions)
+  searchDishesByPlaceId(id:any){
+    return this._http.get(this.baseUrl.url+"/place/searchdishesbyplace/"+id,this.baseUrl.httOptions)
   }
 
   async deleteDish(id:number){
@@ -138,22 +142,33 @@ export class HttpServiceService {
     });
   }
 
-  async comment(data:any){
-    this._http.post(this.baseUrl.url+"/place/add/comment",data,this.baseUrl.httOptions).toPromise().then((el)=>{
-      console.log('response',el);
-      return el
-      
-    });
-
+  comment(data:any){
+   return this._http.post(this.baseUrl.url+"/place/add/comment",data,this.baseUrl.httOptions);
   }
 
-  async likeComment(comment_id:number,userId:any){
-    return this._http.get(this.baseUrl.url+"/place/comments/"+comment_id+"/"+userId+"/like").toPromise();
+  commentlikebyUserId(user_id:number,comment_id:number){
+    return this._http.get(this.baseUrl.url+"/place/checklikecomment/comment"+comment_id+"/user"+user_id,this.baseUrl.httOptions)
   }
 
-  async getCommentLike(comment_id:any){
-    return this._http.get(this.baseUrl.url+"/place/comments/"+comment_id+"/like",this.baseUrl.httOptions).toPromise()
+  likeComment(comment_id:number,userId:any){
+    return this._http.get(this.baseUrl.url+"/place/comments/"+comment_id+"/"+userId+"/like");
   }
 
+  getCommentLike(comment_id:any){
+    return this._http.get(this.baseUrl.url+"/place/comments/"+comment_id+"/likes-count",this.baseUrl.httOptions);
+  }
+
+  getCommentByIdPlace(id:any){
+    return this._http.get(this.baseUrl.url+"/place/commentsplace/"+id,this.baseUrl.httOptions);
+  }
+  
+
+  Rating(user_id:number,place_id:number, note:number){
+    return this._http.get(this.baseUrl.url+"/place/noteplace/"+user_id+"/"+place_id+"/"+note,this.baseUrl.httOptions);
+  }
+
+  VerifyIfUserHadNotePlace(user_id:number,place_id:number){
+    return this._http.get(this.baseUrl.url+"/place/verify/"+user_id+"/"+place_id, this.baseUrl.httOptions);
+  }
 
 }
