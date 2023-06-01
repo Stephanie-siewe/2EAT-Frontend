@@ -19,28 +19,20 @@ export class HomePage implements OnInit {
   categorie:any;
   lang:any[] =[];
   constructor(private route: Router,private cat: CategorieService, private lng:LangageService, private translate:TranslateService) {
-    this.translate.setDefaultLang('en');
+   /* this.translate.setDefaultLang('en');
     this.translate.addLangs(['en','fr']);
     this.translate.use('en');
     this.translate.get('HELLO',{value:'world'}).subscribe((res:string) =>{
 
-    });
+    });*/
      
    }
 
-   Change(lg:string){
-    this.lng.setLanguage(lg);
-   }
-   handleChange(env:any){
-    console.log('env',env.target.value);
-    this.lng.setLanguage(env.target.value);
-   }
+   
 
   ngOnInit() {
     this.getUsrInfos();
-    this.getCatList();
-    this.lang= this.lng.getLanguages();
-    console.log('lang',this.lng);   
+    this.getCatList();   
   }
   /**************get user info*********** */
   getUsrInfos(){
@@ -58,15 +50,12 @@ export class HomePage implements OnInit {
     );
   }
   see(){
-    
     this.route.navigate(['/tabs/search']);
     ;
   }
   gotoSearch(obj:any){
-    
+    localStorage.setItem('CatId',JSON.stringify(obj));
     this.route.navigate(['/tabs/search']);
-    
-
   }
   gotoProfile(){
     this.route.navigate(['/tabs/profile']);

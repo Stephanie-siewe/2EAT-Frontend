@@ -8,26 +8,39 @@
 </ion-header>
 
 <ion-content>
- <ion-list >
-  <div *ngFor="let place of places">
-    <ion-item >
-      <ion-avatar slot="start" (click)="gotoDetailPlace()">
-        <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" *ngIf="place.picture == ''"/>
-        <ion-img [src]="'data:image/jpeg;base64,'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
-      </ion-avatar>
-      <ion-label>{{place.name}}
-        <p>{{place.localisation.quarter}},{{place.localisation.city}}</p>
-      </ion-label>
-      
-      <ion-button (click)="gotoPlaceEdit(place)" fill="clear">
-        <ion-icon slot="icon-only" name="pencil-outline" color="blue"  ></ion-icon>
+  <div *ngIf="search === 0" >
+    <div class="connection" >
+      <img src="assets/images/Closed.svg">
+    </div>
+    
+    <div>
+      <h4>You haven't saved a place yet ! :(</h4>
+      <ion-button (click)="addPlace()" size="medium" color="blue" fill="outline" shape="round">
+        Add a Place
       </ion-button>
-      <ion-button id="open-toast" fill="clear"(click)="deletePlace(place.id)">
-        <ion-icon slot="icon-only" name="trash" color="blue"  ></ion-icon>
-      </ion-button>
-    </ion-item>
+    </div>
   </div>
-  <!-- <ion-item >
+
+  <ion-list>
+    <div *ngIf="search === 1">
+      <ion-item *ngFor="let place of places">
+        <ion-avatar slot="start" (click)="gotoDetailPlace()">
+          <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" *ngIf="place.picture === ''" />
+          <ion-img [src]="'data:image/jpeg;base64,'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
+        </ion-avatar>
+        <ion-label>{{place.name}}
+          <p>{{place.localisation.quarter}},{{place.localisation.city}}</p>
+        </ion-label>
+
+        <ion-button (click)="gotoPlaceEdit(place)" fill="clear">
+          <ion-icon slot="icon-only" name="pencil-outline" color="blue"></ion-icon>
+        </ion-button>
+        <ion-button id="open-toast" fill="clear" (click)="deletePlace(place.id)">
+          <ion-icon slot="icon-only" name="trash" color="blue"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
+    <!-- <ion-item >
     <ion-avatar slot="start" (click)="gotoDetailPlace()">
       <img alt="Silhouette of a person's head" src="assets/images/place1.jpg" *ngIf="place.picture == ''"/>
       <ion-img [src]="'data:image/jpeg;base64'+ place.picture" *ngIf="place.picture !== ''"></ion-img>
@@ -43,14 +56,9 @@
       <ion-icon slot="icon-only" name="trash" color="blue" ></ion-icon>
     </ion-button>
   </ion-item> -->
- </ion-list>
- 
- <ion-toast
- trigger="open-toast"
- message="Place deleted Successfully !" 
- [duration]="3000" 
- [buttons]="toastButtons"
- class="custom-toast"
->
-</ion-toast>
+  </ion-list>
+
+  <ion-toast trigger="open-toast" message="Place deleted Successfully !" [duration]="3000" [buttons]="toastButtons"
+    class="custom-toast">
+  </ion-toast>
 </ion-content>

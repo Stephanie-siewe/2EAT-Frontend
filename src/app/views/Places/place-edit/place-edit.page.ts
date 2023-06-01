@@ -8,13 +8,14 @@ import { OptionscameraPage } from '../../optionscamera/optionscamera.page';
 import { CategorieService } from 'src/app/Services/categorie.service';
 import { PhotoService } from 'src/app/Services/photo.service';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-place-edit',
   templateUrl: './place-edit.page.html',
   styleUrls: ['./place-edit.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,TranslateModule]
 })
 export class PlaceEditPage implements OnInit {
 placeInfos:any;

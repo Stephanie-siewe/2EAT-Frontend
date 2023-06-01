@@ -17,6 +17,7 @@ import { CategorieService } from 'src/app/Services/categorie.service';
 import { MapPagePage } from '../../map-page/map-page.page';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
 import { log } from 'console';
+import { TranslateModule } from '@ngx-translate/core';
 // import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
@@ -24,7 +25,7 @@ import { log } from 'console';
   templateUrl: './register-place.page.html',
   styleUrls: ['./register-place.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule,TranslateModule]
 })
 export class RegisterPlacePage implements OnInit {
   open = false;

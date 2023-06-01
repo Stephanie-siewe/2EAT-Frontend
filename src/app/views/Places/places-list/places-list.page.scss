@@ -12,3 +12,28 @@ h3{
     text-transform: initial;
   
   }
+
+  .connection~div{
+    padding-top: 40vh;
+    text-align: center;
+    font-family: 'Montserrat' !important;
+    }
+    
+    .connection~div>h2{
+      text-transform: uppercase;
+    }
+    
+    .connection~div>h4{
+      font-size:15px;
+    }  
+    .connection {
+        position:absolute;
+        top: 34%;
+        left: 52%;
+        transform:translate(-50%,-50%);
+      }
+      
+      .connection>img{
+        width: 100vw;
+        height: 100vh;
+      }

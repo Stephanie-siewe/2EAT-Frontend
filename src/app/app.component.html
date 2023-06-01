@@ -1,4 +1,16 @@
 <ion-app>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="3">
+        <ion-chip id="language">
+          <ion-icon slot="start" name="language-outline"></ion-icon>
+          <ion-select (ionChange)="handleChange($event)" placeholder="EN">
+            <ion-select-option :value="{{item.value}}" *ngFor="let item of lang">{{item.value}}</ion-select-option>
+          </ion-select>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-router-outlet></ion-router-outlet>
   
 </ion-app>

@@ -20,15 +20,7 @@
     <ion-row>
       <ion-col size="12"> 
         <h1> <strong>{{'HOME.salutations'| translate }},{{usr}}</strong></h1>
-        <small>Get your favorite food here !</small>
-      </ion-col>
-      <ion-col size="3">
-        <ion-chip id="language">
-          <ion-icon slot="start" name="language-outline"></ion-icon>
-          <ion-select (ionChange)="handleChange($event)" placeholder="EN">
-            <ion-select-option :value="{{item.value}}" *ngFor="let item of lang">{{item.value}}</ion-select-option>
-          </ion-select>
-        </ion-chip>
+        <small>{{'HOME.small'|translate}}</small>
       </ion-col>
     </ion-row>
 
@@ -38,7 +30,7 @@
       <ion-col>
         <div class="flex1">
           <ion-text color="blue" class="label-search">
-            <h5> Choose a Category</h5>
+            <h5> {{'HOME.choice'|translate}}</h5>
           </ion-text>
           <ion-button expand="block" fill="clear" color="blue" (click)="see()" size="large" class="search-icon">
             <ion-icon slot="end" name="search"></ion-icon>
@@ -52,21 +44,6 @@
       <div class="item" *ngFor="let cate of categorie">
         <h6 (click)=" gotoSearch(cate)"> {{cate.name}}</h6>
       </div>
-      <!--<div class="item">
-        <h6>Street-food</h6>
-      </div>
-      <div class="item">
-        <h6>Cafeteria</h6>
-      </div>
-      <div class="item">
-        <h6>Café-Resto</h6>
-      </div>
-      <div class="item">
-        <h6>Classic Restaurant</h6>
-      </div>
-      <div class="item">
-        <h6>Traditional meals</h6>
-      </div>-->
     </div>
 
     <!--/**********row for publicities-->
@@ -91,11 +68,11 @@
       <ion-row>
         <ion-col size="6" class="top-score">
           <ion-label color="blue" (click)="gotomap()">
-            Top Score
+            {{'HOME.topscore'|translate}}
           </ion-label>
         </ion-col>
         <ion-col size="6" class="see-more">
-          <ion-label color="orange" (click)="see()">See more</ion-label>
+          <ion-label color="orange" (click)="see()">{{'HOME.see'|translate}}</ion-label>
         </ion-col>
       </ion-row>
     </div>

@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { DbService } from 'src/app/Services/db.service';
 
 import { Location } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -23,7 +24,7 @@ import { Location } from '@angular/common';
   templateUrl: './profile-edit.page.html',
   styleUrls: ['./profile-edit.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule]
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule,TranslateModule]
 })
 export class ProfileEditPage implements OnInit {
   

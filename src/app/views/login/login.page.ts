@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 import { DbService } from 'src/app/Services/db.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -12,11 +13,15 @@ import { DbService } from 'src/app/Services/db.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule,TranslateModule]
 })
 export class LoginPage implements OnInit {
 
-  constructor(private route: Router,private auth:AuthService, private formBuilder: FormBuilder, public db:DbService) { }
+  constructor(private route: Router,
+    private auth:AuthService,
+     private formBuilder: FormBuilder, 
+     public db:DbService,
+     ) { }
 
   loginForm! : FormGroup ;
   er = false;

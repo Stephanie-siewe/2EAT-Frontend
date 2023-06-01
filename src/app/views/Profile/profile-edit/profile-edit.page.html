@@ -47,8 +47,8 @@
       
         <div class="border-white">
           <div class="img-box">
-            <img src="assets/images/user.png" *ngIf="user.profile_image == null" />
-            <img [src]="'data:image/jpeg;base64,' + user.profile_image" *ngIf="user.profile_image != null">
+            <img src="assets/images/user.png" *ngIf="user.profile_image === null" />
+            <img [src]="'data:image/jpeg;base64,' + user.profile_image" *ngIf="user.profile_image !== null">
           </div>
           <div  class="outer"  ><ion-button (click)="openOptionSelection()" expand="block" fill="clear" shape="round">
             <ion-icon name="camera" class="camera-icon"  color="blue" ></ion-icon

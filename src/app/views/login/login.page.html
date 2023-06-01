@@ -4,7 +4,7 @@
   </div>
 
   <div class="login-label">
-    <ion-label>Login</ion-label>
+    <ion-label>{{'LOGIN.login'| translate}}</ion-label>
   </div>
 
   <div class="login-form">
@@ -16,7 +16,7 @@
         <ion-row>
           <ion-col size="auto">
             <ion-item lines="none">
-              <ion-input aria-label="Medium input" required  type="text" label="Email or Username" formControlName="username"></ion-input>
+              <ion-input aria-label="Medium input" required  type="text" label="{{'LOGIN.email'|translate}}" formControlName="username"></ion-input>
             </ion-item>
           </ion-col>
 
@@ -41,7 +41,7 @@
         <ion-row>
           <ion-col size="auto">
             <ion-item lines="none">
-              <ion-input required type="text" label="Password" formControlName="password"></ion-input>
+              <ion-input required type="text" label="{{'LOGIN.password'|translate}}" formControlName="password"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -54,7 +54,7 @@
               color="blue"
               (click)="gotoPwd()"
             >
-              Forgot Password ?
+              {{'LOGIN.pwd'|translate}}
             </ion-button>
           </ion-col>
         </ion-row>
@@ -68,7 +68,7 @@
               id="login-button"
              
             >
-              Login
+            {{'LOGIN.login'|translate}}
             </ion-button>
           </ion-col>
         </ion-row>
@@ -79,7 +79,7 @@
       <ion-grid fixed>
         <ion-row>
           <ion-col size="auto">
-            <small>Don't have an account?</small>
+            <small>{{'LOGIN.change'|translate}}</small>
           </ion-col>
           <ion-col size="auto">
             <ion-button
@@ -89,7 +89,7 @@
               id="sign-in"
               (click)="signUp()"
             >
-              <span>Sign up </span>
+              <span>{{'LOGIN.sign'|translate}} </span>
             </ion-button>
           </ion-col>
         </ion-row>

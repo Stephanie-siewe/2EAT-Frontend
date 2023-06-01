@@ -1,0 +1,130 @@
+{
+    
+    "LOGIN":{
+        "login":"Login",
+        "pwd":"Forgot password ?",
+        "change":"Don't have an account?",
+        "sign":"Sign up ",
+        "password":"Password",
+        "email":"Email or Username",
+        "user":"Username"
+    },
+    "SIGN":{
+        "emailRequired":"Email is required",
+        "emailNotValid":"Invalid email",
+        "userRequired":"Username required",
+        "pwdRequired":"Password required",
+        "pwdMinLength":"Password has minlength of 6",
+        "confirm":"Confirm password",
+        "confirmPwd":"Confirmation of Password is required",
+        "confirmSame":"Confirmation of Password and Password is not the same",
+        "account":"Already have an account"
+    },
+    "FORGOTPWD":{
+        "label":"Forgot password",
+        "confirm":"Confirm password",
+        "Back":"Retour"
+    },
+    "HOME":{
+        "salutations":"Welcome",
+        "small":"Get your favorite food here",
+        "choice":"Chose a category",
+        "topscore":"Top Score",
+        "see":"See more"
+    },
+    "TABS":{
+        "HOME":"Home",
+        "SEARCH":"Search",
+        "CART":"Cart",
+        "SETTINGS":"Settings"
+    },
+    "SEARCH":{
+        "SEARCHBAR":"Search Here",
+        "ALL":"All",
+        "TITLE":"Search",
+        "TEXT":"No result :("
+    },
+    "CART":{
+        "header":"Cart",
+        "title":"My Cart",
+        "text":"Well, there is no item in your cart :(",
+        "add":"Add item",
+        "details":"Details",
+        "dish":"Dish",
+        "dishes":"Dishes",
+        "add-more":"Add more Food",
+        "order":"Order(s)",
+        "addittional":"Additional",
+        "order-total":"Order Total"
+    },
+    "SETTINGS":{
+        "title":"Settings",
+        "account":"Account Settings",
+        "edit":"Edit profile",
+        "add":"Add a place",
+        "save":"Saved places",
+        "more":"More",
+        "about":"About us",
+        "log":"Logout",
+        "phone":"Phone number",
+        "update":"Update",
+        "h4":"You haven't saved a place yet ! :(",
+        "delivery":"Can we get delivery? ",
+        "true":"Yes",
+        "false":"No",
+        "cat":"Category"
+    },
+    "MODAL":{
+        "modalClose":"Close",
+        "note-lieu":"Rate this place",
+        "send":"Send"
+    },
+    "SUCESS":{
+        "h4":"Your order has been taken into consideration !",
+        "check":"Check cart",
+        "home":"Back to home"
+    },
+    "REGISTER":{
+        "name":"Name",
+        "namePlace":"Place's name",
+        "tel":"Place phone number",
+        "city":"City",
+        "yde":"Yaounde",
+        "dla":"Douala",
+        "cat":"Category",
+        "map":"Map",
+        "map-text":"Give us a precise location",
+        "save":"Save"
+    },
+    "TOAST":{
+        "place-list":"Place deleted Successfully",
+        "commandes":"Dish deleted Successfully"
+    },
+    "CAMERA":{
+        "profile":"Profile photo",
+        "remove":"Remove",
+        "photo":"Picture",
+        "gal":"Gallery"
+    },
+    "MAP":{
+        "text":"Choose the location",
+        "finish":"Finish"
+    },
+    "GRILLING":{
+        "add-more":"Add more",
+        "add-dish":"Add dishes",
+        "price":"Price",
+        "constituant":"Dish components",
+        "label":"Enter a maximum of 3 components"
+    },
+    "COMMENTAIRE":{
+        "title":"Comments",
+        "placeholder":" Enter your comment"
+    },
+    "CONNEXION":{
+        "h2":"No connection",
+        "h4":"verify your connection and retry"
+    }
+
+
+}

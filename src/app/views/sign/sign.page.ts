@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService, User } from 'src/app/Services/auth.service';
 import { ToastService } from 'src/app/Services/toast.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { ToastService } from 'src/app/Services/toast.service';
   templateUrl: './sign.page.html',
   styleUrls: ['./sign.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,ReactiveFormsModule,TranslateModule]
 })
 
 

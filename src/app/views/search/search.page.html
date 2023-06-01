@@ -15,29 +15,34 @@
     </ion-row>
   </ion-grid>
 <ion-label color="blue">
-  <strong>  Search</strong>
+  <strong>  {{'SEARCH.TITLE' |translate}}</strong>
 </ion-label>
-  <ion-searchbar aria-label="Medium input" placeholder="Search Here " show-clear-button="focus" show-cancel-button="focus" color="blue-pale"  [(ngModel)]="term"></ion-searchbar>
-  <div class="wrapper">
-    <div class="item" *ngFor="let cate of categorie">
-      <h6> {{cate.name}}</h6>
+  <ion-searchbar aria-label="Medium input" placeholder="{{'SEARCH.SEARCHBAR' |translate}} " show-clear-button="focus" show-cancel-button="focus" color="blue-pale"  [(ngModel)]="term"></ion-searchbar>  
+  <ion-button  color="blue" fill="outline"  (click)="allList()" id="add" shape="round" size="small">
+    {{'SEARCH.ALL' |translate}}
+  </ion-button>
+  <ion-button  color="blue" fill="outline"  (click)="showMap()" id="location" shape="round" size="small">
+    <ion-icon slot="icon-only" name="location"color="blue"></ion-icon>
+  </ion-button>
+    <!--<div class="item" *ngFor="let cate of categorie">
+      <h6 (click)="gotoSearch(cate)"> {{cate.name}}</h6>
     </div>
-  </div>
+  </div>-->
 <div *ngIf="search === 0" >
   <div class="connection" >
     <img src="assets/images/restaurant.svg">
   </div>
   
   <div>
-    <h4>Well, there is no result you are looking for :(</h4>
+    <h4>{{'SEARCH.TEXT' |translate}}</h4>
   </div>
 </div>
 
 
-<div>
+<div *ngIf="search === 1" >
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6"    *ngFor="let item of result | filter:term">
+      <ion-col size="6"    *ngFor="let item of listcat | filter:term">
         <ion-card (click)="gotoDetails(item)">
           <!-- <ion-img src="assets/images/place1.jpg" *ngIf="item.placepicture === ''" ></ion-img> -->
           <!-- <ion-img [src]="'data:image/jpeg;base64,'+ item.picture" *ngIf="item.placepicture !== ''"></ion-img> -->

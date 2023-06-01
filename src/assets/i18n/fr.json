@@ -1,9 +1,129 @@
 {
+    "LOGIN":{
+        "login":"Se connecter",
+        "pwd":"Mot de Passe oublier ?",
+        "change":"Pas de compte ?",
+        "sign":"S'inscrire",
+        "password":"Mot de passe",
+        "email":"Email or nom d'utilisateur",
+        "user":"Nom d'utilisateur"
+        
+    },
+    "SIGN":{
+        "emailRequired":"Email requis",
+        "emailNotValid":"Email invalide",
+        "userRequired":"Nom d'utilisateur requis",
+        "pwdRequired":"Mot de passe requis",
+        "pwdMinLength":"Le mot de passe a une longueur minimale de 6",
+        "confirm":"Confirmer le mot de passe",
+        "confirmPwd":"La confirmation du mot de passe est requise",
+        "confirmSame":"La confirmation du mot de passe et le mot de passe n'est pas la meme",
+        "account":"Vous avez déjà un compte ?"
+    },
+    "FORGOTPWD":{
+        "label":"Mot de passe oublié",
+        "confirm":"Confirmez le mot de passe",
+        "Back":"Retour"
+    },
     "HOME":{
         "salutations":"Bienvenue",
-        "small":"",
+        "small":"Votre nourriture préférée ici",
         "choice":"Choisir une Catégorie",
         "topscore":"Meilleur Score",
         "see":"Voir plus"
+    },
+    "TABS":{
+        "HOME":"Acceuil",
+        "SEARCH":"Rechercher",
+        "CART":"Panier",
+        "SETTINGS":"Paramètres"
+    },
+    "SEARCH":{
+        "SEARCHBAR":"Rechercher ici",
+        "ALL":"Tout",
+        "TITLE":"Rechercher",
+        "TEXT":"Aucun resultat :("
+    },
+    "CART":{
+        "header":"Panier",
+        "title":"Mon panier",
+        "text":"Pas d'article dans votre panier :(",
+        "add":"Ajouter",
+        "details":"Détails",
+        "dish":"Plat",
+        "dishes":"Plats",
+        "add-more":"Ajouter plus",
+        "order":"Commande(s)",
+        "addittional":"Complément",
+        "order-total":"Total de la commande"
+    },
+    "SETTINGS":{
+        "title":"Paramètres",
+        "account":"Paramètres du compte",
+        "edit":"Modifier le profile",
+        "add":"Ajouter un  lieu",
+        "save":"Enregistrer un lieu",
+        "more":"Plus",
+        "about":"A propos",
+        "log":"Se déconnecter",
+        "phone":"N° Téléphone",
+        "update":"Mise à jour",
+        "h4":"Vous n'avez pas encore enregistré de lieu ! :(",
+        "delivery":"Pouvons-nous vous faire livrer ? ",
+        "true":"Oui",
+        "false":"Non",
+        "cat":"Catégorie"
+    },
+    "MODAL":{
+        "modalClose":"Fermer",
+        "note-lieu":"Notez ce lieu",
+        "send":"Envoyer"
+    },
+    "SUCESS":{
+        "h4":"Votre commande a bien été prise en compte !",
+        "check":"Vérifier le Panier",
+        "home":"Retour à l'acceuil"
+    },
+    "REGISTER":{
+        "name":"Nom",
+        "namePlace":"Nom du Lieu",
+        "tel":"N° de Téléphone du lieu",
+        "city":"Ville",
+        "yde":"Yaoundeé",
+        "dla":"Douala",
+        "cat":"Catégorie",
+        "map":"Carte",
+        "map-text":"Donnez-nous un lieu précis",
+        "save":"Enregistrer"
+    },
+    "TOAST":{
+        "place-list":"Lieu supprimé avec succès",
+        "commandes":"Plat supprimé avec succès"
+    },
+    "CAMERA":{
+        "profile":"Photo de profile",
+        "remove":"Rétirer",
+        "photo":"Photo",
+        "gal":"Gallerie"
+    },
+    "MAP":{
+        "text":"Choisissez l'emplacement",
+        "finish":"Terminer"
+    },
+    "GRILLING":{
+        "add-more":"Ajouter plus",
+        "add-dish":"Ajouter des plats",
+        "price":"Prix",
+        "constituant":"Constituants du plat",
+        "label":"Entrez au moins 3 composants"
+    },
+    "COMMENTAIRE":{
+        "title":"Commentaires",
+        "placeholder":" Entrez votre commentaire"
+    },
+    "CONNEXION":{
+        "h2":"Pas de connexion",
+        "h4":"Vérifiez votre connexion et réessayez"
     }
+
 }

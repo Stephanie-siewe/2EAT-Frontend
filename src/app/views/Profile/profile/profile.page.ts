@@ -5,13 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DbService } from 'src/app/Services/db.service';
 import { AuthService } from 'src/app/Services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,TranslateModule]
 })
 export class ProfilePage implements OnInit {
   user_id:any;
