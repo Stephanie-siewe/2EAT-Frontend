@@ -26,14 +26,13 @@ export class SearchPage implements OnInit {
   results: any;
   list: any;
   picture_user:any;
-  categorie: any;
+  catid: any;
   comefromhome = 0;
   choice: any;
   result: any = [];
   places: any = [];
   notes: any = [];
   term!: string;
-  catId: any;
   listcat: any = [];
   user_id:number;
 
@@ -43,28 +42,41 @@ export class SearchPage implements OnInit {
     private modalcontroller:ModalController,
     private photoService:PhotoService,
     private Auth:AuthService
-  ) {
-    this.categorie = JSON.parse(localStorage.getItem('categorie')!);
-    this.user_id = JSON.parse(localStorage.getItem('user_id')!);
- 
-    if(this.categorie.id == null){
-       this.listcat= this.result;
-       console.log('bon',this.listcat);
-     }
-  }
+  ) {this.user_id = JSON.parse(localStorage.getItem('user_id')!);}
 
   ngOnInit() {
-   // this.search=0;
+   this.catid = JSON.parse(localStorage.getItem('catid')!);
+   console.log("#####",this.catid)
 
-   
 }
   ionViewDidEnter(){
-    this.essaiSteph();
+    this.essaiSteph(); 
+    
+    if(this.catid.id == null){
+      this.search=1;
+      this.listcat= this.result;
+      console.log('bon',this.listcat);
+    }
+    else{
+
+    // console.log("filtre", this.result.filter((item: any) => item.category.id == this.catid.id));
+
+     this.listcat=this.result.filter((item: any) => item.category.id == this.catid.id)
+
+      if((this.listcat.length=0)){
+      this.search =0;
+      console.log('s1',this.search);
+      }
+       else{
+      this.search=1;
+      console.log('s2',this.search);
+          }
+    }
   }
     
 
   ionViewDidLeave() {
-    localStorage.removeItem('categorie');
+    localStorage.removeItem('catid');
   }
 
   essaiSteph() {
@@ -84,30 +96,10 @@ export class SearchPage implements OnInit {
           dishes: [],
         };
       });
-     /* if(this.categorie.id = undefined){
-        this.search=1;
-        this.listcat=this.result ; 
-        console.log('bon');
-        
-      }else{
-        this.search=1;
-        
-        console.log('bad');
-      }*/
-
-        this.listcat=this.result.filter((item: any) => item.category.id == this.categorie.id);  
-         console.log('uz',this.listcat);
-         if((this.listcat = undefined)){
-          this.search =0;
-          console.log('s1',this.search);
-  
-        }else{
-          this.search=1;
-          console.log('s2',this.search);
-        }
-         
+   
        });
   }
+
   allList() {
    this.listcat=this.result ;    
   }

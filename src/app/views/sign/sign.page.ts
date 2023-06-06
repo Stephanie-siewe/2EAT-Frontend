@@ -92,8 +92,7 @@ export class SignPage implements OnInit {
     this.auth.save(userData).then((response:any)=>
     {
       this.toast.presentToast("User Created Successfully !")
-      console.log('response',response);
-      
+      console.log('response',response);      
       this.login()
       
     }).catch(error =>{

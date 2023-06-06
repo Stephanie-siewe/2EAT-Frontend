@@ -64,7 +64,7 @@ export class HomePage implements OnInit {
     ;
   }
   gotoSearch(obj:any){
-    localStorage.setItem('categorie',JSON.stringify(obj))
+    localStorage.setItem('catid',JSON.stringify(obj))
     this.route.navigate(['/tabs/search']);
   }
   gotoProfile(){

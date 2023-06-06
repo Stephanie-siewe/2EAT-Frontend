@@ -183,7 +183,6 @@ addtoCart(dish_id:number){
 
   submitRating() {
     // Envoyer la note sélectionnée à votre backend ou effectuer une action supplémentaire
-    
     this.hp.Rating(this.user_id,this.place.id,this.selectedRating).subscribe(res =>{
       console.log('note',this.selectedRating);
       console.log('response',res);

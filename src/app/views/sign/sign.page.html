@@ -34,7 +34,7 @@
              </div>
              
             <ion-item lines="none">
-              <ion-input aria-label="dark input" required type="text" label="{{'LOGIN.user'|translate}}" formControlName="username"></ion-input>
+              <ion-input aria-label="dark input" required type="text" placeholder="{{'LOGIN.user'|translate}}" formControlName="username"></ion-input>
             </ion-item >
           </ion-col>
 
@@ -44,7 +44,7 @@
               <div *ngIf="registerForm.get('password')?.errors?.['minlength']" class="danger">{{'SIGN.pwdMinLength'|translate}}</div>
              </div>
             <ion-item lines="none">
-              <ion-input required  aria-label="Medium input" type="text" label="{{'LOGIN.password|translate}}" minlength="6" formControlName="password"></ion-input>
+              <ion-input required  aria-label="Medium input" type="text" placeholder="{{'LOGIN.password'|translate}}" minlength="6" formControlName="password"></ion-input>
             </ion-item >
           </ion-col>
 
@@ -54,7 +54,7 @@
               <div *ngIf="registerForm.get('confirm_password')?.errors?.['passwordMismatch']" class="danger">{{'SIGN.confirmSame'|translate}}</div>
              </div>
             <ion-item lines="none">
-              <ion-input required aria-label="Medium input" type="text" label="{{'SIGN.confirm'|translate}}" minlength="6" formControlName="confirm_password"></ion-input>
+              <ion-input required aria-label="Medium input" type="text" placeholder="{{'SIGN.confirm'|translate}}" minlength="6" formControlName="confirm_password"></ion-input>
             </ion-item >
           </ion-col>
 

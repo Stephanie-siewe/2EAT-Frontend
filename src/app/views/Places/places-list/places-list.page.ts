@@ -57,7 +57,6 @@ search:any;
       if((this.places = [])){
         this.search =0;
         console.log('s1',this.search);
-
       }else{
         this.search=1;
       }
