@@ -11,6 +11,7 @@ import { PhotoService } from 'src/app/Services/photo.service';
 import { MapPagePage } from '../map-page/map-page.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from 'src/app/Services/auth.service';
+import { log } from 'console';
 
 
 @Component({
@@ -44,31 +45,26 @@ export class SearchPage implements OnInit {
     private Auth:AuthService
   ) {
     this.categorie = JSON.parse(localStorage.getItem('categorie')!);
-    this.choice = JSON.parse(localStorage.getItem('Infos')!);
-    if (this.choice == undefined) {
-      this.comefromhome = 1;
-    }
     this.user_id = JSON.parse(localStorage.getItem('user_id')!);
-
+ 
+    if(this.categorie.id == null){
+       this.listcat= this.result;
+       console.log('bon',this.listcat);
+     }
   }
 
   ngOnInit() {
-    this.search=0;
-    this.getuser();
+   // this.search=0;
+
+   
+}
+  ionViewDidEnter(){
+    this.essaiSteph();
   }
     
 
-  ionViewDidEnter() {
-    this.catId = JSON.parse(localStorage.getItem('CatId')!);
-    this.essaiSteph();
-    this.allList();
-
-
-    /*if ((this.comefromhome = 1)) {
-      this.result = this.result.fitler(
-        (data: any) => data.categorie.id == this.choice.id
-      );
-    }*/
+  ionViewDidLeave() {
+    localStorage.removeItem('categorie');
   }
 
   essaiSteph() {
@@ -87,38 +83,33 @@ export class SearchPage implements OnInit {
           picture: place.picture,
           dishes: [],
         };
-
-        // this.http.searchDishesByPlaceId(place.id).subscribe((dishes: any[]) => {
-
-        //   dishes.forEach((dish, index) =>{
-        //     this.result[index].dishes = dish;
-        //   })
-
-        //   // Vérifier si tous les lieux ont été traités pour afficher les résultats
-        //   if (this.result.length === places.length) {
-        //     console.log('result', this.result);
-        //   }
-        // });
       });
-      this.listcat=this.result.filter((item: any) => item.category.id == this.catId.id);
-      if((this.listcat = [])){
-        this.search =0;
-        console.log('s1',this.search);
-
+     /* if(this.categorie.id = undefined){
+        this.search=1;
+        this.listcat=this.result ; 
+        console.log('bon');
+        
       }else{
         this.search=1;
-        console.log('s2',this.search);
         
-        console.log('test',this.listcat);
-      }
-      
-     
+        console.log('bad');
+      }*/
 
-    });
+        this.listcat=this.result.filter((item: any) => item.category.id == this.categorie.id);  
+         console.log('uz',this.listcat);
+         if((this.listcat = undefined)){
+          this.search =0;
+          console.log('s1',this.search);
+  
+        }else{
+          this.search=1;
+          console.log('s2',this.search);
+        }
+         
+       });
   }
   allList() {
-    this.search=1;
-    this.listcat=this.result ;    
+   this.listcat=this.result ;    
   }
 
   async showMap(){

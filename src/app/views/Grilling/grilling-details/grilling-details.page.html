@@ -3,8 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button color="white" mode="md" icon="chevron-back-outline" ></ion-back-button>
     </ion-buttons>
-    <ion-icon slot="end" name="star-outline"  id="star-outline" class="noted" *ngIf="noted == true "></ion-icon>
-    <ion-icon slot="end" name="star-outline"  id="star-outline"  *ngIf="noted != true "></ion-icon>
+    <ion-icon slot="end" name="star-outline"  id="star-outline" class="noted" *ngIf="noted === true "></ion-icon>
+    <ion-icon slot="end" name="star-outline"  id="star-outline"  *ngIf="noted !== true "></ion-icon>
     </ion-toolbar>
 </ion-header>
 
@@ -57,7 +57,7 @@
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
             <ion-icon name="star" color="warning"></ion-icon>
-            <ion-label color="white">{{note}}</ion-label>
+            <ion-label color="white">{{place.note}}</ion-label>
           </div>       
           <h3>{{place.localisation.quarter}},{{place.localisation.city}}</h3>
   </div>
